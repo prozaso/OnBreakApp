@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnBreakLibrary
 {
-    class ClienteCollection
+   public class ClienteCollection
     {
     }
 }
