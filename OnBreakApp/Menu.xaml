@@ -20,7 +20,7 @@
         Closing="MetroWindow_Closing"
         MouseLeftButtonDown="MetroWindow_MouseLeftButtonDown" 
         HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" 
-        FontSize="14" FontStretch="UltraExpanded" Height="818.534" MaxWidth="800" MaxHeight="600" Width="582.667" Margin="0" MinWidth="582.667" MinHeight="225.084" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" IsTabStop="False" TitleCharacterCasing="Normal" Title="On Break App" TitleCaps="False" TitleAlignment="Left" Topmost="True">
+        FontSize="14" FontStretch="UltraExpanded" Height="202.534" MaxWidth="800" MaxHeight="600" Width="582.667" Margin="0" MinWidth="582.667" MinHeight="225.084" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" IsTabStop="False" TitleCharacterCasing="Normal" Title="On Break App" TitleCaps="False" TitleAlignment="Left" Topmost="True">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -233,7 +233,7 @@
                         </Grid>
                     </StackPanel>
                 </Expander>
-                <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
+                
 
             </StackPanel>
         </materialDesign:Card>
