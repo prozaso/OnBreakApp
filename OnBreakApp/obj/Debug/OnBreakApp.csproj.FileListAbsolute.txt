@@ -34,3 +34,6 @@ C:\Users\skois\Desktop\OnBreakApp\OnBreakApp\bin\Debug\OnBreakLibrary.exe
 C:\Users\skois\Desktop\OnBreakApp\OnBreakApp\bin\Debug\OnBreakLibrary.pdb
 C:\Users\skois\Desktop\OnBreakApp\OnBreakApp\bin\Debug\OnBreakLibrary.exe.config
 C:\Users\skois\Desktop\OnBreakApp\OnBreakApp\obj\Debug\OnBreakApp.csprojAssemblyReference.cache
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\OnBreakApp.exe.config
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\obj\Debug\OnBreakApp.exe
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\obj\Debug\OnBreakApp.pdb

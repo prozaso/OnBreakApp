@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace OnBreakLibrary
 {
-    class Contrato
+    public class Contrato
     {
+
     }
 }
