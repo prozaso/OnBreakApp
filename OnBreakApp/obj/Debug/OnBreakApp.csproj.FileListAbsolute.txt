@@ -45,10 +45,7 @@ C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\MahApps.Metro.dll
 C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\MaterialDesignColors.dll
 C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\MaterialDesignThemes.MahApps.dll
 C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\MaterialDesignThemes.Wpf.dll
-C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\OnBreakLibrary.exe
 C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\System.Windows.Interactivity.dll
-C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\OnBreakLibrary.pdb
-C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\OnBreakLibrary.exe.config
 C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\ControlzEx.pdb
 C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\MahApps.Metro.pdb
 C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\MahApps.Metro.xml
@@ -73,3 +70,10 @@ C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\obj\Debug\OnBreakApp.csproj.Core
 C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\obj\Debug\OnBreakApp.csproj.CopyComplete
 C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\obj\Debug\OnBreakApp.exe
 C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\obj\Debug\OnBreakApp.pdb
+C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\OnBreakLibrary.dll
+C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\OnBreakLibrary.pdb
+C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\OnBreak.DALC.dll
+C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\EntityFramework.dll
+C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\OnBreak.DALC.pdb
+C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\OnBreak.DALC.dll.config
+C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\EntityFramework.xml

@@ -147,7 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnBreakLibrary\OnBreakLibrary.csproj">
-      <Project>{4dcc6acd-3ec4-4d69-9fcb-fa2cbf9b7fa4}</Project>
+      <Project>{6a9fb085-fd7a-4648-acd1-5ef64a8942b9}</Project>
       <Name>OnBreakLibrary</Name>
     </ProjectReference>
   </ItemGroup>

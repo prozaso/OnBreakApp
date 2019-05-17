@@ -1,30 +1,12 @@
-C:\Users\skois\Desktop\OnBreakApp\OnBreakLibrary\bin\Debug\OnBreakLibrary.exe.config
-C:\Users\skois\Desktop\OnBreakApp\OnBreakLibrary\bin\Debug\OnBreakLibrary.exe
-C:\Users\skois\Desktop\OnBreakApp\OnBreakLibrary\bin\Debug\OnBreakLibrary.pdb
-C:\Users\skois\Desktop\OnBreakApp\OnBreakLibrary\obj\Debug\OnBreakLibrary.csprojAssemblyReference.cache
-C:\Users\skois\Desktop\OnBreakApp\OnBreakLibrary\obj\Debug\MainWindow.g.cs
-C:\Users\skois\Desktop\OnBreakApp\OnBreakLibrary\obj\Debug\App.g.cs
-C:\Users\skois\Desktop\OnBreakApp\OnBreakLibrary\obj\Debug\OnBreakLibrary_MarkupCompile.cache
-C:\Users\skois\Desktop\OnBreakApp\OnBreakLibrary\obj\Debug\OnBreakLibrary_MarkupCompile.lref
-C:\Users\skois\Desktop\OnBreakApp\OnBreakLibrary\obj\Debug\MainWindow.baml
-C:\Users\skois\Desktop\OnBreakApp\OnBreakLibrary\obj\Debug\OnBreakLibrary.g.resources
-C:\Users\skois\Desktop\OnBreakApp\OnBreakLibrary\obj\Debug\OnBreakLibrary.Properties.Resources.resources
-C:\Users\skois\Desktop\OnBreakApp\OnBreakLibrary\obj\Debug\OnBreakLibrary.csproj.GenerateResource.cache
-C:\Users\skois\Desktop\OnBreakApp\OnBreakLibrary\obj\Debug\OnBreakLibrary.csproj.CoreCompileInputs.cache
-C:\Users\skois\Desktop\OnBreakApp\OnBreakLibrary\obj\Debug\OnBreakLibrary.exe
-C:\Users\skois\Desktop\OnBreakApp\OnBreakLibrary\obj\Debug\OnBreakLibrary.pdb
-C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\bin\Debug\OnBreakLibrary.exe.config
-C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\bin\Debug\OnBreakLibrary.exe
+C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\bin\Debug\OnBreakLibrary.dll
 C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\bin\Debug\OnBreakLibrary.pdb
 C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\obj\Debug\OnBreakLibrary.csprojAssemblyReference.cache
-C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\obj\Debug\MainWindow.g.cs
-C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\obj\Debug\App.g.cs
-C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\obj\Debug\OnBreakLibrary_MarkupCompile.cache
-C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\obj\Debug\OnBreakLibrary_MarkupCompile.lref
-C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\obj\Debug\MainWindow.baml
-C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\obj\Debug\OnBreakLibrary.g.resources
-C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\obj\Debug\OnBreakLibrary.Properties.Resources.resources
-C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\obj\Debug\OnBreakLibrary.csproj.GenerateResource.cache
 C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\obj\Debug\OnBreakLibrary.csproj.CoreCompileInputs.cache
-C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\obj\Debug\OnBreakLibrary.exe
+C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\obj\Debug\OnBreakLibrary.dll
 C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\obj\Debug\OnBreakLibrary.pdb
+C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\bin\Debug\EntityFramework.dll
+C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\bin\Debug\OnBreak.DALC.dll
+C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\bin\Debug\OnBreak.DALC.pdb
+C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\bin\Debug\OnBreak.DALC.dll.config
+C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\bin\Debug\EntityFramework.xml
+C:\Users\skois\Desktop\Nueva carpeta\OnBreakLibrary\obj\Debug\OnBreakLibrary.csproj.CopyComplete

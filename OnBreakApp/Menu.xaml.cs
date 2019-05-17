@@ -11,12 +11,16 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using OnBreakLibrary;
 
 namespace OnBreakApp
 {
     /// <summary>
     /// Lógica de interacción para Menu.xaml
     /// </summary>
+     
+        
+
     public partial class Menu
     {
         public static Menu ventanaMenu;
@@ -35,6 +39,11 @@ namespace OnBreakApp
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             this.SizeToContent = SizeToContent.WidthAndHeight;
+
+            ClienteCollection clienteCollection = new ClienteCollection();
+
+            dgClientes.ItemsSource = null;
+            dgClientes.ItemsSource = clienteCollection.ReadAll();
         }
 
         private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)

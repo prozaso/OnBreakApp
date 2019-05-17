@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OnBreakModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ActividadEmpresa">
+    <Key>
+      <PropertyRef Name="IdActividadEmpresa" />
+    </Key>
+    <Property Name="IdActividadEmpresa" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK__Cliente__IdActiv__182C9B23" FromRole="ActividadEmpresa" ToRole="Cliente" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="RutCliente" />
+    </Key>
+    <Property Name="RutCliente" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RazonSocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreContacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MailContacto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdActividadEmpresa" Type="Int32" Nullable="false" />
+    <Property Name="IdTipoEmpresa" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ActividadEmpresa" Relationship="Self.FK__Cliente__IdActiv__182C9B23" FromRole="Cliente" ToRole="ActividadEmpresa" />
+    <NavigationProperty Name="TipoEmpresa" Relationship="Self.FK__Cliente__IdTipoE__1920BF5C" FromRole="Cliente" ToRole="TipoEmpresa" />
+    <NavigationProperty Name="Contrato" Relationship="Self.FK__Contrato__RutCli__1A14E395" FromRole="Cliente" ToRole="Contrato" />
+  </EntityType>
+  <EntityType Name="Contrato">
+    <Key>
+      <PropertyRef Name="Numero" />
+    </Key>
+    <Property Name="Numero" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Termino" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RutCliente" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdTipoEvento" Type="Int32" Nullable="false" />
+    <Property Name="FechaHoraInicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaHoraTermino" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Asistentes" Type="Int32" Nullable="false" />
+    <Property Name="PersonalAdicional" Type="Int32" Nullable="false" />
+    <Property Name="Vigente" Type="Boolean" Nullable="false" />
+    <Property Name="ValorTotalContrato" Type="Double" Nullable="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK__Contrato__RutCli__1A14E395" FromRole="Contrato" ToRole="Cliente" />
+    <NavigationProperty Name="TipoEvento" Relationship="Self.FK__Contrato__IdTipo__1B0907CE" FromRole="Contrato" ToRole="TipoEvento" />
+  </EntityType>
+  <EntityType Name="TipoEmpresa">
+    <Key>
+      <PropertyRef Name="IdTipoEmpresa" />
+    </Key>
+    <Property Name="IdTipoEmpresa" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK__Cliente__IdTipoE__1920BF5C" FromRole="TipoEmpresa" ToRole="Cliente" />
+  </EntityType>
+  <EntityType Name="TipoEvento">
+    <Key>
+      <PropertyRef Name="IdTipoEvento" />
+    </Key>
+    <Property Name="IdTipoEvento" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ValorBase" Type="Double" Nullable="false" />
+    <Property Name="PersonalBase" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Contrato" Relationship="Self.FK__Contrato__IdTipo__1B0907CE" FromRole="TipoEvento" ToRole="Contrato" />
+  </EntityType>
+  <Association Name="FK__Cliente__IdActiv__182C9B23">
+    <End Role="ActividadEmpresa" Type="Self.ActividadEmpresa" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActividadEmpresa">
+        <PropertyRef Name="IdActividadEmpresa" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="IdActividadEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cliente__IdTipoE__1920BF5C">
+    <End Role="TipoEmpresa" Type="Self.TipoEmpresa" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEmpresa">
+        <PropertyRef Name="IdTipoEmpresa" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="IdTipoEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contrato__RutCli__1A14E395">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Contrato" Type="Self.Contrato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="RutCliente" />
+      </Principal>
+      <Dependent Role="Contrato">
+        <PropertyRef Name="RutCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contrato__IdTipo__1B0907CE">
+    <End Role="TipoEvento" Type="Self.TipoEvento" Multiplicity="1" />
+    <End Role="Contrato" Type="Self.Contrato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEvento">
+        <PropertyRef Name="IdTipoEvento" />
+      </Principal>
+      <Dependent Role="Contrato">
+        <PropertyRef Name="IdTipoEvento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OnBreakEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ActividadEmpresa" EntityType="Self.ActividadEmpresa" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="Contrato" EntityType="Self.Contrato" />
+    <EntitySet Name="TipoEmpresa" EntityType="Self.TipoEmpresa" />
+    <EntitySet Name="TipoEvento" EntityType="Self.TipoEvento" />
+    <AssociationSet Name="FK__Cliente__IdActiv__182C9B23" Association="Self.FK__Cliente__IdActiv__182C9B23">
+      <End Role="ActividadEmpresa" EntitySet="ActividadEmpresa" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cliente__IdTipoE__1920BF5C" Association="Self.FK__Cliente__IdTipoE__1920BF5C">
+      <End Role="TipoEmpresa" EntitySet="TipoEmpresa" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contrato__RutCli__1A14E395" Association="Self.FK__Contrato__RutCli__1A14E395">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Contrato" EntitySet="Contrato" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contrato__IdTipo__1B0907CE" Association="Self.FK__Contrato__IdTipo__1B0907CE">
+      <End Role="TipoEvento" EntitySet="TipoEvento" />
+      <End Role="Contrato" EntitySet="Contrato" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

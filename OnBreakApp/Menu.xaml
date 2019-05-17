@@ -128,7 +128,7 @@
                                 <ColumnDefinition Width="0*"/>
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid Grid.Column="2" Margin="0" Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#FF8F8F8F"/>
+                            <DataGrid x:Name="dgClientes" Grid.Column="2" Margin="0" Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#FF8F8F8F"/>
 
                         </Grid>
                     </StackPanel>
