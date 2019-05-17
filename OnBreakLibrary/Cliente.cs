@@ -9,7 +9,7 @@ namespace OnBreakLibrary
     public class Cliente
     {
 
-        private int _rut;
+        private String _rut;
         private String _razonSocial;
         private String _nombre;
         private String _mail;
@@ -18,7 +18,7 @@ namespace OnBreakLibrary
         private int _actividadEmpresa;
         private int _tipoEmpresa;
 
-        public Cliente(int rut, string razonSocial, string nombre, string mail, string direccion, string telefono, int actividadEmpresa, int tipoEmpresa)
+        public Cliente(string rut, string razonSocial, string nombre, string mail, string direccion, string telefono, int actividadEmpresa, int tipoEmpresa)
         {
             _rut = rut;
             _razonSocial = razonSocial;
@@ -30,7 +30,7 @@ namespace OnBreakLibrary
             _tipoEmpresa = tipoEmpresa;
         }
 
-        public int Rut { get => _rut; set => _rut = value; }
+        public string Rut { get => _rut; set => _rut = value; }
         public string RazonSocial { get => _razonSocial; set => _razonSocial = value; }
         public string Nombre { get => _nombre; set => _nombre = value; }
         public string Mail { get => _mail; set => _mail = value; }
