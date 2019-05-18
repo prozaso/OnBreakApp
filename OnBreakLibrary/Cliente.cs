@@ -30,6 +30,11 @@ namespace OnBreakLibrary
             _tipoEmpresa = tipoEmpresa;
         }
 
+        public Cliente()
+        {
+
+        }
+
         public string Rut { get => _rut; set => _rut = value; }
         public string RazonSocial { get => _razonSocial; set => _razonSocial = value; }
         public string Nombre { get => _nombre; set => _nombre = value; }

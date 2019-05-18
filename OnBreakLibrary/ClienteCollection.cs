@@ -15,7 +15,35 @@ namespace OnBreakLibrary
         public IEnumerable<Object> ReadAll()
         {
             return (from c in this.bd.Cliente
-                    select c).ToList();
+                    join a in this.bd.ActividadEmpresa
+                    on c.IdActividadEmpresa equals a.IdActividadEmpresa
+                    join t in this.bd.TipoEmpresa
+                    on c.IdTipoEmpresa equals t.IdTipoEmpresa
+                    let ActividadEmpresa = a.Descripcion
+                    let TipoEmpresa = t.Descripcion
+                    select new
+                    {
+                        c.RutCliente,
+                        c.RazonSocial,
+                        c.NombreContacto,
+                        c.MailContacto,
+                        c.Direccion,
+                        c.Telefono,
+                        ActividadEmpresa,
+                        TipoEmpresa
+                    }).ToList();
+        }
+
+        public IEnumerable<Object> ListaTipoEmpresa()
+        {
+            return (from t in this.bd.TipoEmpresa
+                    select t.Descripcion).ToList();
+        }
+
+        public IEnumerable<Object> ListaActividadEmpresa()
+        {
+            return (from t in this.bd.ActividadEmpresa
+                    select t.Descripcion).ToList();
         }
 
         public bool AgregarCliente(Cliente cliente)

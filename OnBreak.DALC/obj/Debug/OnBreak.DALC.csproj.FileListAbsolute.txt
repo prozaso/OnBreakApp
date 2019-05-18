@@ -7,3 +7,4 @@ C:\Users\skois\Desktop\Nueva carpeta\OnBreak.DALC\obj\Debug\OnBreak.DALC.csproj.
 C:\Users\skois\Desktop\Nueva carpeta\OnBreak.DALC\obj\Debug\OnBreak.DALC.csproj.CopyComplete
 C:\Users\skois\Desktop\Nueva carpeta\OnBreak.DALC\obj\Debug\OnBreak.DALC.dll
 C:\Users\skois\Desktop\Nueva carpeta\OnBreak.DALC\obj\Debug\OnBreak.DALC.pdb
+C:\Users\skois\Desktop\Nueva carpeta\OnBreak.DALC\obj\Debug\OnBreak.DALC.csprojAssemblyReference.cache

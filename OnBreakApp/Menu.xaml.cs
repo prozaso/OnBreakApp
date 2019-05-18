@@ -23,6 +23,8 @@ namespace OnBreakApp
 
     public partial class Menu
     {
+        ClienteCollection clienteCollection = new ClienteCollection();
+
         public static Menu ventanaMenu;
 
         public static Menu getInstance()
@@ -44,6 +46,10 @@ namespace OnBreakApp
 
             dgClientes.ItemsSource = null;
             dgClientes.ItemsSource = clienteCollection.ReadAll();
+
+            cboActividad.ItemsSource = clienteCollection.ListaActividadEmpresa();
+            cboTipo.ItemsSource = clienteCollection.ListaTipoEmpresa();
+            
         }
 
         private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -98,5 +104,37 @@ namespace OnBreakApp
             }
         }
 
+        private void BtnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            String rut = txtRut.Text;
+
+            Cliente cliente = clienteCollection.BuscarClientePorRut(rut);
+
+            try
+            {
+                if (cliente == null)
+                {
+                    MessageBox.Show("Cliente no existe");
+                }
+                else
+                {
+                    txtRut.Text = cliente.Rut;
+                    txtRazon.Text = cliente.RazonSocial;
+                    txtNombre.Text = cliente.Nombre;
+                    txtMail.Text = cliente.Mail;
+                    txtDireccion.Text = cliente.Direccion;
+                    txtTelefono.Text = cliente.Telefono;
+                    cboActividad.SelectedValue = cliente.ActividadEmpresa;
+                    cboTipo.SelectedValue = cliente.TipoEmpresa;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error buscando cliente");
+            }
+
+            
+
+        }
     }
 }
