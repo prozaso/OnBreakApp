@@ -47,7 +47,9 @@ namespace OnBreakApp
             dgClientes.ItemsSource = null;
             dgClientes.ItemsSource = clienteCollection.ReadAll();
 
+            cboActividad.ItemsSource = null;
             cboActividad.ItemsSource = clienteCollection.ListaActividadEmpresa();
+            cboTipo.ItemsSource = null;
             cboTipo.ItemsSource = clienteCollection.ListaTipoEmpresa();
             
         }

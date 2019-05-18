@@ -34,16 +34,22 @@ namespace OnBreakLibrary
                     }).ToList();
         }
 
-        public IEnumerable<Object> ListaTipoEmpresa()
+        public List<TipoEmpresa> ListaTipoEmpresa()
         {
             return (from t in this.bd.TipoEmpresa
-                    select t.Descripcion).ToList();
+                    select new TipoEmpresa() {
+                            IdTipoEmpresa = t.IdTipoEmpresa,
+                            Descripcion = t.Descripcion
+                    }).ToList();
         }
 
-        public IEnumerable<Object> ListaActividadEmpresa()
+        public List<ActividadEmpresa> ListaActividadEmpresa()
         {
             return (from t in this.bd.ActividadEmpresa
-                    select t.Descripcion).ToList();
+                    select new ActividadEmpresa(){
+                    IdActividadEmpresa = t.IdActividadEmpresa,
+                    Descripcion = t.Descripcion
+            }).ToList();
         }
 
         public bool AgregarCliente(Cliente cliente)

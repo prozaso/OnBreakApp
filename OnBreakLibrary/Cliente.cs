@@ -18,16 +18,120 @@ namespace OnBreakLibrary
         private int _actividadEmpresa;
         private int _tipoEmpresa;
 
+        public string Rut
+        {
+            get
+            {
+                return _rut;
+            }
+
+            set
+            {
+                _rut = value;
+            }
+        }
+
+        public string RazonSocial
+        {
+            get
+            {
+                return _razonSocial;
+            }
+
+            set
+            {
+                _razonSocial = value;
+            }
+        }
+
+        public string Nombre
+        {
+            get
+            {
+                return _nombre;
+            }
+
+            set
+            {
+                _nombre = value;
+            }
+        }
+
+        public string Mail
+        {
+            get
+            {
+                return _mail;
+            }
+
+            set
+            {
+                _mail = value;
+            }
+        }
+
+        public string Direccion
+        {
+            get
+            {
+                return _direccion;
+            }
+
+            set
+            {
+                _direccion = value;
+            }
+        }
+
+        public string Telefono
+        {
+            get
+            {
+                return _telefono;
+            }
+
+            set
+            {
+                _telefono = value;
+            }
+        }
+
+        public int ActividadEmpresa
+        {
+            get
+            {
+                return _actividadEmpresa;
+            }
+
+            set
+            {
+                _actividadEmpresa = value;
+            }
+        }
+
+        public int TipoEmpresa
+        {
+            get
+            {
+                return _tipoEmpresa;
+            }
+
+            set
+            {
+                _tipoEmpresa = value;
+            }
+        }
+
         public Cliente(string rut, string razonSocial, string nombre, string mail, string direccion, string telefono, int actividadEmpresa, int tipoEmpresa)
         {
-            _rut = rut;
-            _razonSocial = razonSocial;
-            _nombre = nombre;
-            _mail = mail;
-            _direccion = direccion;
-            _telefono = telefono;
-            _actividadEmpresa = actividadEmpresa;
-            _tipoEmpresa = tipoEmpresa;
+            Rut = rut;
+            RazonSocial = razonSocial;
+            Nombre = nombre;
+            Mail = mail;
+            Direccion = direccion;
+            Telefono = telefono;
+            ActividadEmpresa = actividadEmpresa;
+            TipoEmpresa = tipoEmpresa;
         }
 
         public Cliente()
@@ -35,13 +139,6 @@ namespace OnBreakLibrary
 
         }
 
-        public string Rut { get => _rut; set => _rut = value; }
-        public string RazonSocial { get => _razonSocial; set => _razonSocial = value; }
-        public string Nombre { get => _nombre; set => _nombre = value; }
-        public string Mail { get => _mail; set => _mail = value; }
-        public string Direccion { get => _direccion; set => _direccion = value; }
-        public string Telefono { get => _telefono; set => _telefono = value; }
-        public int ActividadEmpresa { get => _actividadEmpresa; set => _actividadEmpresa = value; }
-        public int TipoEmpresa { get => _tipoEmpresa; set => _tipoEmpresa = value; }
+        
     }
 }

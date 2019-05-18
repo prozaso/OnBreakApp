@@ -77,3 +77,37 @@ C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\EntityFramework.dll
 C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\OnBreak.DALC.pdb
 C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\OnBreak.DALC.dll.config
 C:\Users\skois\Desktop\Nueva carpeta\OnBreakApp\bin\Debug\EntityFramework.xml
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\OnBreakApp.exe
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\OnBreakApp.pdb
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\ControlzEx.dll
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\MahApps.Metro.dll
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\MaterialDesignColors.dll
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\MaterialDesignThemes.MahApps.dll
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\OnBreakLibrary.dll
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\OnBreak.DALC.dll
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\EntityFramework.dll
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\OnBreakLibrary.pdb
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\ControlzEx.pdb
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\MahApps.Metro.pdb
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\MahApps.Metro.xml
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\MaterialDesignColors.pdb
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\OnBreak.DALC.pdb
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\bin\Debug\EntityFramework.xml
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\obj\Debug\OnBreakApp.csprojResolveAssemblyReference.cache
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\obj\Debug\Resources\Icons.baml
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\obj\Debug\Resources\IconsNonShared.baml
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\obj\Debug\MainWindow.g.cs
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\obj\Debug\Menu.g.cs
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\obj\Debug\App.g.cs
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\obj\Debug\OnBreakApp_MarkupCompile.cache
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\obj\Debug\OnBreakApp_MarkupCompile.lref
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\obj\Debug\App.baml
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\obj\Debug\MainWindow.baml
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\obj\Debug\Menu.baml
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\obj\Debug\OnBreakApp.g.resources
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\obj\Debug\OnBreakApp.Properties.Resources.resources
+C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakApp\obj\Debug\OnBreakApp.csproj.GenerateResource.Cache

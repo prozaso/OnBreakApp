@@ -95,7 +95,7 @@
                         </Button>
 
                         <ComboBox x:Name="cboActividad" materialDesign:HintAssist.Hint="Seleccionar" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="13" Grid.Column="3" VerticalAlignment="Stretch" Padding="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" SelectedValuePath="IdActividadEmpresa" DisplayMemberPath="Descripcion" />
-                        <ComboBox x:Name="cboTipo" materialDesign:HintAssist.Hint="Seleccionar" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="15" Grid.Column="3" VerticalAlignment="Stretch" Padding="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" SelectedValuePath="idTipoEmpresa" DisplayMemberPath="Descripcion"/>
+                        <ComboBox x:Name="cboTipo" materialDesign:HintAssist.Hint="Seleccionar" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="15" Grid.Column="3" VerticalAlignment="Stretch" Padding="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" SelectedValuePath="IdTipoEmpresa" DisplayMemberPath="Descripcion"/>
                         
                         <Label Content="RUT" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center"/>
                         <Label Content="Razón Social" Grid.Column="1" Margin="0" Grid.Row="3" VerticalContentAlignment="Center"/>
