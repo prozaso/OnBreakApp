@@ -19,3 +19,15 @@ C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakLibrary\bin\Debug\EntityFram
 C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakLibrary\bin\Debug\OnBreak.DALC.dll
 C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakLibrary\bin\Debug\OnBreak.DALC.pdb
 C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreakLibrary\bin\Debug\EntityFramework.xml
+C:\Users\skois\Desktop\on\OnBreakLibrary\bin\Debug\OnBreakLibrary.dll
+C:\Users\skois\Desktop\on\OnBreakLibrary\bin\Debug\OnBreakLibrary.pdb
+C:\Users\skois\Desktop\on\OnBreakLibrary\bin\Debug\EntityFramework.dll
+C:\Users\skois\Desktop\on\OnBreakLibrary\bin\Debug\OnBreak.DALC.dll
+C:\Users\skois\Desktop\on\OnBreakLibrary\bin\Debug\OnBreak.DALC.pdb
+C:\Users\skois\Desktop\on\OnBreakLibrary\bin\Debug\OnBreak.DALC.dll.config
+C:\Users\skois\Desktop\on\OnBreakLibrary\bin\Debug\EntityFramework.xml
+C:\Users\skois\Desktop\on\OnBreakLibrary\obj\Debug\OnBreakLibrary.csprojAssemblyReference.cache
+C:\Users\skois\Desktop\on\OnBreakLibrary\obj\Debug\OnBreakLibrary.csproj.CoreCompileInputs.cache
+C:\Users\skois\Desktop\on\OnBreakLibrary\obj\Debug\OnBreakLibrary.csproj.CopyComplete
+C:\Users\skois\Desktop\on\OnBreakLibrary\obj\Debug\OnBreakLibrary.dll
+C:\Users\skois\Desktop\on\OnBreakLibrary\obj\Debug\OnBreakLibrary.pdb

@@ -23,7 +23,7 @@ namespace OnBreakApp
 
     public partial class Menu
     {
-        ClienteCollection clienteCollection = new ClienteCollection();
+        
 
         public static Menu ventanaMenu;
 
@@ -34,6 +34,21 @@ namespace OnBreakApp
                 ventanaMenu = new Menu();
             }
             return ventanaMenu;
+        }
+
+        private ClienteCollection _clienteCollection = new ClienteCollection();
+
+        public ClienteCollection ClienteCollection
+        {
+            get
+            {
+                return _clienteCollection;
+            }
+
+            set
+            {
+                _clienteCollection = value;
+            }
         }
 
         public Menu()
@@ -110,7 +125,7 @@ namespace OnBreakApp
         {
             String rut = txtRut.Text;
 
-            Cliente cliente = clienteCollection.BuscarClientePorRut(rut);
+            Cliente cliente = this.ClienteCollection.BuscarClientePorRut(rut);
 
             try
             {
@@ -134,9 +149,90 @@ namespace OnBreakApp
             {
                 MessageBox.Show("Error buscando cliente");
             }
+        }
 
-            
+        private void BtnGuardar_Click(object sender, RoutedEventArgs e)
+        {
 
+            Cliente cliente = new Cliente();
+            string rut = txtRut.Text;
+            try
+            {
+                cliente.Rut = rut;
+                cliente.RazonSocial = txtRazon.Text;
+                cliente.Nombre = txtNombre.Text;
+                cliente.Mail = txtMail.Text;
+                cliente.Direccion = txtDireccion.Text;
+                cliente.Telefono = txtTelefono.Text;
+                cliente.ActividadEmpresa = int.Parse(cboActividad.SelectedValue.ToString());
+                cliente.TipoEmpresa = int.Parse(cboTipo.SelectedValue.ToString());
+
+                if (this.ClienteCollection.AgregarCliente(cliente))
+                {
+                    MessageBox.Show("Cliente agregado correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("Este cliente ya existe");
+                }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Error al guardar");
+            }
+        }
+
+        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            txtRut.Text = "";
+            txtRazon.Text = "";
+            txtNombre.Text = "";
+            txtMail.Text = "";
+            txtDireccion.Text = "";
+            txtTelefono.Text = "";
+            cboActividad.SelectedIndex = -1;
+            cboTipo.SelectedIndex = -1;
+        }
+
+        private void BtnListadoClientes_Click(object sender, RoutedEventArgs e)
+        {
+            expListaClientes.IsExpanded = true;
+            expGestionClientes.IsExpanded = false;
+            expListaContratos.IsExpanded = false;
+            expGestionClientes.IsExpanded = false;
+        }
+
+        private void BtnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            Cliente cliente = new Cliente();
+            string rut = txtRut.Text;
+            try
+            {
+                //cliente.Rut = rut;
+                cliente.RazonSocial = txtRazon.Text;
+                cliente.Nombre = txtNombre.Text;
+                cliente.Mail = txtMail.Text;
+                cliente.Direccion = txtDireccion.Text;
+                cliente.Telefono = txtTelefono.Text;
+                cliente.ActividadEmpresa = int.Parse(cboActividad.SelectedValue.ToString());
+                cliente.TipoEmpresa = int.Parse(cboTipo.SelectedValue.ToString());
+
+                if (this.ClienteCollection.ModificarCliente(cliente))
+                {
+                    MessageBox.Show("Cliente modificado correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("Este cliente no se pudo modificar");
+                }
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Error al modificar");
+            }
         }
     }
+    
 }

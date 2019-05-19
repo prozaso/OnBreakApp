@@ -63,8 +63,8 @@ namespace OnBreakLibrary
                 c.MailContacto = cliente.Mail;
                 c.Direccion = cliente.Direccion;
                 c.Telefono = cliente.Telefono;
-                c.IdActividadEmpresa = cliente.ActividadEmpresa;
-                c.IdTipoEmpresa = cliente.TipoEmpresa;
+                c.IdActividadEmpresa = 1;
+                c.IdTipoEmpresa = 10;
 
                 this.bd.Cliente.Add(c);
                 this.bd.SaveChanges();
