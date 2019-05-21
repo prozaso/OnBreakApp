@@ -19,19 +19,19 @@
         FontFamily="{DynamicResource MaterialDesignFont}" 
         Closing="MetroWindow_Closing"
         MouseLeftButtonDown="MetroWindow_MouseLeftButtonDown" 
-        HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" 
-        FontSize="14" FontStretch="UltraExpanded" Height="596.717" MaxWidth="800" MaxHeight="600" Width="794.334" Margin="0" MinWidth="582.667" MinHeight="225.084" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" IsTabStop="False" TitleCharacterCasing="Normal" Title="On Break App" TitleCaps="False" TitleAlignment="Left" Topmost="True">
+        HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" SizeToContent="WidthAndHeight"
+        FontSize="14" FontStretch="UltraExpanded" Height="auto" Width="691"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" IsTabStop="False" TitleCharacterCasing="Normal" Title="On Break App" TitleCaps="False" TitleAlignment="Left" Topmost="True">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0*"/>
-            <RowDefinition Height="197*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
 
         <materialDesign:Card x:Name="expander" Width="auto" Background="Transparent" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Height="Auto" MinWidth="0" MinHeight="0" MaxHeight="Infinity" MaxWidth="Infinity" Margin="0" Grid.ColumnSpan="2" Grid.RowSpan="3" >
@@ -137,9 +137,95 @@
 
                 <Expander x:Name="expGestionContratos" HorizontalAlignment="Stretch" Header="Gestion Contratos" Background="#FFD32F2F" Width="auto" Height="auto" Expanded="expanderGestionContratos">
                     <StackPanel Margin="0" Width="auto" Height="auto" >
-                        <Grid Height="284" Width="auto" Margin="0">
-                            
-                            
+                        <Grid Height="498" Width="auto" Margin="30" >
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition Height="0*"/>
+                                <RowDefinition Height="51*"/>
+                                <RowDefinition Height="10*"/>
+                                <RowDefinition Height="15*"/>
+                                <RowDefinition Height="37*"/>
+                                <RowDefinition Height="9*"/>
+                                <RowDefinition Height="37*"/>
+                                <RowDefinition Height="11*"/>
+                                <RowDefinition Height="24*"/>
+                                <RowDefinition Height="50*"/>
+                                <RowDefinition Height="8*"/>
+                                <RowDefinition Height="50*"/>
+                                <RowDefinition Height="5*"/>
+                                <RowDefinition Height="50*"/>
+                                <RowDefinition Height="6*"/>
+                                <RowDefinition Height="48*"/>
+                                <RowDefinition Height="7*"/>
+                                <RowDefinition Height="24*"/>
+                                <RowDefinition Height="12*"/>
+                                <RowDefinition Height="6*"/>
+                                <RowDefinition Height="38*"/>
+                                <RowDefinition Height="0*"/>
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0*"/>
+                                <ColumnDefinition Width="51*"/>
+                                <ColumnDefinition Width="66*"/>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="166*"/>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="28*"/>
+                                <ColumnDefinition Width="24*"/>
+                                <ColumnDefinition Width="35*"/>
+                                <ColumnDefinition Width="35*"/>
+                                <ColumnDefinition Width="7*"/>
+                                <ColumnDefinition Width="46*"/>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="6*"/>
+                                <ColumnDefinition Width="33*"/>
+                                <ColumnDefinition Width="6*"/>
+                                <ColumnDefinition Width="102*"/>
+                                <ColumnDefinition Width="0*"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="btnValorEvento" Content="VALOR EVENTO" Grid.Row="18" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Padding="5" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+                            <TextBlock x:Name="txtValorEvento" Grid.Column="4" Margin="0" Grid.Row="18" TextWrapping="Wrap" Text="$" TextAlignment="Center" Padding="0,10,0,0" Grid.RowSpan="3" />
+                            <TextBox x:Name="txtRutCliente" Grid.Column="4" TextWrapping="Wrap" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Stretch" Padding="1" Grid.Row="6" Grid.RowSpan="2"/>
+                            <TextBox x:Name="txtNumeroDeContrato" Grid.Column="4" TextWrapping="Wrap" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Stretch" Grid.Row="3" Grid.RowSpan="2"/>
+                            <Button x:Name="btnNumeroDeContrato" Content="Nº de Contrato" Grid.Row="3" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Padding="5" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+                            <Button x:Name="btnRutCliente" Content="RUT Cliente" Grid.Row="6" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="Auto" Padding="5" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+                            <ComboBox x:Name="cboAsistentes" materialDesign:HintAssist.Hint="Seleccione Cantidad de Asistentes" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Grid.Column="2" Grid.Row="13" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Grid.ColumnSpan="3"/>
+                            <materialDesign:PackIcon Kind="UserGroup" Height="Auto" Width="Auto" Grid.Row="13" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.ColumnSpan="2" />
+                            <ComboBox x:Name="cboPersonalAdicional" materialDesign:HintAssist.Hint="Personal Adicional(*)" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Grid.Column="2" Grid.Row="15" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+                            <materialDesign:PackIcon Kind="UserGroupOutline" Height="Auto" Width="Auto" Grid.Row="15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+                            <ComboBox x:Name="cboTipoEvento" materialDesign:HintAssist.Hint="Seleccione Tipo de Evento" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="11" Grid.Column="2" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" SelectedValuePath="IdActividadEmpresa" DisplayMemberPath="Descripcion" Grid.ColumnSpan="3" />
+                            <materialDesign:PackIcon Kind="EventStar" Height="Auto" Width="Auto" Grid.Row="11" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.ColumnSpan="2" />
+                            <DatePicker x:Name="LocaleDatePicker" materialDesign:HintAssist.Hint="Fecha de Evento" Grid.Column="9" Grid.Row="3" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontStyle="Italic" Grid.RowSpan="2" Grid.ColumnSpan="4" />
+                            <materialDesign:TimePicker materialDesign:HintAssist.Hint="Hora de Inicio" Is24Hours="True" x:Name="timePicker" Grid.Column="15" Grid.Row="4" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontStyle="Italic" Margin="0" Grid.ColumnSpan="3" />
+                            <materialDesign:TimePicker materialDesign:HintAssist.Hint="Hora de Termino" Is24Hours="True" x:Name="timePicker_Copy" Grid.Column="15" Grid.Row="6" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontStyle="Italic" Grid.ColumnSpan="3" />
+                            <TextBox x:Name="CommentTextBox" materialDesign:HintAssist.Hint="Direccion" Grid.Column="9" Grid.Row="9" Grid.ColumnSpan="9" VerticalContentAlignment="Bottom" />
+                            <materialDesign:PackIcon Kind="HouseMapMarker" Width="Auto" Grid.Column="7" Grid.Row="9" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.ColumnSpan="2" />
+                            <materialDesign:PackIcon Kind="TooltipText" Height="Auto" Width="Auto" Grid.Column="7" Grid.Row="11" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2" />
+                            <materialDesign:PackIcon Kind="Account" Height="Auto" Width="Auto" Grid.Row="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.ColumnSpan="2" />
+                            <TextBox x:Name="NameTextBox" materialDesign:HintAssist.Hint="Nombre" Margin="0" Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="3" />
+
+                            <TextBox TextWrapping="Wrap" VerticalAlignment="Stretch" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="Observaciones" Grid.ColumnSpan="9" Grid.RowSpan="3" Grid.Column="9" Grid.Row="11" VerticalContentAlignment="Stretch" Padding="3" Background="Gray"/>
+                            <Button Grid.ColumnSpan="5" Content="Lista de Contratos" Grid.Column="13" Grid.RowSpan="2" Height="Auto"/>
+
+                            <materialDesign:PopupBox Grid.Row="15" Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}" PlacementMode="RightAndAlignMiddles" UnfurlOrientation="Horizontal"
+                            ToolTip="Manage items" Margin="0,0,14,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Grid.Column="9" Grid.RowSpan="4">
+                                <StackPanel Orientation="Horizontal">
+                                    <Button ToolTip="Crear Contrato" Command="{Binding RemoveSelectedItemCommand}">
+
+                                    </Button>
+                                    <Button ToolTip="Actualizar Contrato" Command="{Binding RemoveSelectedItemCommand}">
+                                        <Path Data="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" Stretch="Uniform" Width="15" Height="15" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
+
+                                    </Button>
+                                    <Button ToolTip="Terminar Contrato" Command="{Binding RemoveSelectedItemCommand}">
+                                        <Path Data="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" Stretch="Uniform" Width="15" Height="15" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
+                                    </Button>
+                                </StackPanel>
+                            </materialDesign:PopupBox>
+
                         </Grid>
                     </StackPanel>
                 </Expander>
