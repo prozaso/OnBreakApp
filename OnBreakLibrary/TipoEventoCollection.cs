@@ -8,5 +8,7 @@ namespace OnBreakLibrary
 {
     public class TipoEventoCollection
     {
+
+        
     }
 }

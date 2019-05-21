@@ -18,8 +18,8 @@ namespace OnBreakLibrary
 
         public ActividadEmpresa(int _idActividadEmpresa, string _descripcion)
         {
-            this._idActividadEmpresa = _idActividadEmpresa;
-            this._descripcion = _descripcion;
+            IdActividadEmpresa = _idActividadEmpresa;
+            Descripcion = _descripcion;
         }
 
         public int IdActividadEmpresa

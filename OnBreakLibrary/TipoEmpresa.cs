@@ -16,6 +16,12 @@ namespace OnBreakLibrary
 
         }
 
+        public TipoEmpresa(int idTipoEmpresa, string descripcion)
+        {
+            IdTipoEmpresa = idTipoEmpresa;
+            Descripcion = descripcion;
+        }
+
         public int IdTipoEmpresa
         {
             get

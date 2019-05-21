@@ -20,7 +20,7 @@
         Closing="MetroWindow_Closing"
         MouseLeftButtonDown="MetroWindow_MouseLeftButtonDown" 
         HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" 
-        FontSize="14" FontStretch="UltraExpanded" Height="596.717" MaxWidth="800" MaxHeight="600" Width="582.667" Margin="0" MinWidth="582.667" MinHeight="225.084" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" IsTabStop="False" TitleCharacterCasing="Normal" Title="On Break App" TitleCaps="False" TitleAlignment="Left" Topmost="True">
+        FontSize="14" FontStretch="UltraExpanded" Height="596.717" MaxWidth="800" MaxHeight="600" Width="794.334" Margin="0" MinWidth="582.667" MinHeight="225.084" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" IsTabStop="False" TitleCharacterCasing="Normal" Title="On Break App" TitleCaps="False" TitleAlignment="Left" Topmost="True">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -138,73 +138,8 @@
                 <Expander x:Name="expGestionContratos" HorizontalAlignment="Stretch" Header="Gestion Contratos" Background="#FFD32F2F" Width="auto" Height="auto" Expanded="expanderGestionContratos">
                     <StackPanel Margin="0" Width="auto" Height="auto" >
                         <Grid Height="284" Width="auto" Margin="0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="30*"/>
-                                <RowDefinition Height="30*"/>
-                                <RowDefinition Height="2*"/>
-                                <RowDefinition Height="30*"/>
-                                <RowDefinition Height="2*"/>
-                                <RowDefinition Height="30*"/>
-                                <RowDefinition Height="2*"/>
-                                <RowDefinition Height="30*"/>
-                                <RowDefinition Height="2*"/>
-                                <RowDefinition Height="30*"/>
-                                <RowDefinition Height="2*"/>
-                                <RowDefinition Height="30*"/>
-                                <RowDefinition Height="2*"/>
-                                <RowDefinition Height="30*"/>
-                                <RowDefinition Height="2*"/>
-                                <RowDefinition Height="30*"/>
-                                <RowDefinition Height="30*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0*"/>
-                                <ColumnDefinition Width="100*"/>
-                                <ColumnDefinition Width="80*"/>
-                                <ColumnDefinition Width="12*"/>
-                                <ColumnDefinition Width="160*"/>
-                                <ColumnDefinition Width="24*"/>
-                                <ColumnDefinition Width="80*"/>
-                                <ColumnDefinition Width="100*"/>
-                                <ColumnDefinition Width="0*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock HorizontalAlignment="Stretch" Margin="0,4,0,6" Text="RUT" VerticalAlignment="Stretch" Grid.Row="1" Height="auto" Width="auto" Grid.Column="2"/>
-
-                            <Button Content="Buscar" Width="auto" Grid.Row="1" Grid.Column="6" Height="Auto" Padding="0"/>
-
-                            <TextBox materialDesign:HintAssist.Hint="RUT" Width="auto" Grid.Row="1" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0"/>
-                            <TextBlock HorizontalAlignment="Stretch" Margin="0,4,0,6" Text="Razon Social" VerticalAlignment="Stretch" Grid.Row="3" Height="auto" Width="auto" Grid.Column="2"/>
-                            <TextBox materialDesign:HintAssist.Hint="Razon Social" Width="auto" Grid.Row="3" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0" Margin="0,0,0,1"/>
-                            <TextBlock HorizontalAlignment="Stretch" Margin="0,4,0,6" Text="Nombre" VerticalAlignment="Stretch" Grid.Row="5" Height="auto" Width="auto" Grid.Column="2"/>
-                            <TextBox materialDesign:HintAssist.Hint="Nombre" Width="auto" Grid.Row="5" Grid.Column="4" Height="auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0"/>
-                            <TextBlock HorizontalAlignment="Stretch" Margin="0,4,0,6" Text="Mail" VerticalAlignment="Stretch" Grid.Row="7" Height="auto" Width="auto" Grid.Column="2"/>
-                            <TextBlock HorizontalAlignment="Stretch" Margin="0,4,0,6" Text="Direccion" VerticalAlignment="Stretch" Grid.Row="9" Height="auto" Width="auto" Grid.Column="2"/>
-                            <TextBlock HorizontalAlignment="Stretch" Margin="0,4,0,6" Text="Telefono" VerticalAlignment="Stretch" Grid.Row="11" Height="auto" Width="auto" Grid.Column="2"/>
-                            <TextBox materialDesign:HintAssist.Hint="Mail" Width="auto" Grid.Row="7" Grid.Column="4" Height="auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0"/>
-                            <TextBox materialDesign:HintAssist.Hint="Direccion" Width="auto" Grid.Row="9" Grid.Column="4" Height="auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0"/>
-                            <TextBox materialDesign:HintAssist.Hint="Telefono" Width="auto" Grid.Row="11" Grid.Column="4" Height="auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0"/>
-                            <TextBlock HorizontalAlignment="Stretch" Margin="0,4,0,6" Text="Actividad" VerticalAlignment="Stretch" Grid.Row="13" Height="auto" Width="auto" Grid.Column="2"/>
-                            <TextBlock HorizontalAlignment="Stretch" Margin="0,4,0,6" Text="Tipo" VerticalAlignment="Stretch" Grid.Row="15" Height="auto" Width="auto" Grid.Column="2"/>
-                            <Button Content="Guardar" Width="auto" Grid.Row="3" Grid.Column="6" Height="Auto" Padding="0" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                            <Button Content="Actualizar" Width="auto" Grid.Row="5" Grid.Column="6" Height="Auto" Padding="0" Margin="0,0,0,1" Background="#FFF44336"/>
-
-                            <Button Width="auto" Grid.Row="7" Grid.Column="6" Height="Auto" Grid.RowSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0">
-                                <StackPanel>
-                                    <TextBlock Text="Listado de" TextAlignment="Center"/>
-                                    <TextBlock Text="Clientes" TextAlignment="Center"/>
-                                </StackPanel>
-                            </Button>
-
-                            <Button Width="auto" Grid.Row="11" Grid.Column="6" Height="Auto" Grid.RowSpan="5">
-                                <StackPanel>
-                                    <TextBlock Text="Limpiar" TextAlignment="Center"/>
-                                    <TextBlock Text="Campos" TextAlignment="Center"/>
-                                </StackPanel>
-                            </Button>
-
-                            <ComboBox materialDesign:HintAssist.Hint="Seleccionar" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="13" Grid.Column="4" VerticalAlignment="Stretch" Padding="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
-
-                            <ComboBox materialDesign:HintAssist.Hint="Seleccionar" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="15" Grid.Column="4" VerticalAlignment="Stretch" Padding="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+                            
+                            
                         </Grid>
                     </StackPanel>
                 </Expander>

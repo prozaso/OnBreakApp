@@ -9,23 +9,187 @@ namespace OnBreakLibrary
     public class Contrato
     {
 
-        private int _numero;
-        private DateTime _creacionContrato;
-        private DateTime _terminoContrato;
-        private DateTime _inicioEvento;
-        private DateTime _terminoEvento;
-        private String _horaInicio;
-        private String _horaTermino;
-        private String _direccion;
-        private bool _vigente;
-        private int _tipo;
-        private String _observaciones;
-        private Cliente _cliente;
+        private string _numero;
+        private DateTime _creacion;
+        private DateTime _termino;
+        private string _rutCliente;
+        private string _idModalidad;
+        private int _idTipoEvento;
+        private DateTime _fechaHoraInicio;
+        private DateTime _fechaHoraTermino;
         private int _asistentes;
         private int _personalAdicional;
-        private double _valorEvento;
+        private byte _realizado;
+        private float _valorTotalContrato;
+        private string _observaciones;
 
-        public int Numero
+        public Contrato(string numero, DateTime creacion, DateTime termino, string rutCliente, string idModalidad, int idTipoEvento, DateTime fechaHoraInicio, DateTime fechaHoraTermino, int asistentes, int personalAdicional, byte realizado, float valorTotalContrato, string observaciones)
+        {
+            Numero = numero;
+            Creacion = creacion;
+            Termino = termino;
+            RutCliente = rutCliente;
+            IdModalidad = idModalidad;
+            IdTipoEvento = idTipoEvento;
+            FechaHoraInicio = fechaHoraInicio;
+            FechaHoraTermino = fechaHoraTermino;
+            Asistentes = asistentes;
+            PersonalAdicional = personalAdicional;
+            Realizado = realizado;
+            ValorTotalContrato = valorTotalContrato;
+            Observaciones = observaciones;
+        }
+
+        public Contrato()
+        {
+
+        }
+
+        public string Observaciones
+        {
+            get
+            {
+                return _observaciones;
+            }
+            set
+            {
+                _observaciones = value;
+            }
+        }
+
+        public float ValorTotalContrato
+        {
+            get
+            {
+                return _valorTotalContrato;
+            }
+            set
+            {
+                _valorTotalContrato = value;
+            }
+        }
+
+        public byte Realizado
+        {
+            get
+            {
+                return _realizado;
+            }
+            set
+            {
+                _realizado = value;
+            }
+        }
+
+        public int PersonalAdicional
+        {
+            get
+            {
+                return _personalAdicional;
+            }
+            set
+            {
+                _personalAdicional = value;
+            }
+        }
+
+        public int Asistentes
+        {
+            get
+            {
+                return _asistentes;
+            }
+            set
+            {
+                _asistentes = value;
+            }
+        }
+
+        public DateTime FechaHoraTermino
+        {
+            get
+            {
+                return _fechaHoraTermino;
+            }
+            set
+            {
+                _fechaHoraTermino = value;
+            }
+        }
+
+        public DateTime FechaHoraInicio
+        {
+            get
+            {
+                return _fechaHoraInicio;
+            }
+            set
+            {
+                _fechaHoraInicio = value;
+            }
+        }
+
+        public int IdTipoEvento
+        {
+            get
+            {
+                return _idTipoEvento;
+            }
+            set
+            {
+                _idTipoEvento = value;
+            }
+        }
+
+        public string IdModalidad
+        {
+            get
+            {
+                return _idModalidad;
+            }
+            set
+            {
+                _idModalidad = value;
+            }
+        }
+
+        public string RutCliente
+        {
+            get
+            {
+                return _rutCliente;
+            }
+            set
+            {
+                _rutCliente = value;
+            }
+        }
+
+        public DateTime Termino
+        {
+            get
+            {
+                return _termino;
+            }
+            set
+            {
+                _termino = value;
+            }
+        }
+
+        public DateTime Creacion
+        {
+            get
+            {
+                return _creacion;
+            }
+            set
+            {
+                _creacion = value;
+            }
+        }
+
+        public string Numero
         {
             get
             {
@@ -37,208 +201,5 @@ namespace OnBreakLibrary
                 _numero = value;
             }
         }
-
-        public DateTime CreacionContrato
-        {
-            get
-            {
-                return _creacionContrato;
-            }
-
-            set
-            {
-                _creacionContrato = value;
-            }
-        }
-
-        public DateTime TerminoContrato
-        {
-            get
-            {
-                return _terminoContrato;
-            }
-
-            set
-            {
-                _terminoContrato = value;
-            }
-        }
-
-        public DateTime InicioEvento
-        {
-            get
-            {
-                return _inicioEvento;
-            }
-
-            set
-            {
-                _inicioEvento = value;
-            }
-        }
-
-        public DateTime TerminoEvento
-        {
-            get
-            {
-                return _terminoEvento;
-            }
-
-            set
-            {
-                _terminoEvento = value;
-            }
-        }
-
-        public string HoraInicio
-        {
-            get
-            {
-                return _horaInicio;
-            }
-
-            set
-            {
-                _horaInicio = value;
-            }
-        }
-
-        public string HoraTermino
-        {
-            get
-            {
-                return _horaTermino;
-            }
-
-            set
-            {
-                _horaTermino = value;
-            }
-        }
-
-        public string Direccion
-        {
-            get
-            {
-                return _direccion;
-            }
-
-            set
-            {
-                _direccion = value;
-            }
-        }
-
-        public bool Vigente
-        {
-            get
-            {
-                return _vigente;
-            }
-
-            set
-            {
-                _vigente = value;
-            }
-        }
-
-        public int Tipo
-        {
-            get
-            {
-                return _tipo;
-            }
-
-            set
-            {
-                _tipo = value;
-            }
-        }
-
-        public string Observaciones
-        {
-            get
-            {
-                return _observaciones;
-            }
-
-            set
-            {
-                _observaciones = value;
-            }
-        }
-
-        public Cliente Cliente
-        {
-            get
-            {
-                return _cliente;
-            }
-
-            set
-            {
-                _cliente = value;
-            }
-        }
-
-        public int Asistentes
-        {
-            get
-            {
-                return _asistentes;
-            }
-
-            set
-            {
-                _asistentes = value;
-            }
-        }
-
-        public int PersonalAdicional
-        {
-            get
-            {
-                return _personalAdicional;
-            }
-
-            set
-            {
-                _personalAdicional = value;
-            }
-        }
-
-        public double ValorEvento
-        {
-            get
-            {
-                return _valorEvento;
-            }
-
-            set
-            {
-                _valorEvento = value;
-            }
-        }
-
-        public Contrato(int numero, DateTime creacionContrato, DateTime terminoContrato, DateTime inicioEvento, DateTime terminoEvento, string horaInicio, string horaTermino, string direccion, bool vigente, int tipo, string observaciones, Cliente cliente, int asistentes, int personalAdicional, double valorEvento)
-        {
-            Numero = numero;
-            CreacionContrato = creacionContrato;
-            TerminoContrato = terminoContrato;
-            InicioEvento = inicioEvento;
-            TerminoEvento = terminoEvento;
-            HoraInicio = horaInicio;
-            HoraTermino = horaTermino;
-            Direccion = direccion;
-            Vigente = vigente;
-            Tipo = tipo;
-            Observaciones = observaciones;
-            Cliente = cliente;
-            Asistentes = asistentes;
-            PersonalAdicional = personalAdicional;
-            ValorEvento = valorEvento;
-        }
-
-        
     }
 }
