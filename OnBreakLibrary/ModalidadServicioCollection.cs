@@ -7,10 +7,19 @@ using OnBreak.DALC;
 
 namespace OnBreakLibrary
 {
-    class ModalidadServicioCollection
+    public class ModalidadServicioCollection
     {
 
-        //OnBreakEntities bd = new OnBreakEntities();
+        OnBreakEntities bd = new OnBreakEntities();
 
+        public List<ModalidadServicio> ListaModalidadServicio()
+        {
+            return (from t in this.bd.ModalidadServicio
+                    select new ModalidadServicio()
+                    {
+                        IdTipoEvento = t.IdTipoEvento,
+                        Nombre = t.Nombre.Trim()
+                    }).ToList();
+        }
     }
 }

@@ -45,8 +45,8 @@ namespace OnBreakLibrary
                 c.MailContacto = cliente.Mail;
                 c.Direccion = cliente.Direccion;
                 c.Telefono = cliente.Telefono;
-                c.IdActividadEmpresa = 1;
-                c.IdTipoEmpresa = 10;
+                c.IdActividadEmpresa = cliente.ActividadEmpresa;
+                c.IdTipoEmpresa = cliente.TipoEmpresa;
 
                 this.bd.Cliente.Add(c);
                 this.bd.SaveChanges();
@@ -55,7 +55,6 @@ namespace OnBreakLibrary
             }
             catch (Exception)
             {
-
                 return false;
             }
         }
@@ -103,7 +102,6 @@ namespace OnBreakLibrary
                             Telefono = c.Telefono,
                             ActividadEmpresa = c.IdActividadEmpresa,
                             TipoEmpresa = c.IdTipoEmpresa
-
 
                         }).First();
             }

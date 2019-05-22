@@ -19,11 +19,11 @@ namespace OnBreakLibrary
         private DateTime _fechaHoraTermino;
         private int _asistentes;
         private int _personalAdicional;
-        private byte _realizado;
-        private float _valorTotalContrato;
+        private bool _realizado;
+        private double _valorTotalContrato;
         private string _observaciones;
 
-        public Contrato(string numero, DateTime creacion, DateTime termino, string rutCliente, string idModalidad, int idTipoEvento, DateTime fechaHoraInicio, DateTime fechaHoraTermino, int asistentes, int personalAdicional, byte realizado, float valorTotalContrato, string observaciones)
+        public Contrato(string numero, DateTime creacion, DateTime termino, string rutCliente, string idModalidad, int idTipoEvento, DateTime fechaHoraInicio, DateTime fechaHoraTermino, int asistentes, int personalAdicional, bool realizado, double valorTotalContrato, string observaciones)
         {
             Numero = numero;
             Creacion = creacion;
@@ -57,7 +57,7 @@ namespace OnBreakLibrary
             }
         }
 
-        public float ValorTotalContrato
+        public double ValorTotalContrato
         {
             get
             {
@@ -69,7 +69,7 @@ namespace OnBreakLibrary
             }
         }
 
-        public byte Realizado
+        public bool Realizado
         {
             get
             {

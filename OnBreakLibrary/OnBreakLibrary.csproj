@@ -58,6 +58,7 @@
     <Compile Include="TipoEmpresaCollection.cs" />
     <Compile Include="TipoEvento.cs" />
     <Compile Include="TipoEventoCollection.cs" />
+    <Compile Include="Validadores.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnBreak.DALC\OnBreak.DALC.csproj">

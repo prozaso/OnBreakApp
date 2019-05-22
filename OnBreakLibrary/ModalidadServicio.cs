@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnBreakLibrary
 {
-    class ModalidadServicio
+    public class ModalidadServicio
     {
 
         private string _idModalidad;
@@ -57,11 +57,11 @@ namespace OnBreakLibrary
         {
             get
             {
-                return _nombre;
+                return _nombre.Trim();
             }
             set
             {
-                _nombre = value;
+                _nombre = value.Trim();
             }
         }
 
