@@ -30,14 +30,26 @@
           <ScalarProperty Name="Creacion" ColumnName="Creacion" />
           <ScalarProperty Name="Termino" ColumnName="Termino" />
           <ScalarProperty Name="RutCliente" ColumnName="RutCliente" />
+          <ScalarProperty Name="IdModalidad" ColumnName="IdModalidad" />
           <ScalarProperty Name="IdTipoEvento" ColumnName="IdTipoEvento" />
           <ScalarProperty Name="FechaHoraInicio" ColumnName="FechaHoraInicio" />
           <ScalarProperty Name="FechaHoraTermino" ColumnName="FechaHoraTermino" />
           <ScalarProperty Name="Asistentes" ColumnName="Asistentes" />
           <ScalarProperty Name="PersonalAdicional" ColumnName="PersonalAdicional" />
-          <ScalarProperty Name="Vigente" ColumnName="Vigente" />
+          <ScalarProperty Name="Realizado" ColumnName="Realizado" />
           <ScalarProperty Name="ValorTotalContrato" ColumnName="ValorTotalContrato" />
           <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModalidadServicio">
+      <EntityTypeMapping TypeName="OnBreakModel.ModalidadServicio">
+        <MappingFragment StoreEntitySet="ModalidadServicio">
+          <ScalarProperty Name="IdModalidad" ColumnName="IdModalidad" />
+          <ScalarProperty Name="IdTipoEvento" ColumnName="IdTipoEvento" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ValorBase" ColumnName="ValorBase" />
+          <ScalarProperty Name="PersonalBase" ColumnName="PersonalBase" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -53,9 +65,7 @@
       <EntityTypeMapping TypeName="OnBreakModel.TipoEvento">
         <MappingFragment StoreEntitySet="TipoEvento">
           <ScalarProperty Name="IdTipoEvento" ColumnName="IdTipoEvento" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="ValorBase" ColumnName="ValorBase" />
-          <ScalarProperty Name="PersonalBase" ColumnName="PersonalBase" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

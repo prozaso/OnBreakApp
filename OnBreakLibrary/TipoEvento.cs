@@ -23,7 +23,7 @@ namespace OnBreakLibrary
             Descripcion = descripcion;
         }
 
-        private string Descripcion
+        public string Descripcion
         {
             get
             {

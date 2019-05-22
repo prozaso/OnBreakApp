@@ -16,14 +16,12 @@ namespace OnBreak.DALC
     {
         public TipoEvento()
         {
-            this.Contrato = new HashSet<Contrato>();
+            this.ModalidadServicio = new HashSet<ModalidadServicio>();
         }
     
         public int IdTipoEvento { get; set; }
-        public string Nombre { get; set; }
-        public double ValorBase { get; set; }
-        public int PersonalBase { get; set; }
+        public string Descripcion { get; set; }
     
-        public virtual ICollection<Contrato> Contrato { get; set; }
+        public virtual ICollection<ModalidadServicio> ModalidadServicio { get; set; }
     }
 }

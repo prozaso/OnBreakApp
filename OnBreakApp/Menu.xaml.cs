@@ -37,6 +37,9 @@ namespace OnBreakApp
         }
 
         private ClienteCollection _clienteCollection = new ClienteCollection();
+        private TipoEmpresaCollection _tipoEmpresaCollection = new TipoEmpresaCollection();
+        private ActividadEmpresaCollection _actividadEmpresaCollection = new ActividadEmpresaCollection();
+        private TipoEventoCollection _tipoEventoCollection = new TipoEventoCollection();
 
         public ClienteCollection ClienteCollection
         {
@@ -48,6 +51,42 @@ namespace OnBreakApp
             set
             {
                 _clienteCollection = value;
+            }
+        }
+
+        public TipoEmpresaCollection TipoEmpresaCollection
+        {
+            get
+            {
+                return _tipoEmpresaCollection;
+            }
+            set
+            {
+                _tipoEmpresaCollection = value;
+            }
+        }
+
+        public ActividadEmpresaCollection ActividadEmpresaCollection
+        {
+            get
+            {
+                return _actividadEmpresaCollection;
+            }
+            set
+            {
+                _actividadEmpresaCollection = value;
+            }
+        }
+
+        public TipoEventoCollection TipoEventoCollection
+        {
+            get
+            {
+                return _tipoEventoCollection;
+            }
+            set
+            {
+                _tipoEventoCollection = value;
             }
         }
 
@@ -63,9 +102,14 @@ namespace OnBreakApp
             dgClientes.ItemsSource = clienteCollection.ReadAll();
 
             cboActividad.ItemsSource = null;
-            cboActividad.ItemsSource = clienteCollection.ListaActividadEmpresa();
+            cboActividad.ItemsSource = ActividadEmpresaCollection.ListaActividadEmpresa();
             cboTipo.ItemsSource = null;
-            cboTipo.ItemsSource = clienteCollection.ListaTipoEmpresa();
+            cboTipo.ItemsSource = TipoEmpresaCollection.ListaTipoEmpresa();
+
+            cboTipoEvento.ItemsSource = null;
+            cboTipoEvento.ItemsSource = TipoEventoCollection.ListaTipoEvento();
+
+            cbop
             
         }
 
@@ -191,6 +235,7 @@ namespace OnBreakApp
             txtMail.Text = "";
             txtDireccion.Text = "";
             txtTelefono.Text = "";
+
             cboActividad.SelectedIndex = -1;
             cboTipo.SelectedIndex = -1;
         }
@@ -232,6 +277,38 @@ namespace OnBreakApp
             {
                 MessageBox.Show("Error al modificar");
             }
+        }
+
+        private void BtnListaContratos_Click(object sender, RoutedEventArgs e)
+        {
+            expListaContratos.IsExpanded = true;
+            expListaClientes.IsExpanded = false;
+            expGestionClientes.IsExpanded = false;
+            expGestionClientes.IsExpanded = false;
+        }
+
+        private void BtnLimpiarCampos_Click(object sender, RoutedEventArgs e)
+        {
+            txtNumeroDeContrato.Text = "";
+            txtRutClienteContrato.Text = "";
+            txtNombreClienteContrato.Text = "";
+            txtValorEvento.Text = "";
+            txtDireccion.Text = "";
+            txtObsercaciones.Text = "";
+
+            cboTipoEvento.SelectedIndex = -1;
+            cboAsistentes.SelectedIndex = -1;
+            cboPersonalAdicional.SelectedIndex = -1;
+
+            fechaPicker.SelectedDate = null;
+            horaInicioPicker.SelectedTime = null;
+            horaTerminoPicker.SelectedTime = null;
+
+        }
+
+        private void BtnNumeroDeContrato_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
     

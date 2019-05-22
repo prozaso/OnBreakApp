@@ -34,24 +34,6 @@ namespace OnBreakLibrary
                     }).ToList();
         }
 
-        public List<TipoEmpresa> ListaTipoEmpresa()
-        {
-            return (from t in this.bd.TipoEmpresa
-                    select new TipoEmpresa() {
-                            IdTipoEmpresa = t.IdTipoEmpresa,
-                            Descripcion = t.Descripcion
-                    }).ToList();
-        }
-
-        public List<ActividadEmpresa> ListaActividadEmpresa()
-        {
-            return (from t in this.bd.ActividadEmpresa
-                    select new ActividadEmpresa(){
-                    IdActividadEmpresa = t.IdActividadEmpresa,
-                    Descripcion = t.Descripcion
-            }).ToList();
-        }
-
         public bool AgregarCliente(Cliente cliente)
         {
             try

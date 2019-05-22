@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D05C1C74-0E86-427D-A8C2-8E8812F4BB8C}</ProjectGuid>
+    <ProjectGuid>{8CC86DAA-6B74-4812-8059-4C44068D6294}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OnBreak.DALC</RootNamespace>
@@ -55,6 +55,9 @@
       <DependentUpon>OnBreakEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Contrato.cs">
+      <DependentUpon>OnBreakEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModalidadServicio.cs">
       <DependentUpon>OnBreakEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="OnBreakEntities.Context.cs">

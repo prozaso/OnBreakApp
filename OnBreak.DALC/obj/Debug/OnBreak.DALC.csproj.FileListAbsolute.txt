@@ -3,26 +3,8 @@ C:\Users\skois\Desktop\Nueva carpeta\OnBreak.DALC\bin\Debug\OnBreak.DALC.dll
 C:\Users\skois\Desktop\Nueva carpeta\OnBreak.DALC\bin\Debug\OnBreak.DALC.pdb
 C:\Users\skois\Desktop\Nueva carpeta\OnBreak.DALC\bin\Debug\EntityFramework.dll
 C:\Users\skois\Desktop\Nueva carpeta\OnBreak.DALC\bin\Debug\EntityFramework.xml
+C:\Users\skois\Desktop\Nueva carpeta\OnBreak.DALC\obj\Debug\OnBreak.DALC.csprojAssemblyReference.cache
 C:\Users\skois\Desktop\Nueva carpeta\OnBreak.DALC\obj\Debug\OnBreak.DALC.csproj.CoreCompileInputs.cache
 C:\Users\skois\Desktop\Nueva carpeta\OnBreak.DALC\obj\Debug\OnBreak.DALC.csproj.CopyComplete
 C:\Users\skois\Desktop\Nueva carpeta\OnBreak.DALC\obj\Debug\OnBreak.DALC.dll
 C:\Users\skois\Desktop\Nueva carpeta\OnBreak.DALC\obj\Debug\OnBreak.DALC.pdb
-C:\Users\skois\Desktop\Nueva carpeta\OnBreak.DALC\obj\Debug\OnBreak.DALC.csprojAssemblyReference.cache
-C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreak.DALC\bin\Debug\OnBreak.DALC.dll.config
-C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreak.DALC\bin\Debug\OnBreak.DALC.dll
-C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreak.DALC\bin\Debug\OnBreak.DALC.pdb
-C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreak.DALC\bin\Debug\EntityFramework.dll
-C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreak.DALC\bin\Debug\EntityFramework.xml
-C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreak.DALC\obj\Debug\OnBreak.DALC.csprojResolveAssemblyReference.cache
-C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreak.DALC\obj\Debug\OnBreak.DALC.dll
-C:\Users\duoc\Source\Repos\skoiis\OnBreakApp\OnBreak.DALC\obj\Debug\OnBreak.DALC.pdb
-C:\Users\skois\Desktop\on\OnBreak.DALC\bin\Debug\OnBreak.DALC.dll.config
-C:\Users\skois\Desktop\on\OnBreak.DALC\bin\Debug\OnBreak.DALC.dll
-C:\Users\skois\Desktop\on\OnBreak.DALC\bin\Debug\OnBreak.DALC.pdb
-C:\Users\skois\Desktop\on\OnBreak.DALC\bin\Debug\EntityFramework.dll
-C:\Users\skois\Desktop\on\OnBreak.DALC\bin\Debug\EntityFramework.xml
-C:\Users\skois\Desktop\on\OnBreak.DALC\obj\Debug\OnBreak.DALC.csprojAssemblyReference.cache
-C:\Users\skois\Desktop\on\OnBreak.DALC\obj\Debug\OnBreak.DALC.csproj.CoreCompileInputs.cache
-C:\Users\skois\Desktop\on\OnBreak.DALC\obj\Debug\OnBreak.DALC.csproj.CopyComplete
-C:\Users\skois\Desktop\on\OnBreak.DALC\obj\Debug\OnBreak.DALC.dll
-C:\Users\skois\Desktop\on\OnBreak.DALC\obj\Debug\OnBreak.DALC.pdb

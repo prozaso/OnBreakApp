@@ -51,6 +51,8 @@
     <Compile Include="ClienteCollection.cs" />
     <Compile Include="Contrato.cs" />
     <Compile Include="ContratoCollection.cs" />
+    <Compile Include="ModalidadServicio.cs" />
+    <Compile Include="ModalidadServicioCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TipoEmpresa.cs" />
     <Compile Include="TipoEmpresaCollection.cs" />
@@ -59,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnBreak.DALC\OnBreak.DALC.csproj">
-      <Project>{d05c1c74-0e86-427d-a8c2-8e8812f4bb8c}</Project>
+      <Project>{8cc86daa-6b74-4812-8059-4c44068d6294}</Project>
       <Name>OnBreak.DALC</Name>
     </ProjectReference>
   </ItemGroup>
