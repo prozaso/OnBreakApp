@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -130,12 +131,14 @@ namespace OnBreakApp
             }
         }
 
+
         public Menu()
         {
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             SizeToContent = SizeToContent.WidthAndHeight;
 
+            //Gestion Clientes
             dgClientes.ItemsSource = null;
             dgClientes.ItemsSource = ClienteCollection.ReadAll();
 
@@ -144,15 +147,13 @@ namespace OnBreakApp
             cboTipo.ItemsSource = null;
             cboTipo.ItemsSource = TipoEmpresaCollection.ListaTipoEmpresa();
 
-            cboTipoEvento.ItemsSource = null;
-            cboTipoEvento.ItemsSource = TipoEventoCollection.ListaTipoEvento();
 
-            cboTipoEventoNombre.ItemsSource = null;
-            cboTipoEventoNombre.ItemsSource = ModalidadServicioCollection.ListaModalidadServicio();
-
+            //Lista Contratos
             dgListaContratos.ItemsSource = null;
             dgListaContratos.ItemsSource = ContratoCollection.ReadAll();
 
+
+            //Gestion Contratos
             cboAsistentes.ItemsSource = null;
             cboAsistentes.ItemsSource = ContratoCollection.CantidadAsistentes();
 
@@ -162,7 +163,14 @@ namespace OnBreakApp
             dgListaContratos.ItemsSource = null;
             dgListaContratos.ItemsSource = ContratoCollection.ReadAll();
 
+            cboTipoEvento.ItemsSource = null;
+            cboTipoEvento.ItemsSource = TipoEventoCollection.ListaTipoEvento();
+
+            cboTipoEventoNombre.ItemsSource = null;
+            cboTipoEventoNombre.ItemsSource = ModalidadServicioCollection.ListaModalidadServicio();
+
         }
+
 
         //Menu
         private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -806,9 +814,20 @@ namespace OnBreakApp
                     txtValorEvento.Text = contrato.ValorTotalContrato.ToString("C0");
                 }
 
+
         }
 
+        private void CboTipoEvento_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cboTipoEvento.SelectedValue.ToString() != null)
+            {
+                int modalidad = int.Parse(cboTipoEvento.SelectedValue.ToString());
+
+                
 
 
+                ModalidadServicioCollection.BuscarModalidad(modalidad);
+            }
+        }
     }
 }

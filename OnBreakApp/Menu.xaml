@@ -18,11 +18,18 @@
         Background="Gray"
         FontFamily="{DynamicResource MaterialDesignFont}" 
         Closing="MetroWindow_Closing"
+                      WindowStyle="None"
         MouseLeftButtonDown="MetroWindow_MouseLeftButtonDown" 
-        HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" SizeToContent="WidthAndHeight"
-        FontSize="14" FontStretch="UltraExpanded" Height="auto" Width="752"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" IsTabStop="False" TitleCharacterCasing="Normal" Title="On Break App" TitleCaps="False" TitleAlignment="Left" Topmost="True">
+        ResizeMode="NoResize" SizeToContent="WidthAndHeight"
+        FontSize="14" FontStretch="UltraExpanded" Height="auto" Width="auto" 
+        IsTabStop="False" TitleCharacterCasing="Normal" Title="On Break App" TitleCaps="False" TitleAlignment="Left" Topmost="True">
 
-    <Grid>
+
+
+
+
+
+    <Grid Width="auto" Height="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -37,8 +44,8 @@
         <materialDesign:Card x:Name="expander" Width="auto" Background="Transparent" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Height="Auto" MinWidth="0" MinHeight="0" MaxHeight="Infinity" MaxWidth="Infinity" Margin="0" Grid.ColumnSpan="2" Grid.RowSpan="3" >
             <StackPanel Width="auto" Height="auto" >
 
-                <Expander x:Name="expGestionClientes" Header="Gestion Clientes" HorizontalAlignment="Stretch" Background="#FFD32F2F" Width="auto" Height="auto" Expanded="expanderGestionClientes">
-                    <Grid Height="291" Width="600" Margin="30">
+                <Expander x:Name="expGestionClientes" Header="Gestion Clientes" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FFD32F2F" Width="auto" Height="auto" Expanded="expanderGestionClientes" VerticalContentAlignment="Stretch">
+                    <Grid Height="291" Width="650" Margin="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0*"/>
                             <RowDefinition Height="30*"/>
@@ -110,9 +117,9 @@
                 </Expander>
                 <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
 
-                <Expander x:Name="expListaClientes" HorizontalAlignment="Stretch" Header="Lista Clientes" Background="#FFD32F2F" Width="auto" Height="auto" Expanded="expanderListaClientes">
+                <Expander x:Name="expListaClientes" HorizontalAlignment="Stretch" Header="Lista Clientes" Background="#FFD32F2F" Width="auto" Height="auto" Expanded="expanderListaClientes" VerticalContentAlignment="Stretch">
                     <StackPanel Margin="0" Width="auto" Height="auto" >
-                        <Grid Height="325" Width="auto" Margin="0">
+                        <Grid Height="325" Width="600" Margin="0">
 
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="90*"/>
@@ -126,7 +133,7 @@
                                 <ColumnDefinition Width="0*"/>
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="dgClientes" Grid.Column="1" Margin="30" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#FF8F8F8F" Grid.RowSpan="2" Grid.Row="1" Grid.ColumnSpan="2"/>
+                            <DataGrid x:Name="dgClientes" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#FF8F8F8F" Grid.RowSpan="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,30"/>
                             <Image Grid.Column="1" HorizontalAlignment="Left" Height="100" Grid.RowSpan="2" VerticalAlignment="Top" Width="100"/>
                             <Image Source="img/white_logo_transparent_background.png" Grid.ColumnSpan="2" Margin="30,0,0,0"/>
 
@@ -135,7 +142,7 @@
                 </Expander>
                 <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
 
-                <Expander x:Name="expGestionContratos" HorizontalAlignment="Stretch" Header="Gestion Contratos" Background="#FFD32F2F" Width="auto" Height="auto" Expanded="expanderGestionContratos">
+                <Expander x:Name="expGestionContratos" HorizontalAlignment="Stretch" Header="Gestion Contratos" Background="#FFD32F2F" Width="auto" Height="auto" Expanded="expanderGestionContratos" VerticalContentAlignment="Stretch">
                     <StackPanel Margin="0" Width="auto" Height="auto" >
                         <Grid Height="481" Width="674" Margin="35,30" >
                             <Grid.RowDefinitions>
@@ -219,7 +226,7 @@
                             <materialDesign:PackIcon Kind="UserGroup" Height="Auto" Width="Auto" Grid.Row="23" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Column="2" HorizontalContentAlignment="Stretch" Grid.RowSpan="3" />
                             <ComboBox x:Name="cboPersonalAdicional" materialDesign:HintAssist.Hint="Personal Adicional(*)" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Grid.Column="4" Grid.Row="25" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,1,0,0"/>
                             <materialDesign:PackIcon Kind="UserGroupOutline" Height="Auto" Width="Auto" Grid.Row="26" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="0" Grid.Column="2" Grid.RowSpan="4" HorizontalContentAlignment="Stretch" />
-                            <ComboBox x:Name="cboTipoEvento" materialDesign:HintAssist.Hint="Seleccione Tipo de Evento" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="14" Grid.Column="4" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" SelectedValuePath="IdTipoEvento" DisplayMemberPath="Descripcion" Grid.ColumnSpan="4" Grid.RowSpan="5" Margin="0,11,0,0" />
+                            <ComboBox x:Name="cboTipoEvento" materialDesign:HintAssist.Hint="Seleccione Tipo de Evento" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="14" Grid.Column="4" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" SelectedValuePath="IdTipoEvento" DisplayMemberPath="Descripcion" Grid.ColumnSpan="4" Grid.RowSpan="5" Margin="0,11,0,0" SelectionChanged="CboTipoEvento_SelectionChanged" />
 
                             <materialDesign:PackIcon Kind="EventStar" Height="Auto" Width="Auto" Grid.Row="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Column="2" Grid.RowSpan="4" Margin="0,1,0,0" />
                             <DatePicker x:Name="fechaPicker" materialDesign:HintAssist.Hint="Fecha de Evento" Grid.Column="10" Grid.Row="6" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontStyle="Italic" Grid.ColumnSpan="3" />
@@ -257,7 +264,6 @@
                             </Button>
                             <Label x:Name="lblSeleccionGestion" Content="Seleccione Gestion" HorizontalAlignment="Left" Margin="0,0,0,6" Grid.Column="12" Grid.RowSpan="3" Grid.Row="28" Grid.ColumnSpan="3" Width="134"/>
                             <ComboBox x:Name="cboTipoEventoNombre" materialDesign:HintAssist.Hint="Evento" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="19" Grid.Column="4" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" SelectedValuePath="IdTipoEvento" DisplayMemberPath="Nombre" Grid.ColumnSpan="4" Grid.RowSpan="3" Margin="0,0,0,1" />
-                            <Image Grid.ColumnSpan="3" Grid.Column="5" HorizontalAlignment="Left" Height="100" Margin="25,10,0,0" Grid.Row="2" Grid.RowSpan="6" VerticalAlignment="Top" Width="100"/>
                             <Image Source="img/white_logo_transparent_background.png" Grid.ColumnSpan="3" Grid.Column="2" Grid.RowSpan="5" Margin="0,0,0,10"/>
 
                         </Grid>
@@ -265,9 +271,9 @@
                 </Expander>
                 <Border Background="{DynamicResource MaterialDesignDivider}" Height="1" HorizontalAlignment="Stretch" SnapsToDevicePixels="True" />
 
-                <Expander x:Name="expListaContratos" HorizontalAlignment="Stretch" Header="Lista Contratos" Background="#FFD32F2F" Width="auto" Height="auto" Expanded="expanderListaContratos">
+                <Expander x:Name="expListaContratos" HorizontalAlignment="Stretch" Header="Lista Contratos" Background="#FFD32F2F" Width="auto" Height="auto" Expanded="expanderListaContratos" VerticalContentAlignment="Stretch">
                     <StackPanel Margin="0" Width="auto" Height="auto" >
-                        <Grid Height="283" Width="auto" Margin="0">
+                        <Grid Height="283" Width="600" Margin="0">
 
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="90*"/>
