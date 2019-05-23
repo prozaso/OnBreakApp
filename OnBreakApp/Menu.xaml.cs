@@ -715,7 +715,7 @@ namespace OnBreakApp
             string numero = txtNumeroDeContrato.Text;
             Contrato contrato = new Contrato();
 
-            if (ContratoCollection.BuscarContratoPorNumero(numero) is null)
+            if (ContratoCollection.BuscarContratoPorNumero(numero) == null)
             {
                 MessageBox.Show("Contrato no existe");
             }
