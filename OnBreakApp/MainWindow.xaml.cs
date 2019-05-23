@@ -46,7 +46,10 @@ namespace OnBreakApp
 
         private void Button_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            this.Close();
+            this.OnClosed(e);
+            Application.Current.Shutdown();
         }
+
+
     }
 }
