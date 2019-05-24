@@ -45,8 +45,8 @@ namespace OnBreakLibrary
                 c.MailContacto = cliente.Mail;
                 c.Direccion = cliente.Direccion;
                 c.Telefono = cliente.Telefono;
-                c.IdActividadEmpresa = cliente.ActividadEmpresa;
-                c.IdTipoEmpresa = cliente.TipoEmpresa;
+                c.IdActividadEmpresa = cliente.IdActividadEmpresa;
+                c.IdTipoEmpresa = cliente.IdTipoEmpresa;
 
                 this.bd.Cliente.Add(c);
                 this.bd.SaveChanges();
@@ -70,8 +70,8 @@ namespace OnBreakLibrary
                 c.MailContacto = cliente.Mail;
                 c.Direccion = cliente.Direccion;
                 c.Telefono = cliente.Telefono;
-                c.IdActividadEmpresa = cliente.ActividadEmpresa;
-                c.IdTipoEmpresa = cliente.TipoEmpresa;
+                c.IdActividadEmpresa = cliente.IdActividadEmpresa;
+                c.IdTipoEmpresa = cliente.IdTipoEmpresa;
 
                 this.bd.Entry(c).State = System.Data.EntityState.Modified;
                 this.bd.SaveChanges();
@@ -100,8 +100,8 @@ namespace OnBreakLibrary
                             Mail = c.MailContacto,
                             Direccion = c.Direccion,
                             Telefono = c.Telefono,
-                            ActividadEmpresa = c.IdActividadEmpresa,
-                            TipoEmpresa = c.IdTipoEmpresa
+                            IdActividadEmpresa = c.IdActividadEmpresa,
+                            IdTipoEmpresa = c.IdTipoEmpresa
 
                         }).First();
             }

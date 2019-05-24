@@ -8,20 +8,22 @@ namespace OnBreakLibrary
 {
     public class ModalidadServicio
     {
-
         private string _idModalidad;
         private int _idTipoEvento;
         private string _nombre;
-        private float _valorBase;
+        private double _valorBase;
         private int _personalBase;
 
-        public ModalidadServicio(string idModalidad, int idTipoEvento, string nombre, float valorBase, int personalBase)
+
+
+        public ModalidadServicio(string _idModalidad, int _idTipoEvento, string _nombre, float _valorBase, int _personalBase)
         {
-            IdModalidad = idModalidad;
-            IdTipoEvento = idTipoEvento;
-            Nombre = nombre;
-            ValorBase = valorBase;
-            PersonalBase = personalBase;
+            this._idModalidad = _idModalidad;
+            this._idTipoEvento = _idTipoEvento;
+            this._nombre = _nombre;
+            this._valorBase = _valorBase;
+            this._personalBase = _personalBase;
+
         }
 
         public ModalidadServicio()
@@ -29,39 +31,18 @@ namespace OnBreakLibrary
 
         }
 
-        public int PersonalBase
-        {
-            get
-            {
-                return _personalBase;
-            }
-            set
-            {
-                _personalBase = value;
-            }
-        }
 
-        public float ValorBase
-        {
-            get
-            {
-                return _valorBase;
-            }
-            set
-            {
-                _valorBase = value;
-            }
-        }
 
-        public string Nombre
+        public string IdModalidad
         {
             get
             {
-                return _nombre.Trim();
+                return _idModalidad;
             }
+
             set
             {
-                _nombre = value.Trim();
+                _idModalidad = value;
             }
         }
 
@@ -71,21 +52,49 @@ namespace OnBreakLibrary
             {
                 return _idTipoEvento;
             }
+
             set
             {
                 _idTipoEvento = value;
             }
         }
 
-        public string IdModalidad
+        public string Nombre
         {
             get
             {
-                return _idModalidad;
+                return _nombre.Trim();
             }
+
             set
             {
-                _idModalidad = value;
+                _nombre = value.Trim();
+            }
+        }
+
+        public double ValorBase
+        {
+            get
+            {
+                return _valorBase;
+            }
+
+            set
+            {
+                _valorBase = value;
+            }
+        }
+
+        public int PersonalBase
+        {
+            get
+            {
+                return _personalBase;
+            }
+
+            set
+            {
+                _personalBase = value;
             }
         }
     }

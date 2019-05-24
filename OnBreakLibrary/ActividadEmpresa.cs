@@ -8,30 +8,29 @@ namespace OnBreakLibrary
 {
     public class ActividadEmpresa
     {
-        private int _idActividadEmpresa;
-        private String _descripcion;
+        private int _id;
+        private string _descripcion;
 
         public ActividadEmpresa()
         {
-
         }
 
-        public ActividadEmpresa(int _idActividadEmpresa, string _descripcion)
+        public ActividadEmpresa(int _id, string _descripcion)
         {
-            IdActividadEmpresa = _idActividadEmpresa;
-            Descripcion = _descripcion;
+            this._id = _id;
+            this._descripcion = _descripcion;
         }
 
-        public int IdActividadEmpresa
+        public int Id
         {
             get
             {
-                return _idActividadEmpresa;
+                return _id;
             }
 
             set
             {
-                _idActividadEmpresa = value;
+                _id = value;
             }
         }
 

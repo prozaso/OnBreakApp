@@ -1,9 +1,12 @@
-﻿using OnBreak.DALC;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using OnBreak.DALC;
+using System.Windows;
 
 namespace OnBreakLibrary
 {
@@ -87,6 +90,8 @@ namespace OnBreakLibrary
             try
             {
                 OnBreak.DALC.Contrato c = new OnBreak.DALC.Contrato();
+
+
                 c.Numero = contrato.Numero;
                 c.Creacion = contrato.Creacion;
                 c.Termino = contrato.Termino;
@@ -100,6 +105,7 @@ namespace OnBreakLibrary
                 c.Realizado = contrato.Realizado;
                 c.ValorTotalContrato = contrato.ValorTotalContrato;
                 c.Observaciones = contrato.Observaciones;
+
 
                 this.bd.Contrato.Add(c);
                 this.bd.SaveChanges();

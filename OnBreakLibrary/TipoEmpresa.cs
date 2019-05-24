@@ -8,60 +8,36 @@ namespace OnBreakLibrary
 {
     public class TipoEmpresa
     {
-        private int _idTipoEmpresa;
-        private String _descripcion;
+
+        private int _id;
+        private string _descripcion;
+
+
+        public TipoEmpresa(int _id, string _descripcion)
+        {
+            this._id = _id;
+            this._descripcion = _descripcion;
+        }
 
         public TipoEmpresa()
         {
 
         }
 
-        public TipoEmpresa(int idTipoEmpresa, string descripcion)
-        {
-            IdTipoEmpresa = idTipoEmpresa;
-            Descripcion = descripcion;
-        }
-
-        public int IdTipoEmpresa
+        public int Id
         {
             get
             {
-                return _idTipoEmpresa;
+                return _id;
             }
 
             set
             {
-                _idTipoEmpresa = value;
+                _id = value;
             }
         }
 
         public string Descripcion
-        {
-            get
-            {
-                return _descripcion;
-            }
-
-            set
-            {
-                _descripcion = value;
-            }
-        }
-
-        public int IdTipoEmpresa1
-        {
-            get
-            {
-                return _idTipoEmpresa;
-            }
-
-            set
-            {
-                _idTipoEmpresa = value;
-            }
-        }
-
-        public string Descripcion1
         {
             get
             {

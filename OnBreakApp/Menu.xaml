@@ -215,13 +215,13 @@
                             <Button x:Name="btnNumeroDeContrato" Grid.Row="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="Auto" Padding="5" Grid.ColumnSpan="6" Grid.RowSpan="2" Click="BtnNumeroDeContrato_Click">
                                 <StackPanel>
                                     <TextBlock Text="Nº de Contrato"/>
-                                    <TextBlock Text="(Buscar)" FontSize="8" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="(Buscar)" FontSize="9" HorizontalAlignment="Center" Margin="20,0,0,0"/>
                                 </StackPanel>
                             </Button>
                             <Button x:Name="btnRutCliente" Grid.Row="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="Auto" Padding="5" Grid.ColumnSpan="6" Grid.RowSpan="2" Click="BtnRutCliente_Click">
                                 <StackPanel>
                                     <TextBlock Text="RUT Cliente"/>
-                                    <TextBlock Text="(Buscar)" FontSize="8" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="(Buscar)" FontSize="9" HorizontalAlignment="Center" Margin="21,0,0,0"/>
                                 </StackPanel>
                             </Button>
                             <ComboBox x:Name="cboAsistentes" materialDesign:HintAssist.Hint="Seleccione Cantidad de Asistentes" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Grid.Column="4" Grid.Row="23" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Grid.ColumnSpan="4" Grid.RowSpan="2" Margin="0,1"/>
@@ -231,7 +231,7 @@
                             <ComboBox x:Name="cboTipoEvento" materialDesign:HintAssist.Hint="Seleccione Tipo de Evento" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="14" Grid.Column="4" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" SelectedValuePath="IdTipoEvento" DisplayMemberPath="Descripcion" Grid.ColumnSpan="4" Grid.RowSpan="5" Margin="0,11,0,0" SelectionChanged="CboTipoEvento_SelectionChanged" />
 
                             <materialDesign:PackIcon Kind="EventStar" Height="Auto" Width="Auto" Grid.Row="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Column="2" Grid.RowSpan="4" Margin="0,1,0,0" />
-                            <DatePicker x:Name="fechaPicker" materialDesign:HintAssist.Hint="Fecha de Evento" Grid.Column="10" Grid.Row="6" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontStyle="Italic" Grid.ColumnSpan="3" />
+                            <DatePicker x:Name="fechaInicioPicker" materialDesign:HintAssist.Hint="Fecha Inicio" Grid.Column="10" Grid.Row="6" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontStyle="Italic" Grid.ColumnSpan="3" />
                             <materialDesign:TimePicker materialDesign:HintAssist.Hint="Hora de Inicio" Is24Hours="True" x:Name="horaInicioPicker" Grid.Column="14" Grid.Row="6" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontStyle="Italic" Grid.ColumnSpan="3" />
                             <materialDesign:TimePicker materialDesign:HintAssist.Hint="Hora de Termino" Is24Hours="True" x:Name="horaTerminoPicker" Grid.Column="14" Grid.Row="9" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontStyle="Italic" Margin="0,1,0,0" Grid.ColumnSpan="3" />
                             <TextBox x:Name="txtDireccionContrato" materialDesign:HintAssist.Hint="Direccion" Grid.Column="10" Grid.Row="14" Grid.ColumnSpan="7" VerticalContentAlignment="Bottom" Margin="0,1" Grid.RowSpan="2" />
@@ -240,7 +240,7 @@
                             <materialDesign:PackIcon Kind="Account" Height="Auto" Width="Auto" Grid.Row="11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.RowSpan="3" Grid.Column="2" Margin="0,1" />
                             <TextBox x:Name="txtNombreClienteContrato" materialDesign:HintAssist.Hint="Nombre" Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" IsEnabled="False" />
 
-                            <TextBox x:Name="txtObsercaciones" TextWrapping="Wrap" VerticalAlignment="Stretch" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="Observaciones" Grid.ColumnSpan="7" Grid.RowSpan="7" Grid.Column="10" Grid.Row="17" VerticalContentAlignment="Stretch" Padding="3" Background="Gray"/>
+                            <TextBox x:Name="txtObservaciones" TextWrapping="Wrap" VerticalAlignment="Stretch" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="Observaciones" Grid.ColumnSpan="7" Grid.RowSpan="7" Grid.Column="10" Grid.Row="17" VerticalContentAlignment="Stretch" Padding="3" Background="Gray"/>
                             <Button x:Name="btnListaContratos" Content="Lista de Contratos" Grid.Column="14" Height="Auto" Margin="0,1,0,0" Grid.Row="2" Grid.ColumnSpan="3" Click="BtnListaContratos_Click"/>
 
                             <materialDesign:PopupBox x:Name="popGestion" Grid.Row="27" Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}" PlacementMode="RightAndAlignMiddles" UnfurlOrientation="Horizontal"
@@ -265,8 +265,9 @@
 
                             </Button>
                             <Label x:Name="lblSeleccionGestion" Content="Seleccione Gestion" HorizontalAlignment="Left" Margin="0,0,0,6" Grid.Column="12" Grid.RowSpan="3" Grid.Row="28" Grid.ColumnSpan="3" Width="134"/>
-                            <ComboBox x:Name="cboTipoEventoNombre" materialDesign:HintAssist.Hint="Evento" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="19" Grid.Column="4" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" SelectedValuePath="IdTipoEvento" DisplayMemberPath="Nombre" Grid.ColumnSpan="4" Grid.RowSpan="3" Margin="0,0,0,1" />
+                            <ComboBox x:Name="cboTipoEventoNombre" materialDesign:HintAssist.Hint="Evento" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="19" Grid.Column="4" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" SelectedValuePath="IdModalidad" DisplayMemberPath="Nombre" Grid.ColumnSpan="4" Grid.RowSpan="3" Margin="0,0,0,1" />
                             <Image Source="img/white_logo_transparent_background.png" Grid.ColumnSpan="3" Grid.Column="2" Grid.RowSpan="5" Margin="0,0,0,10"/>
+                            <DatePicker x:Name="fechaTerminoPicker" materialDesign:HintAssist.Hint="Fecha Termino" Grid.Column="10" Grid.Row="9" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontStyle="Italic" Grid.ColumnSpan="4" Margin="2,0,10,9" Grid.RowSpan="2" />
 
                         </Grid>
                     </StackPanel>

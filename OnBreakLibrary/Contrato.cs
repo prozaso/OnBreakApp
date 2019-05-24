@@ -23,6 +23,7 @@ namespace OnBreakLibrary
         private double _valorTotalContrato;
         private string _observaciones;
 
+
         public Contrato(string numero, DateTime creacion, DateTime termino, string rutCliente, string idModalidad, int idTipoEvento, DateTime fechaHoraInicio, DateTime fechaHoraTermino, int asistentes, int personalAdicional, bool realizado, double valorTotalContrato, string observaciones)
         {
             Numero = numero;
@@ -38,12 +39,15 @@ namespace OnBreakLibrary
             Realizado = realizado;
             ValorTotalContrato = valorTotalContrato;
             Observaciones = observaciones;
+
         }
 
         public Contrato()
         {
 
         }
+
+
 
         public string Observaciones
         {
