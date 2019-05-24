@@ -24,30 +24,17 @@ namespace OnBreakLibrary
         }
 
 
-        public List<ModalidadServicio> BuscarModalidad(int modalidad)
+        public List<ModalidadServicio> BuscarModalidad(int evento)
         {
             return (from t in this.bd.ModalidadServicio
-                    where t.IdTipoEvento == modalidad
+                    where t.IdTipoEvento == evento
                     select new ModalidadServicio()
                     {
-                        IdTipoEvento = t.IdTipoEvento,
+                        IdModalidad = t.IdModalidad,
                         Nombre = t.Nombre.Trim()
                     }).ToList();
         }
 
-        //public List<ModalidadServicio> BuscarModalidad(int IdTipoEvento)
-        //{
 
-        //    return (from c in this.bd.ModalidadServicio
-        //            where c.IdTipoEvento == IdTipoEvento
-        //            select new ModalidadServicio()
-        //            {
-
-        //                IdTipoEvento = c.IdTipoEvento,
-        //                Nombre = c.Nombre
-
-        //            }).ToList();
-
-        //}
     }
 }

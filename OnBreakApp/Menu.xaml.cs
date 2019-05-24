@@ -139,7 +139,6 @@ namespace OnBreakApp
             SizeToContent = SizeToContent.WidthAndHeight;
 
             
-
             //Gestion Clientes
             dgClientes.ItemsSource = null;
             dgClientes.ItemsSource = ClienteCollection.ReadAll();
@@ -167,9 +166,6 @@ namespace OnBreakApp
 
             cboTipoEvento.ItemsSource = null;
             cboTipoEvento.ItemsSource = TipoEventoCollection.ListaTipoEvento();
-
-            cboTipoEventoNombre.ItemsSource = null;
-            cboTipoEventoNombre.ItemsSource = ModalidadServicioCollection.ListaModalidadServicio();
 
 
         }
@@ -232,7 +228,7 @@ namespace OnBreakApp
         //Gestion Clientes
         private void BtnBuscar_Click(object sender, RoutedEventArgs e)
         {
-            String rut = txtRut.Text;
+            string rut = txtRut.Text;
 
             Cliente cliente = this.ClienteCollection.BuscarClientePorRut(rut);
 
@@ -250,8 +246,8 @@ namespace OnBreakApp
                     txtMail.Text = cliente.Mail;
                     txtDireccion.Text = cliente.Direccion;
                     txtTelefono.Text = cliente.Telefono;
-                    cboActividad.SelectedValue = cliente.IdActividadEmpresa;
-                    cboTipo.SelectedValue = cliente.IdTipoEmpresa;
+                    cboActividad.SelectedIndex = cliente.IdActividadEmpresa;
+                    cboTipo.SelectedIndex = cliente.IdTipoEmpresa;
                 }
             }
             catch (Exception)
@@ -265,6 +261,7 @@ namespace OnBreakApp
 
             Cliente cliente = new Cliente();
             string rut = txtRut.Text;
+
             try
             {
                 cliente.Rut = rut;
@@ -273,8 +270,9 @@ namespace OnBreakApp
                 cliente.Mail = txtMail.Text;
                 cliente.Direccion = txtDireccion.Text;
                 cliente.Telefono = txtTelefono.Text;
-                cliente.IdActividadEmpresa = int.Parse(cboActividad.SelectedValue.ToString());
-                cliente.IdTipoEmpresa = int.Parse(cboTipo.SelectedValue.ToString());
+                cliente.IdActividadEmpresa = int.Parse(cboActividad.SelectedIndex.ToString());
+                cliente.IdTipoEmpresa = int.Parse(cboTipo.SelectedIndex.ToString());
+
 
                 if (this.ClienteCollection.AgregarCliente(cliente))
                 {
@@ -369,8 +367,26 @@ namespace OnBreakApp
             cboTipoEventoNombre.SelectedIndex = -1;
 
             fechaInicioPicker.SelectedDate = null;
+            fechaTerminoPicker.SelectedDate = null;
             horaInicioPicker.SelectedTime = null;
             horaTerminoPicker.SelectedTime = null;
+
+            
+            txtNumeroDeContrato.IsEnabled = true;
+            txtRutClienteContrato.IsEnabled = true;
+            cboTipoEvento.IsEnabled = true;
+            cboTipoEventoNombre.IsEnabled = true;
+            cboAsistentes.IsEnabled = true;
+            cboPersonalAdicional.IsEnabled = true;
+            txtValorEvento.IsEnabled = true;
+            fechaInicioPicker.IsEnabled = true;
+            fechaTerminoPicker.IsEnabled = true;
+            horaInicioPicker.IsEnabled = true;
+            horaTerminoPicker.IsEnabled = true;
+            txtDireccion.IsEnabled = true;
+            txtObservaciones.IsEnabled = true;
+            popGestion.IsEnabled = true;
+
 
         }
 
@@ -416,6 +432,7 @@ namespace OnBreakApp
                         cboTipoEvento.SelectedValue = contrato.IdTipoEvento;
                         cboTipoEventoNombre.SelectedValue = contrato.IdModalidad;
                         fechaInicioPicker.SelectedDate = contrato.FechaHoraInicio;
+                        fechaTerminoPicker.SelectedDate = contrato.FechaHoraTermino;
                         horaInicioPicker.SelectedTime = contrato.FechaHoraInicio;
                         horaTerminoPicker.SelectedTime = contrato.FechaHoraTermino;
                         cboAsistentes.SelectedValue = contrato.Asistentes;
@@ -432,6 +449,7 @@ namespace OnBreakApp
                         cboTipoEvento.SelectedValue = contrato.IdTipoEvento;
                         cboTipoEventoNombre.SelectedValue = contrato.IdModalidad;
                         fechaInicioPicker.SelectedDate = contrato.FechaHoraInicio;
+                        fechaTerminoPicker.SelectedDate = contrato.FechaHoraTermino;
                         horaInicioPicker.SelectedTime = contrato.FechaHoraInicio;
                         horaTerminoPicker.SelectedTime = contrato.FechaHoraTermino;
                         cboAsistentes.SelectedValue = contrato.Asistentes;
@@ -496,7 +514,7 @@ namespace OnBreakApp
                 contrato.Creacion = DateTime.Parse(fechaCreacion);
 
                 //guardamos la fecha de creacion en fecha termino para cuando el usuario termne el contrato esta fecha sea reemplazada
-                string fechaTerminoUsuario = DateTime.Today.ToString("dd/MM/yyyy");
+                string fechaTerminoUsuario = DateTime.Now.ToString("dd/MM/yyyy");
                 contrato.Termino = DateTime.Parse(fechaTerminoUsuario);
 
                 contrato.RutCliente = txtRutClienteContrato.Text;
@@ -807,14 +825,23 @@ namespace OnBreakApp
 
         private void CboTipoEvento_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //if (cboTipoEvento.SelectedValue.ToString() != null)
-            //{
-            //    int modalidad = int.Parse(cboTipoEvento.SelectedValue.ToString());
 
+            if (cboTipoEvento.SelectedValue == null)
+            {
+                cboTipoEventoNombre.ItemsSource = null;
+            }
+            else
+            {
+                int evento = int.Parse(cboTipoEvento.SelectedValue.ToString());
+                cboTipoEventoNombre.ItemsSource = null;
+                cboTipoEventoNombre.ItemsSource = ModalidadServicioCollection.BuscarModalidad(evento);
+            }
 
-            //    ModalidadServicioCollection.BuscarModalidad(modalidad);
-            //}
         }
+
+
+
+
 
 
 

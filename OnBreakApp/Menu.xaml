@@ -45,7 +45,7 @@
             <StackPanel Width="auto" Height="auto" >
 
                 <Expander x:Name="expGestionClientes" Header="Gestion Clientes" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FFD32F2F" Width="auto" Height="auto" Expanded="expanderGestionClientes" VerticalContentAlignment="Stretch">
-                    <Grid Height="291" Width="650" Margin="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid Height="291" Width="674" Margin="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0*"/>
                             <RowDefinition Height="30*"/>
@@ -119,7 +119,7 @@
 
                 <Expander x:Name="expListaClientes" HorizontalAlignment="Stretch" Header="Lista Clientes" Background="#FFD32F2F" Width="auto" Height="auto" Expanded="expanderListaClientes" VerticalContentAlignment="Stretch">
                     <StackPanel Margin="0" Width="auto" Height="auto" >
-                        <Grid Height="300" Width="600" Margin="30">
+                        <Grid Height="300" Width="674" Margin="30">
 
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="0*"/>
@@ -146,7 +146,7 @@
 
                 <Expander x:Name="expGestionContratos" HorizontalAlignment="Stretch" Header="Gestion Contratos" Background="#FFD32F2F" Width="auto" Height="auto" Expanded="expanderGestionContratos" VerticalContentAlignment="Stretch">
                     <StackPanel Margin="0" Width="auto" Height="auto" >
-                        <Grid Height="481" Width="674" Margin="35,30" >
+                        <Grid Height="481" Width="672" Margin="30" >
                             <Grid.RowDefinitions>
 
                                 <RowDefinition Height="0*"/>
@@ -276,7 +276,7 @@
 
                 <Expander x:Name="expListaContratos" HorizontalAlignment="Stretch" Header="Lista Contratos" Background="#FFD32F2F" Width="auto" Height="auto" Expanded="expanderListaContratos" VerticalContentAlignment="Stretch">
                     <StackPanel Margin="0" Width="auto" Height="auto" >
-                        <Grid Height="300" Width="600" Margin="30">
+                        <Grid Height="300" Width="674" Margin="30">
 
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="0*"/>
