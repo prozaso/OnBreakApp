@@ -257,7 +257,8 @@ namespace OnBreakApp
                     txtDireccion.Text = cliente.Direccion;
                     txtTelefono.Text = cliente.Telefono;
                     cboActividad.SelectedIndex = cliente.IdActividadEmpresa;
-                    cboTipo.SelectedIndex = 20;
+                    cboTipo.IsEnabled = true;
+                    cboTipo.SelectedValue = cliente.IdTipoEmpresa;
                 }
             }
             catch (Exception)
