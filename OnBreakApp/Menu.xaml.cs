@@ -269,29 +269,54 @@ namespace OnBreakApp
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-
-            Cliente cliente = new Cliente();
-            string rut = txtRut.Text;
-
+            
             try
             {
-                
+                string rut = txtRut.Text;
+                string correo = txtMail.Text;
 
-                    cliente.RutCliente = rut;
-                    cliente.RazonSocial = txtRazon.Text;
-                    cliente.NombreContacto = txtNombre.Text;
-                    cliente.MailContacto = txtMail.Text;
-                    cliente.Direccion = txtDireccion.Text;
-                    cliente.Telefono = txtTelefono.Text;
-                    cliente.IdActividadEmpresa = int.Parse(cboActividad.SelectedValue.ToString());
-                    cliente.IdTipoEmpresa = int.Parse(cboTipo.SelectedValue.ToString());
+                Cliente cliente = new Cliente();
+
+                if (ClienteCollection.BuscarClientePorRut(rut) != null)
+                {
+                    MessageBox.Show("Este cliente/Rut ya se encuentra en sistema");
+                }
+                else
+                {
+
+                    if (!Validadores.validarRut(rut))
+                    {
+                        MessageBox.Show("Rut incorrecto");
+                        return;
+                    }
+                    else if (!Validadores.validarCorreo(correo))
+                    {
+                        MessageBox.Show("Correo incorrecto");
+                        return;
+                    }
+                    else
+                    {
+
+                        cliente.RutCliente = rut.Replace(".", "");
+                        cliente.RazonSocial = txtRazon.Text;
+                        cliente.NombreContacto = txtNombre.Text;
+                        cliente.MailContacto = txtMail.Text;
+                        cliente.Direccion = txtDireccion.Text;
+                        cliente.Telefono = txtTelefono.Text;
+                        cliente.IdActividadEmpresa = int.Parse(cboActividad.SelectedValue.ToString());
+                        cliente.IdTipoEmpresa = int.Parse(cboTipo.SelectedValue.ToString());
+
                         if (ClienteCollection.AgregarCliente(cliente))
                         {
                             MessageBox.Show("Cliente agregado correctamente");
                             dgClientes.ItemsSource = ClienteCollection.ReadAll();
                         }
-                
-
+                        else
+                        {
+                            MessageBox.Show("Cliente no se pudo agregar");
+                        }
+                    }
+                }
             }
 
             catch (Exception)

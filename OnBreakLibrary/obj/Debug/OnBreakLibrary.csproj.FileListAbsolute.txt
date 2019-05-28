@@ -31,3 +31,15 @@ C:\Users\skois\Desktop\on\OnBreakLibrary\obj\Debug\OnBreakLibrary.csproj.CoreCom
 C:\Users\skois\Desktop\on\OnBreakLibrary\obj\Debug\OnBreakLibrary.csproj.CopyComplete
 C:\Users\skois\Desktop\on\OnBreakLibrary\obj\Debug\OnBreakLibrary.dll
 C:\Users\skois\Desktop\on\OnBreakLibrary\obj\Debug\OnBreakLibrary.pdb
+C:\Users\skois\Desktop\Nueva carpeta (3)\Nueva carpeta\OnBreakLibrary\bin\Debug\OnBreakLibrary.dll
+C:\Users\skois\Desktop\Nueva carpeta (3)\Nueva carpeta\OnBreakLibrary\bin\Debug\OnBreakLibrary.pdb
+C:\Users\skois\Desktop\Nueva carpeta (3)\Nueva carpeta\OnBreakLibrary\bin\Debug\EntityFramework.dll
+C:\Users\skois\Desktop\Nueva carpeta (3)\Nueva carpeta\OnBreakLibrary\bin\Debug\OnBreak.DALC.dll
+C:\Users\skois\Desktop\Nueva carpeta (3)\Nueva carpeta\OnBreakLibrary\bin\Debug\OnBreak.DALC.pdb
+C:\Users\skois\Desktop\Nueva carpeta (3)\Nueva carpeta\OnBreakLibrary\bin\Debug\OnBreak.DALC.dll.config
+C:\Users\skois\Desktop\Nueva carpeta (3)\Nueva carpeta\OnBreakLibrary\bin\Debug\EntityFramework.xml
+C:\Users\skois\Desktop\Nueva carpeta (3)\Nueva carpeta\OnBreakLibrary\obj\Debug\OnBreakLibrary.csprojAssemblyReference.cache
+C:\Users\skois\Desktop\Nueva carpeta (3)\Nueva carpeta\OnBreakLibrary\obj\Debug\OnBreakLibrary.csproj.CoreCompileInputs.cache
+C:\Users\skois\Desktop\Nueva carpeta (3)\Nueva carpeta\OnBreakLibrary\obj\Debug\OnBreakLibrary.csproj.CopyComplete
+C:\Users\skois\Desktop\Nueva carpeta (3)\Nueva carpeta\OnBreakLibrary\obj\Debug\OnBreakLibrary.dll
+C:\Users\skois\Desktop\Nueva carpeta (3)\Nueva carpeta\OnBreakLibrary\obj\Debug\OnBreakLibrary.pdb
