@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using OnBreakLibrary;
+using Microsoft.VisualBasic;
+using System.Windows.Interactivity;
 
 namespace OnBreakApp
 {
@@ -44,6 +46,7 @@ namespace OnBreakApp
         private TipoEventoCollection _tipoEventoCollection = new TipoEventoCollection();
         private ModalidadServicioCollection _modalidadServicioCollection = new ModalidadServicioCollection();
         private Validadores _validadores = new Validadores();
+        private Valorizador _valorizador = new Valorizador();
 
         public ClienteCollection ClienteCollection
         {
@@ -131,6 +134,18 @@ namespace OnBreakApp
             }
         }
 
+        public Valorizador Valorizador
+        {
+            get
+            {
+                return _valorizador;
+            }
+            set
+            {
+                _valorizador = value;
+            }
+        }
+
 
         public Menu()
         {
@@ -145,21 +160,13 @@ namespace OnBreakApp
 
             cboActividad.ItemsSource = null;
             cboActividad.ItemsSource = ActividadEmpresaCollection.ListaActividadEmpresa();
+
             cboTipo.ItemsSource = null;
             cboTipo.ItemsSource = TipoEmpresaCollection.ListaTipoEmpresa();
-
 
             //Lista Contratos
             dgListaContratos.ItemsSource = null;
             dgListaContratos.ItemsSource = ContratoCollection.ReadAll();
-
-
-            //Gestion Contratos
-            cboAsistentes.ItemsSource = null;
-            cboAsistentes.ItemsSource = ContratoCollection.CantidadAsistentes();
-
-            cboPersonalAdicional.ItemsSource = null;
-            cboPersonalAdicional.ItemsSource = ContratoCollection.PersonalAdicional();
 
             dgListaContratos.ItemsSource = null;
             dgListaContratos.ItemsSource = ContratoCollection.ReadAll();
@@ -167,7 +174,10 @@ namespace OnBreakApp
             cboTipoEvento.ItemsSource = null;
             cboTipoEvento.ItemsSource = TipoEventoCollection.ListaTipoEvento();
 
+            cboBuscarTipo.ItemsSource = null;
+            cboBuscarTipo.ItemsSource = TipoEmpresaCollection.ListaTipoEmpresa();
 
+        
         }
 
 
@@ -240,14 +250,14 @@ namespace OnBreakApp
                 }
                 else
                 {
-                    txtRut.Text = cliente.Rut;
+                    txtRut.Text = cliente.RutCliente;
                     txtRazon.Text = cliente.RazonSocial;
-                    txtNombre.Text = cliente.Nombre;
-                    txtMail.Text = cliente.Mail;
+                    txtNombre.Text = cliente.NombreContacto;
+                    txtMail.Text = cliente.MailContacto;
                     txtDireccion.Text = cliente.Direccion;
                     txtTelefono.Text = cliente.Telefono;
                     cboActividad.SelectedIndex = cliente.IdActividadEmpresa;
-                    cboTipo.SelectedIndex = cliente.IdTipoEmpresa;
+                    cboTipo.SelectedIndex = 20;
                 }
             }
             catch (Exception)
@@ -264,24 +274,23 @@ namespace OnBreakApp
 
             try
             {
-                cliente.Rut = rut;
-                cliente.RazonSocial = txtRazon.Text;
-                cliente.Nombre = txtNombre.Text;
-                cliente.Mail = txtMail.Text;
-                cliente.Direccion = txtDireccion.Text;
-                cliente.Telefono = txtTelefono.Text;
-                cliente.IdActividadEmpresa = int.Parse(cboActividad.SelectedIndex.ToString());
-                cliente.IdTipoEmpresa = int.Parse(cboTipo.SelectedIndex.ToString());
+                
 
+                    cliente.RutCliente = rut;
+                    cliente.RazonSocial = txtRazon.Text;
+                    cliente.NombreContacto = txtNombre.Text;
+                    cliente.MailContacto = txtMail.Text;
+                    cliente.Direccion = txtDireccion.Text;
+                    cliente.Telefono = txtTelefono.Text;
+                    cliente.IdActividadEmpresa = int.Parse(cboActividad.SelectedValue.ToString());
+                    cliente.IdTipoEmpresa = int.Parse(cboTipo.SelectedValue.ToString());
+                        if (ClienteCollection.AgregarCliente(cliente))
+                        {
+                            MessageBox.Show("Cliente agregado correctamente");
+                            dgClientes.ItemsSource = ClienteCollection.ReadAll();
+                        }
+                
 
-                if (this.ClienteCollection.AgregarCliente(cliente))
-                {
-                    MessageBox.Show("Cliente agregado correctamente");
-                }
-                else
-                {
-                    MessageBox.Show("Este cliente ya existe");
-                }
             }
 
             catch (Exception)
@@ -292,15 +301,26 @@ namespace OnBreakApp
 
         private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
         {
-            txtRut.Text = "";
-            txtRazon.Text = "";
-            txtNombre.Text = "";
-            txtMail.Text = "";
-            txtDireccion.Text = "";
-            txtTelefono.Text = "";
 
-            cboActividad.SelectedIndex = -1;
-            cboTipo.SelectedIndex = -1;
+            try
+            {
+                txtRut.Text = "";
+                txtRazon.Text = "";
+                txtNombre.Text = "";
+                txtMail.Text = "";
+                txtDireccion.Text = "";
+                txtTelefono.Text = "";
+
+                cboActividad.SelectedIndex = -1;
+                cboTipo.SelectedIndex = -1;
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error limpiando campos");
+            }
+
+            
         }
 
         private void BtnListadoClientes_Click(object sender, RoutedEventArgs e)
@@ -315,24 +335,35 @@ namespace OnBreakApp
         {
             Cliente cliente = new Cliente();
             string rut = txtRut.Text;
+
             try
             {
-                //cliente.Rut = rut;
-                cliente.RazonSocial = txtRazon.Text;
-                cliente.Nombre = txtNombre.Text;
-                cliente.Mail = txtMail.Text;
-                cliente.Direccion = txtDireccion.Text;
-                cliente.Telefono = txtTelefono.Text;
-                cliente.IdActividadEmpresa = int.Parse(cboActividad.SelectedValue.ToString());
-                cliente.IdTipoEmpresa = int.Parse(cboTipo.SelectedValue.ToString());
 
-                if (this.ClienteCollection.ModificarCliente(cliente))
+                if (ClienteCollection.BuscarClientePorRut(rut) == null)
                 {
-                    MessageBox.Show("Cliente modificado correctamente");
+                    MessageBox.Show("Cliente no existe");
                 }
                 else
-                {
-                    MessageBox.Show("Este cliente no se pudo modificar");
+                { 
+
+                    cliente.RutCliente = rut;
+                    cliente.RazonSocial = txtRazon.Text;
+                    cliente.NombreContacto = txtNombre.Text;
+                    cliente.MailContacto = txtMail.Text;
+                    cliente.Direccion = txtDireccion.Text;
+                    cliente.Telefono = txtTelefono.Text;
+                    cliente.IdActividadEmpresa = int.Parse(cboActividad.SelectedValue.ToString());
+                    cliente.IdTipoEmpresa = int.Parse(cboTipo.SelectedValue.ToString());
+
+                    if (ClienteCollection.ModificarCliente(cliente))
+                    {
+                        MessageBox.Show("Cliente modificado correctamente");
+                        dgClientes.ItemsSource = ClienteCollection.ReadAll();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Este cliente no se pudo modificar");
+                    }
                 }
             }
 
@@ -354,38 +385,48 @@ namespace OnBreakApp
 
         private void BtnLimpiarCampos_Click(object sender, RoutedEventArgs e)
         {
-            txtNumeroDeContrato.Text = "";
-            txtRutClienteContrato.Text = "";
-            txtNombreClienteContrato.Text = "";
-            txtValorEvento.Text = "";
-            txtDireccionContrato.Text = "";
-            txtObservaciones.Text = "";
 
-            cboTipoEvento.SelectedIndex = -1;
-            cboAsistentes.SelectedIndex = -1;
-            cboPersonalAdicional.SelectedIndex = -1;
-            cboTipoEventoNombre.SelectedIndex = -1;
+            try
+            {
+                txtNumeroDeContrato.Text = "";
+                txtRutClienteContrato.Text = "";
+                txtNombreClienteContrato.Text = "";
+                txtValorEvento.Text = "";
+                txtObservaciones.Text = "";
+                txtPersonalBase.Text = "";
 
-            fechaInicioPicker.SelectedDate = null;
-            fechaTerminoPicker.SelectedDate = null;
-            horaInicioPicker.SelectedTime = null;
-            horaTerminoPicker.SelectedTime = null;
+                cboTipoEvento.SelectedIndex = -1;
+                txtAsistentes.Text = "";
+                txtPersonalAdicional.Text = "";
+                cboTipoEventoNombre.SelectedIndex = -1;
+
+                fechaInicioPicker.SelectedDate = null;
+                fechaTerminoPicker.SelectedDate = null;
+                horaInicioPicker.SelectedTime = null;
+                horaTerminoPicker.SelectedTime = null;
+
+
+                txtNumeroDeContrato.IsEnabled = true;
+                txtRutClienteContrato.IsEnabled = true;
+                cboTipoEvento.IsEnabled = true;
+                cboTipoEventoNombre.IsEnabled = true;
+                txtAsistentes.IsEnabled = true;
+                txtPersonalAdicional.IsEnabled = true;
+                txtValorEvento.IsEnabled = true;
+                fechaInicioPicker.IsEnabled = true;
+                fechaTerminoPicker.IsEnabled = true;
+                horaInicioPicker.IsEnabled = true;
+                horaTerminoPicker.IsEnabled = true;
+                txtObservaciones.IsEnabled = true;
+                popGestion.IsEnabled = true;
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error limpiando campos");
+            }
 
             
-            txtNumeroDeContrato.IsEnabled = true;
-            txtRutClienteContrato.IsEnabled = true;
-            cboTipoEvento.IsEnabled = true;
-            cboTipoEventoNombre.IsEnabled = true;
-            cboAsistentes.IsEnabled = true;
-            cboPersonalAdicional.IsEnabled = true;
-            txtValorEvento.IsEnabled = true;
-            fechaInicioPicker.IsEnabled = true;
-            fechaTerminoPicker.IsEnabled = true;
-            horaInicioPicker.IsEnabled = true;
-            horaTerminoPicker.IsEnabled = true;
-            txtDireccion.IsEnabled = true;
-            txtObservaciones.IsEnabled = true;
-            popGestion.IsEnabled = true;
 
 
         }
@@ -394,7 +435,6 @@ namespace OnBreakApp
         {
 
             String numero = txtNumeroDeContrato.Text;
-
             Contrato contrato = this.ContratoCollection.BuscarContratoPorNumero(numero);
 
 
@@ -406,7 +446,7 @@ namespace OnBreakApp
                 }
                 else
                 {
-                    if (contrato.Realizado)
+                    if (contrato.Realizado == true)
                     {
 
                         //disable
@@ -415,8 +455,8 @@ namespace OnBreakApp
                         txtNombreClienteContrato.IsEnabled = false;
                         cboTipoEvento.IsEnabled = false;
                         cboTipoEventoNombre.IsEnabled = false;
-                        cboAsistentes.IsEnabled = false;
-                        cboPersonalAdicional.IsEnabled = false;
+                        txtAsistentes.IsEnabled = false;
+                        txtPersonalAdicional.IsEnabled = false;
                         txtValorEvento.IsEnabled = false;
                         fechaInicioPicker.IsEnabled = false;
                         horaInicioPicker.IsEnabled = false;
@@ -428,34 +468,58 @@ namespace OnBreakApp
                         //datos
                         txtNumeroDeContrato.Text = contrato.Numero;
                         txtRutClienteContrato.Text = contrato.RutCliente;
-                        txtNombreClienteContrato.Text = this.ClienteCollection.BuscarClientePorRut(contrato.RutCliente).Nombre;
+                        txtNombreClienteContrato.Text = this.ClienteCollection.BuscarClientePorRut(contrato.RutCliente).NombreContacto;
                         cboTipoEvento.SelectedValue = contrato.IdTipoEvento;
-                        cboTipoEventoNombre.SelectedValue = contrato.IdModalidad;
+                        //cboTipoEventoNombre.SelectedValue = contrato.IdModalidad;
                         fechaInicioPicker.SelectedDate = contrato.FechaHoraInicio;
                         fechaTerminoPicker.SelectedDate = contrato.FechaHoraTermino;
                         horaInicioPicker.SelectedTime = contrato.FechaHoraInicio;
                         horaTerminoPicker.SelectedTime = contrato.FechaHoraTermino;
-                        cboAsistentes.SelectedValue = contrato.Asistentes;
-                        cboPersonalAdicional.SelectedValue = contrato.PersonalAdicional;
+                        txtAsistentes.Text = contrato.Asistentes.ToString();
+                        txtPersonalAdicional.Text = contrato.PersonalAdicional.ToString();
                         txtValorEvento.Text = contrato.ValorTotalContrato.ToString();
                         txtObservaciones.Text = contrato.Observaciones;
+
+
+                            string evento = cboTipoEventoNombre.SelectedValue.ToString();
+                            txtPersonalBase.Text = ModalidadServicioCollection.personalBase(evento).ToString();
+
+                            int eventoMOD = int.Parse(cboTipoEvento.SelectedValue.ToString());
+                            cboTipoEventoNombre.ItemsSource = null;
+                            cboTipoEventoNombre.ItemsSource = ModalidadServicioCollection.BuscarModalidad(eventoMOD);
+
                     }
                     else
                     {
                         //datos
                         txtNumeroDeContrato.Text = contrato.Numero;
                         txtRutClienteContrato.Text = contrato.RutCliente;
-                        txtNombreClienteContrato.Text = this.ClienteCollection.BuscarClientePorRut(contrato.RutCliente).Nombre;
+                        txtNombreClienteContrato.Text = this.ClienteCollection.BuscarClientePorRut(contrato.RutCliente).NombreContacto;
                         cboTipoEvento.SelectedValue = contrato.IdTipoEvento;
-                        cboTipoEventoNombre.SelectedValue = contrato.IdModalidad;
+                        //cboTipoEventoNombre.SelectedValue = ModalidadServicioCollection.BuscarModalidad(contrato.IdTipoEvento);
                         fechaInicioPicker.SelectedDate = contrato.FechaHoraInicio;
                         fechaTerminoPicker.SelectedDate = contrato.FechaHoraTermino;
                         horaInicioPicker.SelectedTime = contrato.FechaHoraInicio;
                         horaTerminoPicker.SelectedTime = contrato.FechaHoraTermino;
-                        cboAsistentes.SelectedValue = contrato.Asistentes;
-                        cboPersonalAdicional.SelectedValue = contrato.PersonalAdicional;
+                        txtAsistentes.Text = contrato.Asistentes.ToString();
+                        txtPersonalAdicional.Text = contrato.PersonalAdicional.ToString();
                         txtValorEvento.Text = contrato.ValorTotalContrato.ToString();
                         txtObservaciones.Text = contrato.Observaciones;
+
+                        if (cboTipoEvento.SelectedValue == null)
+                        {
+                            cboTipoEventoNombre.ItemsSource = null;
+                        }
+                        else
+                        {
+                            int eventoP = int.Parse(cboTipoEvento.SelectedValue.ToString());
+                            cboTipoEventoNombre.ItemsSource = null;
+                            cboTipoEventoNombre.ItemsSource = ModalidadServicioCollection.BuscarModalidad(eventoP);
+                        }
+
+                        string evento = cboTipoEventoNombre.SelectedValue.ToString();
+                            txtPersonalBase.Text = ModalidadServicioCollection.personalBase(evento).ToString();
+
                     }
                 }
             }
@@ -481,7 +545,7 @@ namespace OnBreakApp
                 }
                 else
                 {
-                    txtNombreClienteContrato.Text = cliente.Nombre;
+                    txtNombreClienteContrato.Text = cliente.NombreContacto;
                 }
             }
             catch (Exception)
@@ -494,17 +558,12 @@ namespace OnBreakApp
         private void popCrearContrato_Click(object sender, RoutedEventArgs e)
         {
 
-            int uf = 28000;
-            int recargoAsistentes;
-            double recargoPersonalAdicional;
-
-
-            Contrato contrato = new Contrato();
-            ModalidadServicio modalidadServicio = new ModalidadServicio();
-
 
             try
             {
+
+                Contrato contrato = new Contrato();
+                ModalidadServicio modalidadServicio = new ModalidadServicio();
 
                 contrato.Numero = DateTime.Now.ToString("ddMMyyyyHHmm");
 
@@ -520,7 +579,7 @@ namespace OnBreakApp
                 contrato.RutCliente = txtRutClienteContrato.Text;
 
                 contrato.IdTipoEvento = int.Parse(cboTipoEvento.SelectedValue.ToString());
-                contrato.IdModalidad = "CB001";
+                contrato.IdModalidad = cboTipoEventoNombre.SelectedValue.ToString();
 
                 //guardamos la fecha y hora de inicio del evento
                 string fechaInicio = fechaInicioPicker.SelectedDate.Value.ToString("dd/MM/yyyy");
@@ -531,69 +590,24 @@ namespace OnBreakApp
                 string fechaTermino = fechaTerminoPicker.SelectedDate.Value.ToString("dd/MM/yyyy");
                 contrato.FechaHoraTermino = horaTerminoPicker.SelectedTime.Value;
 
-                contrato.Asistentes = int.Parse(cboAsistentes.SelectedValue.ToString());
-                contrato.PersonalAdicional = int.Parse(cboPersonalAdicional.SelectedValue.ToString());
+                contrato.Asistentes = int.Parse(txtAsistentes.Text.ToString());
+                contrato.PersonalAdicional = int.Parse(txtPersonalAdicional.Text.ToString());
 
                 contrato.Observaciones = txtObservaciones.Text.ToString();
                 contrato.Realizado = false;
 
-
-                //obtenemos el valor de RECARGO POR ASISTENTES
-                if (int.Parse(cboAsistentes.SelectedValue.ToString()) < 21)
-                {
-                    recargoAsistentes = (uf * 3);
-                }
-                else if (int.Parse(cboAsistentes.SelectedValue.ToString()) < 51)
-                {
-                    recargoAsistentes = (uf * 5);
-                }
-                else
-                {
-                    recargoAsistentes = /*Math.Truncate*/(((int.Parse(cboAsistentes.SelectedValue.ToString()) - 50) / 20) * (uf * 2)) + (uf * 5);
-                }
-
-
-                //obtenemos el valor de RECARGO POR PERSONAL ADICIONAL
-                if (int.Parse(cboPersonalAdicional.SelectedValue.ToString()) < 3)
-                {
-                    recargoPersonalAdicional = (uf * 2);
-                }
-                else if (int.Parse(cboPersonalAdicional.SelectedValue.ToString()) < 4)
-                {
-                    recargoPersonalAdicional = (uf * 3);
-                }
-                else if (int.Parse(cboPersonalAdicional.SelectedValue.ToString()) < 5)
-                {
-                    recargoPersonalAdicional = (uf * 3.5);
-                }
-                else
-                {
-                    recargoPersonalAdicional = ((int.Parse(cboPersonalAdicional.SelectedValue.ToString()) - 4) * (uf / 2)) + (uf * 3.5);
-                }
-
-
-                //recibimos el tipo de evento, le sumamos los recargos y le asignamos el valor total al contrato y textbox
-                if (int.Parse(cboTipoEvento.SelectedValue.ToString()) == 10)
-                {
-                    contrato.ValorTotalContrato = modalidadServicio.ValorBase * uf + recargoAsistentes + recargoPersonalAdicional;
-                    txtValorEvento.Text = contrato.ValorTotalContrato.ToString("C0");
-                }
-
-                if (int.Parse(cboTipoEvento.SelectedValue.ToString()) == 20)
-                {
-                    contrato.ValorTotalContrato = modalidadServicio.ValorBase * uf + recargoAsistentes + recargoPersonalAdicional;
-                    txtValorEvento.Text = contrato.ValorTotalContrato.ToString("C0");
-                }
-
-                if (int.Parse(cboTipoEvento.SelectedValue.ToString()) == 30)
-                {
-                    contrato.ValorTotalContrato = modalidadServicio.ValorBase * uf + recargoAsistentes + recargoPersonalAdicional;
-                    txtValorEvento.Text = contrato.ValorTotalContrato.ToString("C0");
-                }
+                //calculamos valor del contrato para guardarlo
+                string e_Calculo = cboTipoEventoNombre.SelectedValue.ToString();
+                int cantidadAsistentes = int.Parse(txtAsistentes.Text.ToString());
+                int personalAdicional = int.Parse(txtPersonalAdicional.Text.ToString());
+                contrato.ValorTotalContrato = Valorizador.CalculoEvento(e_Calculo, cantidadAsistentes, personalAdicional);
 
                 if (this.ContratoCollection.CrearContrato(contrato))
                 {
+                    txtNumeroDeContrato.Text = DateTime.Now.ToString("ddMMyyyyHHmm");
                     MessageBox.Show("Contrato creado correctamente");
+                    dgListaContratos.ItemsSource = null;
+                    dgListaContratos.ItemsSource = ContratoCollection.ReadAll();
                 }
                 else
                 {
@@ -611,13 +625,7 @@ namespace OnBreakApp
         private void popActualizarContrato_Click(object sender, RoutedEventArgs e)
         {
 
-            int uf = 28000;
-            int recargoAsistentes;
-            double recargoPersonalAdicional;
-
-
             Contrato contrato = new Contrato();
-            ModalidadServicio modalidadServicio = new ModalidadServicio();
 
             try
             {
@@ -634,65 +642,16 @@ namespace OnBreakApp
                 contrato.FechaHoraInicio = horaInicioPicker.SelectedTime.Value.ToLocalTime();
                 contrato.FechaHoraTermino = horaTerminoPicker.SelectedTime.Value.ToLocalTime();
 
-                contrato.Asistentes = int.Parse(cboAsistentes.SelectedValue.ToString());
-                contrato.PersonalAdicional = int.Parse(cboPersonalAdicional.SelectedValue.ToString());
+                contrato.Asistentes = int.Parse(txtAsistentes.Text.ToString());
+                contrato.PersonalAdicional = int.Parse(txtPersonalAdicional.Text.ToString());
 
                 contrato.Observaciones = txtObservaciones.Text;
                 contrato.Realizado = false;
 
-
-                //obtenemos el valor de RECARGO POR ASISTENTES
-                if (int.Parse(cboAsistentes.SelectedValue.ToString()) < 21)
-                {
-                    recargoAsistentes = (uf * 3);
-                }
-                else if (int.Parse(cboAsistentes.SelectedValue.ToString()) < 51)
-                {
-                    recargoAsistentes = (uf * 5);
-                }
-                else
-                {
-                    recargoAsistentes = /*Math.Truncate*/(((int.Parse(cboAsistentes.SelectedValue.ToString()) - 50) / 20) * (uf * 2)) + (uf * 5);
-                }
-
-
-                //obtenemos el valor de RECARGO POR PERSONAL ADICIONAL
-                if (int.Parse(cboPersonalAdicional.SelectedValue.ToString()) < 3)
-                {
-                    recargoPersonalAdicional = (uf * 2);
-                }
-                else if (int.Parse(cboPersonalAdicional.SelectedValue.ToString()) < 4)
-                {
-                    recargoPersonalAdicional = (uf * 3);
-                }
-                else if (int.Parse(cboPersonalAdicional.SelectedValue.ToString()) < 5)
-                {
-                    recargoPersonalAdicional = (uf * 3.5);
-                }
-                else
-                {
-                    recargoPersonalAdicional = ((int.Parse(cboPersonalAdicional.SelectedValue.ToString()) - 4) * (uf / 2)) + (uf * 3.5);
-                }
-
-
-                //recibimos el tipo de evento, le sumamos los recargos y le asignamos el valor total al contrato y textbox
-                if (int.Parse(cboTipoEventoNombre.SelectedValue.ToString()) == 10)
-                {
-                    contrato.ValorTotalContrato = modalidadServicio.ValorBase * uf + recargoAsistentes + recargoPersonalAdicional;
-                    txtValorEvento.Text = contrato.ValorTotalContrato.ToString("C0");
-                }
-
-                if (int.Parse(cboTipoEventoNombre.SelectedValue.ToString()) == 20)
-                {
-                    contrato.ValorTotalContrato = modalidadServicio.ValorBase * uf + recargoAsistentes + recargoPersonalAdicional;
-                    txtValorEvento.Text = contrato.ValorTotalContrato.ToString("C0");
-                }
-
-                if (int.Parse(cboTipoEventoNombre.SelectedValue.ToString()) == 30)
-                {
-                    contrato.ValorTotalContrato = modalidadServicio.ValorBase * uf + recargoAsistentes + recargoPersonalAdicional;
-                    txtValorEvento.Text = contrato.ValorTotalContrato.ToString("C0");
-                }
+                string e_Calculo = cboTipoEventoNombre.SelectedValue.ToString();
+                int cantidadAsistentes = int.Parse(txtAsistentes.Text.ToString());
+                int personalAdicional = int.Parse(txtPersonalAdicional.Text.ToString());
+                contrato.ValorTotalContrato = Valorizador.CalculoEvento(e_Calculo, cantidadAsistentes, personalAdicional);
 
 
                 if (this.ContratoCollection.ModificarContrato(contrato))
@@ -716,112 +675,75 @@ namespace OnBreakApp
             string numero = txtNumeroDeContrato.Text;
             Contrato contrato = new Contrato();
 
-            if (ContratoCollection.BuscarContratoPorNumero(numero) == null)
+            try
             {
-                MessageBox.Show("Contrato no existe");
-            }
-            else
-            {
-
-                if (contrato.Termino < DateTime.Today)
+                if (ContratoCollection.BuscarContratoPorNumero(numero) == null)
+                {
+                    MessageBox.Show("Contrato no existe");
+                }
+                else
                 {
 
-                    string fechaTermino = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
-                    contrato.Termino = DateTime.Parse(fechaTermino);
+                    if (contrato.Termino < DateTime.Today)
+                    {
+
+                        string fechaTermino = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                        contrato.Termino = DateTime.Parse(fechaTermino);
 
 
-                    txtNumeroDeContrato.IsEnabled = false;
-                    txtRutClienteContrato.IsEnabled = false;
-                    txtNombreClienteContrato.IsEnabled = false;
-                    cboTipoEvento.IsEnabled = false;
-                    cboTipoEventoNombre.IsEnabled = false;
-                    cboAsistentes.IsEnabled = false;
-                    cboPersonalAdicional.IsEnabled = false;
-                    txtValorEvento.IsEnabled = false;
-                    fechaInicioPicker.IsEnabled = false;
-                    fechaTerminoPicker.IsEnabled = false;
-                    horaInicioPicker.IsEnabled = false;
-                    horaTerminoPicker.IsEnabled = false;
-                    txtDireccion.IsEnabled = false;
-                    txtObservaciones.IsEnabled = false;
-                    popGestion.IsEnabled = false;
+                        txtNumeroDeContrato.IsEnabled = false;
+                        txtRutClienteContrato.IsEnabled = false;
+                        txtNombreClienteContrato.IsEnabled = false;
+                        cboTipoEvento.IsEnabled = false;
+                        cboTipoEventoNombre.IsEnabled = false;
+                        txtAsistentes.IsEnabled = false;
+                        txtPersonalAdicional.IsEnabled = false;
+                        txtValorEvento.IsEnabled = false;
+                        fechaInicioPicker.IsEnabled = false;
+                        fechaTerminoPicker.IsEnabled = false;
+                        horaInicioPicker.IsEnabled = false;
+                        horaTerminoPicker.IsEnabled = false;
+                        txtDireccion.IsEnabled = false;
+                        txtObservaciones.IsEnabled = false;
+                        popGestion.IsEnabled = false;
 
-                    contrato.Realizado = true;
-                    MessageBox.Show("Contrato terminado correctamente");
+                        contrato.Realizado = true;
+                        MessageBox.Show("Contrato terminado correctamente");
+                    }
+
+                    MessageBox.Show("El contrato aún se encuentra vigente");
                 }
-
-                MessageBox.Show("El contrato aún se encuentra vigente");
             }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error Terminando contrato");
+            }
+
+            
         }
 
         private void BtnValorEvento_Click(object sender, RoutedEventArgs e)
         {
 
-            int uf = 28000;
-            int recargoAsistentes;
-            double recargoPersonalAdicional;
-            txtNumeroDeContrato.Text = DateTime.Now.ToString("ddMMyyyyHHmm");
-
             Contrato contrato = new Contrato();
-            ModalidadServicio modalidadServicio = new ModalidadServicio();
 
+            try
+            {
+                string e_Calculo = cboTipoEventoNombre.SelectedValue.ToString();
+                int cantidadAsistentes = int.Parse(txtAsistentes.Text.ToString());
+                int personalAdicional = int.Parse(txtPersonalAdicional.Text.ToString());
 
-            //obtenemos el valor de RECARGO POR ASISTENTES
-            if (int.Parse(cboAsistentes.SelectedValue.ToString()) < 21)
-            {
-                recargoAsistentes = (uf * 3);
+                txtValorEvento.Text = Valorizador.CalculoEvento(e_Calculo, cantidadAsistentes, personalAdicional).ToString();
             }
-            else if (int.Parse(cboAsistentes.SelectedValue.ToString()) < 51)
+            catch (Exception)
             {
-                recargoAsistentes = (uf * 5);
-            }
-            else
-            {
-                recargoAsistentes = /*Math.Truncate*/(((int.Parse(cboAsistentes.SelectedValue.ToString()) - 50) / 20) * (uf * 2)) + (uf * 5);
-            }
 
-
-            //obtenemos el valor de RECARGO POR PERSONAL ADICIONAL
-            if (int.Parse(cboPersonalAdicional.SelectedValue.ToString()) < 3)
-            {
-                recargoPersonalAdicional = (uf * 2);
-            }
-            else if (int.Parse(cboPersonalAdicional.SelectedValue.ToString()) < 4)
-            {
-                recargoPersonalAdicional = (uf * 3);
-            }
-            else if (int.Parse(cboPersonalAdicional.SelectedValue.ToString()) < 5)
-            {
-                recargoPersonalAdicional = (uf * 3.5);
-            }
-            else
-            {
-                recargoPersonalAdicional = ((int.Parse(cboPersonalAdicional.SelectedValue.ToString()) - 4) * (uf / 2)) + (uf * 3.5);
-            }
-
-
-            //recibimos el tipo de evento, le sumamos los recargos y le asignamos el valor total al contrato y textbox
-            if (int.Parse(cboTipoEvento.SelectedValue.ToString()) == 10)
-            {
-                contrato.ValorTotalContrato = modalidadServicio.ValorBase * uf + recargoAsistentes + recargoPersonalAdicional;
-                txtValorEvento.Text = contrato.ValorTotalContrato.ToString("C0");
-            }
-
-            if (int.Parse(cboTipoEvento.SelectedValue.ToString()) == 20)
-            {
-                contrato.ValorTotalContrato = modalidadServicio.ValorBase * uf + recargoAsistentes + recargoPersonalAdicional;
-                txtValorEvento.Text = contrato.ValorTotalContrato.ToString("C0");
-            }
-
-            if (int.Parse(cboTipoEvento.SelectedValue.ToString()) == 30)
-            {
-                contrato.ValorTotalContrato = modalidadServicio.ValorBase * uf + recargoAsistentes + recargoPersonalAdicional;
-                txtValorEvento.Text = contrato.ValorTotalContrato.ToString("C0");
-            }
-
-
+                MessageBox.Show("Error calculando valor");
+            }          
 
         }
+
 
         private void CboTipoEvento_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -839,11 +761,41 @@ namespace OnBreakApp
 
         }
 
+        private void CboTipoEventoNombre_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            if (cboTipoEventoNombre.SelectedValue == null)
+            {
 
+                txtAsistentes.Text = null;
+                txtPersonalAdicional.Text = null;
+            }
+            else
+            {
 
+                string evento = cboTipoEventoNombre.SelectedValue.ToString();
 
+                txtPersonalBase.Text = ModalidadServicioCollection.personalBase(evento).ToString();
 
+            }
+        }
 
+        private void BtnFiltrarNumero_Click(object sender, RoutedEventArgs e)
+        {
+            dgListaContratos.ItemsSource = null;
+            dgListaContratos.ItemsSource = ContratoCollection.ContratoListarFiltroNumero(txtBuscarNumero.Text);
 
+        }
+
+        private void BtnFiltrarRut_Click(object sender, RoutedEventArgs e)
+        {
+            dgListaContratos.ItemsSource = null;
+            dgListaContratos.ItemsSource = ContratoCollection.ContratoListarFiltroRutCliente(txtBuscarRut.Text);
+        }
+
+        private void BtnFiltrarTipo_Click(object sender, RoutedEventArgs e)
+        {
+            dgListaContratos.ItemsSource = null;
+            dgListaContratos.ItemsSource = ContratoCollection.ContratoListarFiltroTipoEvento(cboBuscarTipo.SelectedIndex);
+        }
     }
 }

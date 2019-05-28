@@ -39,10 +39,11 @@ namespace OnBreakLibrary
             try
             {
                 OnBreak.DALC.Cliente c = new OnBreak.DALC.Cliente();
-                c.RutCliente = cliente.Rut;
+
+                c.RutCliente = cliente.RutCliente;
                 c.RazonSocial = cliente.RazonSocial;
-                c.NombreContacto = cliente.Nombre;
-                c.MailContacto = cliente.Mail;
+                c.NombreContacto = cliente.NombreContacto;
+                c.MailContacto = cliente.MailContacto;
                 c.Direccion = cliente.Direccion;
                 c.Telefono = cliente.Telefono;
                 c.IdActividadEmpresa = cliente.IdActividadEmpresa;
@@ -63,11 +64,10 @@ namespace OnBreakLibrary
         {
             try
             {
-                OnBreak.DALC.Cliente c = this.bd.Cliente.Find(cliente.Rut);
-                //c.RutCliente = cliente.Rut;
+                OnBreak.DALC.Cliente c = this.bd.Cliente.Find(cliente.RutCliente);
                 c.RazonSocial = cliente.RazonSocial;
-                c.NombreContacto = cliente.Nombre;
-                c.MailContacto = cliente.Mail;
+                c.NombreContacto = cliente.NombreContacto;
+                c.MailContacto = cliente.MailContacto;
                 c.Direccion = cliente.Direccion;
                 c.Telefono = cliente.Telefono;
                 c.IdActividadEmpresa = cliente.IdActividadEmpresa;
@@ -94,10 +94,10 @@ namespace OnBreakLibrary
                         select new Cliente()
                         {
 
-                            Rut = c.RutCliente,
+                            RutCliente = c.RutCliente,
                             RazonSocial = c.RazonSocial,
-                            Nombre = c.NombreContacto,
-                            Mail = c.MailContacto,
+                            NombreContacto = c.NombreContacto,
+                            MailContacto = c.MailContacto,
                             Direccion = c.Direccion,
                             Telefono = c.Telefono,
                             IdActividadEmpresa = c.IdActividadEmpresa,
@@ -126,6 +126,64 @@ namespace OnBreakLibrary
 
                 return false;
             }
+        }
+
+        public List<Cliente> ClienteFiltrarPorRut(string rut)
+        {
+            return (from c in this.bd.Cliente
+                    join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
+                    join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
+                    where c.RutCliente == rut
+                    select new Cliente
+                    {
+                        RutCliente = c.RutCliente,
+                        RazonSocial = c.RazonSocial,
+                        NombreContacto = c.NombreContacto,
+                        MailContacto = c.MailContacto,
+                        Direccion = c.Direccion,
+                        Telefono = c.Telefono,
+                        IdActividadEmpresa = a.IdActividadEmpresa,
+                        IdTipoEmpresa = t.IdTipoEmpresa
+
+                    }).ToList();
+        }
+        public List<Cliente> ClienteFiltrarPorTipo(int tipo)
+        {
+            return (from c in this.bd.Cliente
+                    join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
+                    join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
+                    where c.IdTipoEmpresa == tipo
+                    select new Cliente
+                    {
+                        RutCliente = c.RutCliente,
+                        RazonSocial = c.RazonSocial,
+                        NombreContacto = c.NombreContacto,
+                        MailContacto = c.MailContacto,
+                        Direccion = c.Direccion,
+                        Telefono = c.Telefono,
+                        IdActividadEmpresa = a.IdActividadEmpresa,
+                        IdTipoEmpresa = t.IdTipoEmpresa
+
+                    }).ToList();
+        }
+        public List<Cliente> ClienteFiltrarPorActividad(int actividad)
+        {
+            return (from c in this.bd.Cliente
+                    join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
+                    join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
+                    where c.IdActividadEmpresa == actividad
+                    select new Cliente
+                    {
+                        RutCliente = c.RutCliente,
+                        RazonSocial = c.RazonSocial,
+                        NombreContacto = c.NombreContacto,
+                        MailContacto = c.MailContacto,
+                        Direccion = c.Direccion,
+                        Telefono = c.Telefono,
+                        IdActividadEmpresa = a.IdActividadEmpresa,
+                        IdTipoEmpresa = t.IdTipoEmpresa
+
+                    }).ToList();
         }
 
     }

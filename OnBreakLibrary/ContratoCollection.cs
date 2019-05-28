@@ -146,30 +146,99 @@ namespace OnBreakLibrary
             }
         }
 
-
-        public List<int> CantidadAsistentes()
+        public List<Contrato> ContratoListarFiltroNumero(string numero)
         {
-
-            for (int i = 0; i < 50; i++)
+            try
             {
-                _asistentes.Add(i);
+                List<Contrato> contratos = (from a in this.bd.Contrato
+                                                 join m in this.bd.ModalidadServicio on a.IdModalidad equals m.IdModalidad
+                                                 join t in this.bd.TipoEvento on a.IdTipoEvento equals t.IdTipoEvento
+                                                 where a.Numero == numero
+                                                 select new Contrato()
+                                                 {
+                                                     Numero = a.Numero,
+                                                     Creacion = a.Creacion,
+                                                     Termino = a.Termino,
+                                                     RutCliente = a.RutCliente,
+                                                     IdModalidad = m.Nombre,
+                                                     IdTipoEvento = t.IdTipoEvento,
+                                                     FechaHoraInicio = a.FechaHoraInicio,
+                                                     FechaHoraTermino = a.FechaHoraTermino,
+                                                     Asistentes = a.Asistentes,
+                                                     PersonalAdicional = a.PersonalAdicional,
+                                                     Realizado = a.Realizado,
+                                                     ValorTotalContrato = a.ValorTotalContrato,
+                                                     Observaciones = a.Observaciones
+                                                 }).ToList();
+                return contratos;
             }
-
-            return _asistentes;
+            catch (Exception)
+            {
+                return null;
+            }
         }
-
-        public List<int> PersonalAdicional()
+        public List<Contrato> ContratoListarFiltroRutCliente(string rutCliente)
         {
-
-            for (int i = 0; i < 50; i++)
+            try
             {
-                _personalAdicional.Add(i);
+                List<Contrato> contratos = (from c in this.bd.Contrato
+                                                 join m in this.bd.ModalidadServicio on c.IdModalidad equals m.IdModalidad
+                                                 join t in this.bd.TipoEvento on c.IdTipoEvento equals t.IdTipoEvento
+                                                 where c.RutCliente == rutCliente
+                                                 select new Contrato()
+                                                 {
+                                                     Numero = c.Numero,
+                                                     Creacion = c.Creacion,
+                                                     Termino = c.Termino,
+                                                     RutCliente = c.RutCliente,
+                                                     IdModalidad = m.Nombre,
+                                                     IdTipoEvento = t.IdTipoEvento,
+                                                     FechaHoraInicio = c.FechaHoraInicio,
+                                                     FechaHoraTermino = c.FechaHoraTermino,
+                                                     Asistentes = c.Asistentes,
+                                                     PersonalAdicional = c.PersonalAdicional,
+                                                     Realizado = c.Realizado,
+                                                     ValorTotalContrato = c.ValorTotalContrato,
+                                                     Observaciones = c.Observaciones
+                                                 }).ToList();
+                return contratos;
             }
-
-            return _personalAdicional;
+            catch (Exception)
+            {
+                return null;
+            }
         }
-
-
+        public List<Contrato> ContratoListarFiltroTipoEvento(int tipoEvento)
+        {
+            try
+            {
+                List<Contrato> contratos = (from c in this.bd.Contrato
+                                                 join m in this.bd.ModalidadServicio on c.IdModalidad equals m.IdModalidad
+                                                 join t in this.bd.TipoEvento on c.IdTipoEvento equals t.IdTipoEvento
+                                                 where c.IdTipoEvento == tipoEvento
+                                                 select new Contrato()
+                                                 {
+                                                     Numero = c.Numero,
+                                                     Creacion = c.Creacion,
+                                                     Termino = c.Termino,
+                                                     RutCliente = c.RutCliente,
+                                                     IdModalidad = m.Nombre,
+                                                     IdTipoEvento = t.IdTipoEvento,
+                                                     FechaHoraInicio = c.FechaHoraInicio,
+                                                     FechaHoraTermino = c.FechaHoraTermino,
+                                                     Asistentes = c.Asistentes,
+                                                     PersonalAdicional = c.PersonalAdicional,
+                                                     Realizado = c.Realizado,
+                                                     ValorTotalContrato = c.ValorTotalContrato,
+                                                     Observaciones = c.Observaciones
+                                                 }).ToList();
+                return contratos;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
 
 

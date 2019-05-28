@@ -32,9 +32,17 @@ namespace OnBreakLibrary
                     {
                         IdModalidad = t.IdModalidad,
                         Nombre = t.Nombre.Trim()
+
                     }).ToList();
         }
 
+        public int personalBase(string idMod)
+        {
+
+            return (from a in this.bd.ModalidadServicio
+                   where a.IdModalidad == idMod
+                   select a.PersonalBase).First();
+        }
 
     }
 }

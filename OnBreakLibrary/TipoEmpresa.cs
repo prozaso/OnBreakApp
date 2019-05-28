@@ -9,14 +9,14 @@ namespace OnBreakLibrary
     public class TipoEmpresa
     {
 
-        private int _id;
+        private int _idTipoEmpresa;
         private string _descripcion;
 
 
-        public TipoEmpresa(int _id, string _descripcion)
+        public TipoEmpresa(int _idTipoEmpresa, string _descripcion)
         {
-            this._id = _id;
-            this._descripcion = _descripcion;
+            IdTipoEmpresa = _idTipoEmpresa;
+            Descripcion = _descripcion;
         }
 
         public TipoEmpresa()
@@ -24,16 +24,15 @@ namespace OnBreakLibrary
 
         }
 
-        public int Id
+        public int IdTipoEmpresa
         {
             get
             {
-                return _id;
+                return _idTipoEmpresa;
             }
-
             set
             {
-                _id = value;
+                _idTipoEmpresa = value;
             }
         }
 
@@ -43,11 +42,13 @@ namespace OnBreakLibrary
             {
                 return _descripcion;
             }
-
             set
             {
                 _descripcion = value;
             }
         }
+
+
+
     }
 }

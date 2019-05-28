@@ -137,7 +137,7 @@
 
                             <DataGrid x:Name="dgClientes" Height="auto" Width="auto" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#FF8F8F8F" Grid.RowSpan="2" Grid.Row="2" Grid.ColumnSpan="2" Margin="0"/>
                             <Image Grid.Column="1" HorizontalAlignment="Left" Height="100" Grid.RowSpan="3" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
-                            <Image Source="img/white_logo_transparent_background.png" Grid.ColumnSpan="2" Margin="30,0,0,0" Grid.RowSpan="2"/>
+                            <Image Source="img/white_logo_transparent_background.png" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
 
                         </Grid>
                     </StackPanel>
@@ -155,12 +155,14 @@
                                 <RowDefinition Height="10*"/>
                                 <RowDefinition Height="14*"/>
                                 <RowDefinition Height="8*"/>
-                                <RowDefinition Height="31*"/>
+                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="11*"/>
                                 <RowDefinition Height="9*"/>
-                                <RowDefinition Height="8*"/>
-                                <RowDefinition Height="30*"/>
+                                <RowDefinition Height="7*"/>
+                                <RowDefinition Height="31*"/>
                                 <RowDefinition Height="10*"/>
-                                <RowDefinition Height="32*"/>
+                                <RowDefinition Height="11*"/>
+                                <RowDefinition Height="21*"/>
                                 <RowDefinition Height="10*"/>
                                 <RowDefinition Height="9*"/>
                                 <RowDefinition Height="14*"/>
@@ -172,17 +174,19 @@
                                 <RowDefinition Height="19*"/>
                                 <RowDefinition Height="17*"/>
                                 <RowDefinition Height="0*"/>
-                                <RowDefinition Height="33*"/>
-                                <RowDefinition Height="8*"/>
-                                <RowDefinition Height="6*"/>
+                                <RowDefinition Height="11*"/>
+                                <RowDefinition Height="22*"/>
+                                <RowDefinition Height="5*"/>
+                                <RowDefinition Height="9*"/>
                                 <RowDefinition Height="8*"/>
                                 <RowDefinition Height="10*"/>
                                 <RowDefinition Height="17*"/>
-                                <RowDefinition Height="5*"/>
-                                <RowDefinition Height="11*"/>
+                                <RowDefinition Height="9*"/>
+                                <RowDefinition Height="7*"/>
                                 <RowDefinition Height="10*"/>
                                 <RowDefinition Height="10*"/>
-                                <RowDefinition Height="38*"/>
+                                <RowDefinition Height="15*"/>
+                                <RowDefinition Height="23*"/>
                                 <RowDefinition Height="17*"/>
                                 <RowDefinition Height="0*"/>
 
@@ -195,55 +199,57 @@
                                 <ColumnDefinition Width="14*"/>
                                 <ColumnDefinition Width="42*"/>
                                 <ColumnDefinition Width="5*"/>
-                                <ColumnDefinition Width="182*"/>
+                                <ColumnDefinition Width="181*"/>
                                 <ColumnDefinition Width="28*"/>
-                                <ColumnDefinition Width="47*"/>
+                                <ColumnDefinition Width="46*"/>
                                 <ColumnDefinition Width="42*"/>
                                 <ColumnDefinition Width="11*"/>
                                 <ColumnDefinition Width="81*"/>
                                 <ColumnDefinition Width="12*"/>
                                 <ColumnDefinition Width="43*"/>
                                 <ColumnDefinition Width="34*"/>
-                                <ColumnDefinition Width="78*"/>
+                                <ColumnDefinition Width="65*"/>
+                                <ColumnDefinition Width="13*"/>
                                 <ColumnDefinition Width="0*"/>
 
                             </Grid.ColumnDefinitions>
-                            <Button x:Name="btnValorEvento" Content="VALOR EVENTO" Grid.Row="33" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="Auto" Padding="5" Grid.ColumnSpan="6" Click="BtnValorEvento_Click"/>
-                            <TextBlock x:Name="txtValorEvento" Grid.Column="7" Margin="0" Grid.Row="33" TextWrapping="Wrap" Text="$" TextAlignment="Center" Padding="0,11,0,0" FontWeight="Bold" FontSize="18" />
-                            <TextBox x:Name="txtRutClienteContrato" materialDesign:HintAssist.Hint="Rut del Cliente" Grid.Column="7" Grid.Row="9"/>
-                            <TextBox x:Name="txtNumeroDeContrato" materialDesign:HintAssist.Hint="Numero de Contrato" Grid.Column="7" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Stretch" Grid.Row="6"/>
-                            <Button x:Name="btnNumeroDeContrato" Grid.Row="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="Auto" Padding="5" Grid.ColumnSpan="6" Grid.RowSpan="2" Click="BtnNumeroDeContrato_Click">
+
+
+
+                            <Button x:Name="btnValorEvento" Content="VALOR EVENTO" Grid.Row="37" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="Auto" Padding="5" Grid.ColumnSpan="6" Click="BtnValorEvento_Click" Grid.RowSpan="2"/>
+                            <TextBlock x:Name="txtValorEvento" Grid.Column="7" Grid.Row="37" TextWrapping="Wrap" Text="$" TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.RowSpan="2" Padding="0,11,0,0" />
+                            <TextBox x:Name="txtRutClienteContrato" materialDesign:HintAssist.Hint="Rut del Cliente" Grid.Column="7" Grid.Row="10"/>
+                            <TextBox x:Name="txtNumeroDeContrato" materialDesign:HintAssist.Hint="Numero de Contrato" Grid.Column="7" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Stretch" Grid.Row="6" Grid.RowSpan="2"/>
+                            <Button x:Name="btnNumeroDeContrato" Grid.Row="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="Auto" Padding="5" Grid.ColumnSpan="6" Grid.RowSpan="3" Click="BtnNumeroDeContrato_Click">
                                 <StackPanel>
                                     <TextBlock Text="Nº de Contrato"/>
                                     <TextBlock Text="(Buscar)" FontSize="9" HorizontalAlignment="Center" Margin="20,0,0,0"/>
                                 </StackPanel>
                             </Button>
-                            <Button x:Name="btnRutCliente" Grid.Row="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="Auto" Padding="5" Grid.ColumnSpan="6" Grid.RowSpan="2" Click="BtnRutCliente_Click">
+                            <Button x:Name="btnRutCliente" Grid.Row="9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="Auto" Padding="5" Grid.ColumnSpan="6" Grid.RowSpan="2" Click="BtnRutCliente_Click">
                                 <StackPanel>
                                     <TextBlock Text="RUT Cliente"/>
                                     <TextBlock Text="(Buscar)" FontSize="9" HorizontalAlignment="Center" Margin="21,0,0,0"/>
                                 </StackPanel>
                             </Button>
-                            <ComboBox x:Name="cboAsistentes" materialDesign:HintAssist.Hint="Seleccione Cantidad de Asistentes" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Grid.Column="4" Grid.Row="23" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Grid.ColumnSpan="4" Grid.RowSpan="2" Margin="0,1"/>
-                            <materialDesign:PackIcon Kind="UserGroup" Height="Auto" Width="Auto" Grid.Row="23" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Column="2" HorizontalContentAlignment="Stretch" Grid.RowSpan="3" />
-                            <ComboBox x:Name="cboPersonalAdicional" materialDesign:HintAssist.Hint="Personal Adicional(*)" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Grid.Column="4" Grid.Row="25" VerticalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Grid.ColumnSpan="4" Grid.RowSpan="4" Margin="0,1,0,0"/>
-                            <materialDesign:PackIcon Kind="UserGroupOutline" Height="Auto" Width="Auto" Grid.Row="26" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="0" Grid.Column="2" Grid.RowSpan="4" HorizontalContentAlignment="Stretch" />
-                            <ComboBox x:Name="cboTipoEvento" materialDesign:HintAssist.Hint="Seleccione Tipo de Evento" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="14" Grid.Column="4" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" SelectedValuePath="IdTipoEvento" DisplayMemberPath="Descripcion" Grid.ColumnSpan="4" Grid.RowSpan="5" Margin="0,11,0,0" SelectionChanged="CboTipoEvento_SelectionChanged" />
+                            <TextBox x:Name="txtAsistentes" materialDesign:HintAssist.Hint="Ingrese Cantidad de Asistentes" Grid.Column="4" Grid.Row="26" VerticalAlignment="Stretch" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" Grid.ColumnSpan="4" Grid.RowSpan="2" Padding="0,0,1,0"/>
+                            <materialDesign:PackIcon Kind="UserGroup" Height="Auto" Width="Auto" Grid.Row="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Column="2" HorizontalContentAlignment="Stretch" Grid.RowSpan="4" />
+                            <TextBox x:Name="txtPersonalAdicional" materialDesign:HintAssist.Hint="Ingrese Personal Adicional(*)" Grid.Column="4" Grid.Row="30" VerticalAlignment="Stretch" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" Grid.ColumnSpan="4" Grid.RowSpan="2" Padding="0,0,1,0"/>
+                            <materialDesign:PackIcon Kind="UserGroupOutline" Height="Auto" Width="Auto" Grid.Row="29" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Padding="0" Grid.Column="2" Grid.RowSpan="4" HorizontalContentAlignment="Stretch" />
+                            <ComboBox x:Name="cboTipoEvento" materialDesign:HintAssist.Hint="Seleccione Tipo de Evento" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="16" Grid.Column="4" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" SelectedValuePath="IdTipoEvento" DisplayMemberPath="Descripcion" Grid.ColumnSpan="4" Grid.RowSpan="5" Margin="0,11,0,0" SelectionChanged="CboTipoEvento_SelectionChanged" />
 
-                            <materialDesign:PackIcon Kind="EventStar" Height="Auto" Width="Auto" Grid.Row="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Column="2" Grid.RowSpan="4" Margin="0,1,0,0" />
-                            <DatePicker x:Name="fechaInicioPicker" materialDesign:HintAssist.Hint="Fecha Inicio" Grid.Column="10" Grid.Row="6" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontStyle="Italic" Grid.ColumnSpan="3" />
-                            <materialDesign:TimePicker materialDesign:HintAssist.Hint="Hora de Inicio" Is24Hours="True" x:Name="horaInicioPicker" Grid.Column="14" Grid.Row="6" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontStyle="Italic" Grid.ColumnSpan="3" />
-                            <materialDesign:TimePicker materialDesign:HintAssist.Hint="Hora de Termino" Is24Hours="True" x:Name="horaTerminoPicker" Grid.Column="14" Grid.Row="9" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontStyle="Italic" Margin="0,1,0,0" Grid.ColumnSpan="3" />
-                            <TextBox x:Name="txtDireccionContrato" materialDesign:HintAssist.Hint="Direccion" Grid.Column="10" Grid.Row="14" Grid.ColumnSpan="7" VerticalContentAlignment="Bottom" Margin="0,1" Grid.RowSpan="2" />
-                            <materialDesign:PackIcon Kind="HouseMapMarker" Width="Auto" Grid.Column="9" Grid.Row="13" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.RowSpan="3" />
-                            <materialDesign:PackIcon Kind="TooltipText" Height="Auto" Width="Auto" Grid.Column="9" Grid.Row="17" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.RowSpan="4" Margin="0" />
-                            <materialDesign:PackIcon Kind="Account" Height="Auto" Width="Auto" Grid.Row="11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.RowSpan="3" Grid.Column="2" Margin="0,1" />
-                            <TextBox x:Name="txtNombreClienteContrato" materialDesign:HintAssist.Hint="Nombre" Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" IsEnabled="False" />
+                            <materialDesign:PackIcon Kind="EventStar" Height="Auto" Width="Auto" Grid.Row="17" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Column="2" Grid.RowSpan="4" Margin="0,1,0,0" />
+                            <DatePicker x:Name="fechaInicioPicker" materialDesign:HintAssist.Hint="Fecha Inicio" Grid.Column="10" Grid.Row="9" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontStyle="Italic" Grid.ColumnSpan="3" Margin="0,6,0,0" Grid.RowSpan="2" />
+                            <materialDesign:TimePicker materialDesign:HintAssist.Hint="Hora de Inicio" Is24Hours="True" x:Name="horaInicioPicker" Grid.Column="14" Grid.Row="9" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontStyle="Italic" Grid.ColumnSpan="4" Margin="0,6,0,0" Grid.RowSpan="2" />
+                            <materialDesign:TimePicker materialDesign:HintAssist.Hint="Hora de Termino" Is24Hours="True" x:Name="horaTerminoPicker" Grid.Column="14" Grid.Row="13" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontStyle="Italic" Margin="0,0,0,1" Grid.ColumnSpan="4" Grid.RowSpan="2" />
+                            <materialDesign:PackIcon Kind="TooltipText" Height="Auto" Width="Auto" Grid.Column="9" Grid.Row="19" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.RowSpan="4" Margin="0" />
+                            <materialDesign:PackIcon Kind="Account" Height="Auto" Width="Auto" Grid.Row="12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.RowSpan="4" Grid.Column="2" Margin="0,1" />
+                            <TextBox x:Name="txtNombreClienteContrato" materialDesign:HintAssist.Hint="Nombre" Grid.Row="12" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="3" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" IsEnabled="False" />
 
-                            <TextBox x:Name="txtObservaciones" TextWrapping="Wrap" VerticalAlignment="Stretch" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="Observaciones" Grid.ColumnSpan="7" Grid.RowSpan="7" Grid.Column="10" Grid.Row="17" VerticalContentAlignment="Stretch" Padding="3" Background="Gray"/>
-                            <Button x:Name="btnListaContratos" Content="Lista de Contratos" Grid.Column="14" Height="Auto" Margin="0,1,0,0" Grid.Row="2" Grid.ColumnSpan="3" Click="BtnListaContratos_Click"/>
+                            <TextBox x:Name="txtObservaciones" TextWrapping="Wrap" VerticalAlignment="Stretch" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="Observaciones" Grid.ColumnSpan="8" Grid.RowSpan="8" Grid.Column="10" Grid.Row="19" VerticalContentAlignment="Stretch" Padding="3" Background="Gray"/>
+                            <Button x:Name="btnListaContratos" Content="Lista de Contratos" Grid.Column="14" Height="Auto" Margin="0,2,0,3" Grid.Row="4" Grid.ColumnSpan="4" Click="BtnListaContratos_Click" Grid.RowSpan="3"/>
 
-                            <materialDesign:PopupBox x:Name="popGestion" Grid.Row="27" Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}" PlacementMode="RightAndAlignMiddles" UnfurlOrientation="Horizontal"
+                            <materialDesign:PopupBox x:Name="popGestion" Grid.Row="30" Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}" PlacementMode="RightAndAlignMiddles" UnfurlOrientation="Horizontal"
                             ToolTip="Manage items" HorizontalAlignment="Stretch" Grid.Column="10" Height="Auto" Width="Auto" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="0,2,0,0" Grid.RowSpan="4">
                                 <StackPanel Orientation="Horizontal">
 
@@ -261,13 +267,12 @@
 
                                 </StackPanel>
                             </materialDesign:PopupBox>
-                            <Button x:Name="btnLimpiarCampos" Grid.Row="33" Content="LIMPIAR CAMPOS" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="Auto" Grid.Column="10" Padding="0" Grid.ColumnSpan="7" Margin="0,0,10,0" Click="BtnLimpiarCampos_Click" >
-
-                            </Button>
-                            <Label x:Name="lblSeleccionGestion" Content="Seleccione Gestion" HorizontalAlignment="Left" Margin="0,0,0,6" Grid.Column="12" Grid.RowSpan="3" Grid.Row="28" Grid.ColumnSpan="3" Width="134"/>
-                            <ComboBox x:Name="cboTipoEventoNombre" materialDesign:HintAssist.Hint="Evento" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="19" Grid.Column="4" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" SelectedValuePath="IdModalidad" DisplayMemberPath="Nombre" Grid.ColumnSpan="4" Grid.RowSpan="3" Margin="0,0,0,1" />
+                            <Button x:Name="btnLimpiarCampos" Grid.Row="37" Content="LIMPIAR CAMPOS" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="Auto" Grid.Column="10" Padding="0" Grid.ColumnSpan="7" Click="BtnLimpiarCampos_Click" Grid.RowSpan="2" />
+                            <Label x:Name="lblSeleccionGestion" Content="Seleccione Gestion" HorizontalAlignment="Left" Margin="0,0,0,6" Grid.Column="12" Grid.RowSpan="3" Grid.Row="31" Grid.ColumnSpan="3" Width="134"/>
+                            <ComboBox x:Name="cboTipoEventoNombre" materialDesign:HintAssist.Hint="Evento" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="21" Grid.Column="4" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" SelectedValuePath="IdModalidad" DisplayMemberPath="Nombre" Grid.ColumnSpan="4" Grid.RowSpan="3" Margin="0,0,0,1" SelectionChanged="CboTipoEventoNombre_SelectionChanged_1" />
                             <Image Source="img/white_logo_transparent_background.png" Grid.ColumnSpan="3" Grid.Column="2" Grid.RowSpan="5" Margin="0,0,0,10"/>
-                            <DatePicker x:Name="fechaTerminoPicker" materialDesign:HintAssist.Hint="Fecha Termino" Grid.Column="10" Grid.Row="9" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontStyle="Italic" Grid.ColumnSpan="4" Margin="2,0,10,9" Grid.RowSpan="2" />
+                            <DatePicker x:Name="fechaTerminoPicker" materialDesign:HintAssist.Hint="Fecha Termino" Grid.Column="10" Grid.Row="13" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontStyle="Italic" Grid.ColumnSpan="4" Margin="2,0,10,0" Grid.RowSpan="2" />
+                            <TextBox x:Name="txtPersonalBase" materialDesign:HintAssist.Hint="Cantidad de Personal Base" Text="Cantidad de Personal Base" Grid.Column="7" Grid.Row="33" Grid.RowSpan="3" Padding="0" HorizontalAlignment="Right" IsEnabled="False" Width="178" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" Margin="0,1,0,0"/>
 
                         </Grid>
                     </StackPanel>
@@ -280,20 +285,36 @@
 
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="0*"/>
-                                <RowDefinition Height="78*"/>
-                                <RowDefinition Height="103*"/>
-                                <RowDefinition Height="99*"/>
+                                <RowDefinition Height="32*"/>
+                                <RowDefinition Height="8*"/>
+                                <RowDefinition Height="32*"/>
+                                <RowDefinition Height="11*"/>
+                                <RowDefinition Height="109*"/>
+                                <RowDefinition Height="105*"/>
                                 <RowDefinition Height="3*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="0*"/>
+                                <ColumnDefinition Width="103*"/>
+                                <ColumnDefinition Width="23*"/>
+                                <ColumnDefinition Width="182*"/>
                                 <ColumnDefinition Width="9*"/>
-                                <ColumnDefinition Width="50*"/>
+                                <ColumnDefinition Width="138*"/>
+                                <ColumnDefinition Width="9*"/>
+                                <ColumnDefinition Width="136*"/>
+                                <ColumnDefinition Width="74*"/>
                                 <ColumnDefinition Width="0*"/>
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="dgListaContratos" Height="auto" Width="auto" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#FF8F8F8F" Grid.RowSpan="3" Grid.Row="2" Grid.ColumnSpan="2"/>
-                            <Image Grid.Column="1" Source="img/white_logo_transparent_background.png" Margin="30,0,0,0" Grid.RowSpan="2"/>
+                            <DataGrid x:Name="dgListaContratos" Height="auto" Width="auto" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#FF8F8F8F" Grid.RowSpan="3" Grid.Row="5" Grid.ColumnSpan="8"/>
+                            <Image Grid.Column="1" Source="img/white_logo_transparent_background.png" Grid.RowSpan="5" Margin="0,0,0,10"/>
+                            <Button x:Name="btnFiltrarNumero" Content="Buscar por Nº de Contrato" Grid.Column="3" Grid.RowSpan="2" Height="Auto" Padding="0,4" Click="BtnFiltrarNumero_Click"/>
+                            <Button x:Name="btnFiltrarRut" Content="Buscar por RUT" Grid.Column="5" Grid.RowSpan="2" Margin="1,0,0,0" Height="Auto" Click="BtnFiltrarRut_Click" />
+                            <Button x:Name="btnFiltrarTipo" Content="Buscar por tipo" Grid.Column="7" Grid.RowSpan="2" Margin="1,0,0,0" Height="Auto" Click="BtnFiltrarTipo_Click"/>
+
+                            <TextBox x:Name="txtBuscarNumero" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" Text="Ingrese Numero" HorizontalContentAlignment="Right"/>
+                            <TextBox x:Name="txtBuscarRut" Grid.Column="5" Grid.Row="3" TextWrapping="Wrap" Text="Ingrese RUT" HorizontalContentAlignment="Right"/>
+                            <ComboBox x:Name="cboBuscarTipo" Grid.Column="7" Grid.Row="3" VerticalAlignment="Stretch"/>
 
                         </Grid>
                     </StackPanel>

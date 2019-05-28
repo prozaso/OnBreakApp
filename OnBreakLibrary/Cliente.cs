@@ -9,21 +9,21 @@ namespace OnBreakLibrary
     public class Cliente
     {
 
-        private String _rut;
-        private String _razonSocial;
-        private String _nombre;
-        private String _mail;
-        private String _direccion;
-        private String _telefono;
+        private string _rutCliente;
+        private string _razonSocial;
+        private string _nombreContacto;
+        private string _mailContacto;
+        private string _direccion;
+        private string _telefono;
         private int _idActividadEmpresa;
         private int _idTipoEmpresa;
 
-        public Cliente(string rut, string razonSocial, string nombre, string mail, string direccion, string telefono, int idActividadEmpresa, int idTipoEmpresa)
+        public Cliente(string _rutCliente, string razonSocial, string _nombreContacto, string _mailContacto, string direccion, string telefono, int idActividadEmpresa, int idTipoEmpresa)
         {
-            Rut = rut;
+            RutCliente = _rutCliente;
             RazonSocial = razonSocial;
-            Nombre = nombre;
-            Mail = mail;
+            NombreContacto = _nombreContacto;
+            MailContacto = _mailContacto;
             Direccion = direccion;
             Telefono = telefono;
             IdActividadEmpresa = idActividadEmpresa;
@@ -35,16 +35,16 @@ namespace OnBreakLibrary
 
         }
 
-        public string Rut
+        public string RutCliente
         {
             get
             {
-                return _rut;
+                return _rutCliente;
             }
 
             set
             {
-                _rut = value;
+                _rutCliente = value;
             }
         }
 
@@ -61,29 +61,29 @@ namespace OnBreakLibrary
             }
         }
 
-        public string Nombre
+        public string NombreContacto
         {
             get
             {
-                return _nombre;
+                return _nombreContacto;
             }
 
             set
             {
-                _nombre = value;
+                _nombreContacto = value;
             }
         }
 
-        public string Mail
+        public string MailContacto
         {
             get
             {
-                return _mail;
+                return _mailContacto;
             }
 
             set
             {
-                _mail = value;
+                _mailContacto = value;
             }
         }
 

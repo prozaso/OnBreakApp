@@ -16,7 +16,7 @@ namespace OnBreakLibrary
             return (from t in this.bd.TipoEmpresa
                     select new TipoEmpresa()
                     {
-                        Id = t.IdTipoEmpresa,
+                        IdTipoEmpresa = t.IdTipoEmpresa,
                         Descripcion = t.Descripcion
                     }).ToList();
         }
