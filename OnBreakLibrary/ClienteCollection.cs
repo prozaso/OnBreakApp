@@ -40,6 +40,7 @@ namespace OnBreakLibrary
             {
                 OnBreak.DALC.Cliente c = new OnBreak.DALC.Cliente();
 
+
                 c.RutCliente = cliente.RutCliente;
                 c.RazonSocial = cliente.RazonSocial;
                 c.NombreContacto = cliente.NombreContacto;

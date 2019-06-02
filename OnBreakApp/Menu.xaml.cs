@@ -238,7 +238,10 @@ namespace OnBreakApp
         //Gestion Clientes
         private void BtnBuscar_Click(object sender, RoutedEventArgs e)
         {
-            string rut = txtRut.Text;
+
+            string rut = txtRut.Text.ToString().Replace(".", "");
+            rut = rut.Replace(" ", "");
+
 
             Cliente cliente = this.ClienteCollection.BuscarClientePorRut(rut);
 
@@ -256,8 +259,7 @@ namespace OnBreakApp
                     txtMail.Text = cliente.MailContacto;
                     txtDireccion.Text = cliente.Direccion;
                     txtTelefono.Text = cliente.Telefono;
-                    cboActividad.SelectedIndex = cliente.IdActividadEmpresa;
-                    cboTipo.IsEnabled = true;
+                    cboActividad.SelectedValue = cliente.IdActividadEmpresa;
                     cboTipo.SelectedValue = cliente.IdTipoEmpresa;
                 }
             }
@@ -272,7 +274,9 @@ namespace OnBreakApp
             
             try
             {
-                string rut = txtRut.Text;
+                string rut = txtRut.Text.ToString().Replace(".", "");
+                rut = rut.Replace(" ", "");
+
                 string correo = txtMail.Text;
 
                 Cliente cliente = new Cliente();
@@ -360,7 +364,8 @@ namespace OnBreakApp
         private void BtnActualizar_Click(object sender, RoutedEventArgs e)
         {
             Cliente cliente = new Cliente();
-            string rut = txtRut.Text;
+            string rut = txtRut.Text.ToString().Replace(".", "");
+            rut = rut.Replace(" ", "");
 
             try
             {
@@ -368,6 +373,15 @@ namespace OnBreakApp
                 if (ClienteCollection.BuscarClientePorRut(rut) == null)
                 {
                     MessageBox.Show("Cliente no existe");
+                    return;
+                }
+                else if (txtRazon.Equals(cliente.RazonSocial) || txtNombre.Equals(cliente.NombreContacto) ||
+                         txtMail.Equals(cliente.MailContacto) || txtDireccion.Equals(cliente.Direccion) ||
+                         txtTelefono.Equals(cliente.Telefono) || int.Parse(cboActividad.SelectedValue.ToString()) == cliente.IdActividadEmpresa ||
+                         int.Parse(cboTipo.SelectedValue.ToString()) == cliente.IdTipoEmpresa)
+                {
+                    MessageBox.Show("No hay cambios");
+                    return;
                 }
                 else
                 { 
