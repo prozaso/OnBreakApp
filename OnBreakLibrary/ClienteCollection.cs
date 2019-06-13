@@ -131,61 +131,85 @@ namespace OnBreakLibrary
 
         public List<Cliente> ClienteFiltrarPorRut(string rut)
         {
-            return (from c in this.bd.Cliente
-                    join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
-                    join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
-                    where c.RutCliente == rut
-                    select new Cliente
-                    {
-                        RutCliente = c.RutCliente,
-                        RazonSocial = c.RazonSocial,
-                        NombreContacto = c.NombreContacto,
-                        MailContacto = c.MailContacto,
-                        Direccion = c.Direccion,
-                        Telefono = c.Telefono,
-                        IdActividadEmpresa = a.IdActividadEmpresa,
-                        IdTipoEmpresa = t.IdTipoEmpresa
 
-                    }).ToList();
+            try
+            {
+                return (from c in this.bd.Cliente
+                        join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
+                        join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
+                        where c.RutCliente == rut
+                        select new Cliente
+                        {
+                            RutCliente = c.RutCliente,
+                            RazonSocial = c.RazonSocial,
+                            NombreContacto = c.NombreContacto,
+                            MailContacto = c.MailContacto,
+                            Direccion = c.Direccion,
+                            Telefono = c.Telefono,
+                            IdActividadEmpresa = a.IdActividadEmpresa,
+                            IdTipoEmpresa = t.IdTipoEmpresa
+
+                        }).ToList();
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
-        public List<Cliente> ClienteFiltrarPorTipo(int tipo)
+
+
+        public IEnumerable<Object> ClienteFiltrarPorTipo(int tipoEmpresa)
         {
             return (from c in this.bd.Cliente
                     join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
                     join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
-                    where c.IdTipoEmpresa == tipo
-                    select new Cliente
+                    let RUT = c.RutCliente
+                    let Contacto = c.NombreContacto
+                    let Correo = c.MailContacto
+                    let Actividad = a.Descripcion
+                    let Tipo = t.Descripcion
+                    where c.IdTipoEmpresa == tipoEmpresa
+                    select new
                     {
-                        RutCliente = c.RutCliente,
-                        RazonSocial = c.RazonSocial,
-                        NombreContacto = c.NombreContacto,
-                        MailContacto = c.MailContacto,
-                        Direccion = c.Direccion,
-                        Telefono = c.Telefono,
-                        IdActividadEmpresa = a.IdActividadEmpresa,
-                        IdTipoEmpresa = t.IdTipoEmpresa
+                        RUT,
+                        c.RazonSocial,
+                        Contacto,
+                        Correo,
+                        c.Direccion,
+                        c.Telefono,
+                        Actividad,
+                        Tipo
 
                     }).ToList();
         }
-        public List<Cliente> ClienteFiltrarPorActividad(int actividad)
+
+
+        public IEnumerable<Object> ClienteFiltrarPorActividad(int actividad)
         {
             return (from c in this.bd.Cliente
                     join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
                     join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
+                    let RUT = c.RutCliente
+                    let Contacto = c.NombreContacto
+                    let Correo = c.MailContacto
+                    let Actividad = a.Descripcion
+                    let Tipo = t.Descripcion
                     where c.IdActividadEmpresa == actividad
-                    select new Cliente
+                    select new
                     {
-                        RutCliente = c.RutCliente,
-                        RazonSocial = c.RazonSocial,
-                        NombreContacto = c.NombreContacto,
-                        MailContacto = c.MailContacto,
-                        Direccion = c.Direccion,
-                        Telefono = c.Telefono,
-                        IdActividadEmpresa = a.IdActividadEmpresa,
-                        IdTipoEmpresa = t.IdTipoEmpresa
+                        RUT,
+                        c.RazonSocial,
+                        Contacto,
+                        Correo,
+                        c.Direccion,
+                        c.Telefono,
+                        Actividad,
+                        Tipo
 
                     }).ToList();
         }
+
 
     }
 }

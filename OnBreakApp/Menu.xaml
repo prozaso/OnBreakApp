@@ -78,12 +78,12 @@
 
                         <Button x:Name="btnBuscar" Content="Buscar" Width="auto" Grid.Row="1" Grid.Column="5" Height="Auto" Padding="0" Click="BtnBuscar_Click"/>
 
-                        <TextBox x:Name="txtRut" materialDesign:HintAssist.Hint="RUT" Width="auto" Grid.Row="1" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0"/>
-                        <TextBox x:Name="txtRazon" materialDesign:HintAssist.Hint="Razon Social" Width="auto" Grid.Row="3" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0" Margin="0"/>
-                        <TextBox x:Name="txtNombre" materialDesign:HintAssist.Hint="Nombre" Width="auto" Grid.Row="5" Grid.Column="3" Height="auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0"/>
-                        <TextBox x:Name="txtMail" materialDesign:HintAssist.Hint="Mail" Width="auto" Grid.Row="7" Grid.Column="3" Height="auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0"/>
-                        <TextBox x:Name="txtDireccion" materialDesign:HintAssist.Hint="Direccion" Width="auto" Grid.Row="9" Grid.Column="3" Height="auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0"/>
-                        <TextBox x:Name="txtTelefono" materialDesign:HintAssist.Hint="Telefono" Width="auto" Grid.Row="11" Grid.Column="3" Height="auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Padding="0"/>
+                        <TextBox x:Name="txtRut" materialDesign:HintAssist.Hint="RUT" Width="auto" Grid.Row="1" Grid.Column="3" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0"/>
+                        <TextBox x:Name="txtRazon" materialDesign:HintAssist.Hint="Razon Social" Width="auto" Grid.Row="3" Grid.Column="3" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0" Margin="0"/>
+                        <TextBox x:Name="txtNombre" materialDesign:HintAssist.Hint="Nombre" Width="auto" Grid.Row="5" Grid.Column="3" Height="auto" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0"/>
+                        <TextBox x:Name="txtMail" materialDesign:HintAssist.Hint="Mail" Width="auto" Grid.Row="7" Grid.Column="3" Height="auto" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0"/>
+                        <TextBox x:Name="txtDireccion" materialDesign:HintAssist.Hint="Direccion" Width="auto" Grid.Row="9" Grid.Column="3" Height="auto" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0"/>
+                        <TextBox x:Name="txtTelefono" materialDesign:HintAssist.Hint="Telefono" Width="auto" Grid.Row="11" Grid.Column="3" Height="auto" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0"/>
                         <Button x:Name="btnGuardar" Content="Guardar" Grid.Row="3" Grid.Column="5" Height="Auto" Padding="0" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="BtnGuardar_Click"/>
                         <Button x:Name="btnActualizar" Content="Actualizar" Width="auto" Grid.Row="5" Grid.Column="5" Height="Auto" Padding="0" Margin="0,0,0,1" Background="#FFF44336" Click="BtnActualizar_Click"/>
 
@@ -101,16 +101,16 @@
                             </StackPanel>
                         </Button>
 
-                        <ComboBox x:Name="cboActividad" materialDesign:HintAssist.Hint="Seleccionar" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="13" Grid.Column="3" VerticalAlignment="Stretch" Padding="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" SelectedValuePath="IdActividadEmpresa" DisplayMemberPath="Descripcion" />
-                        <ComboBox x:Name="cboTipo" materialDesign:HintAssist.Hint="Seleccionar" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="15" Grid.Column="3" VerticalAlignment="Stretch" Padding="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" SelectedValuePath="IdTipoEmpresa" DisplayMemberPath="Descripcion"/>
+                        <ComboBox x:Name="cboActividad" materialDesign:HintAssist.Hint="Seleccionar" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="13" Grid.Column="3" VerticalAlignment="Stretch" Padding="0" HorizontalContentAlignment="Left" SelectedValuePath="IdActividadEmpresa" DisplayMemberPath="Descripcion" />
+                        <ComboBox x:Name="cboTipo" materialDesign:HintAssist.Hint="Seleccionar" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="auto" Grid.Row="15" Grid.Column="3" VerticalAlignment="Stretch" Padding="0" HorizontalContentAlignment="Left" SelectedValuePath="IdTipoEmpresa" DisplayMemberPath="Descripcion"/>
 
                         <Label Content="RUT" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center"/>
                         <Label Content="Razón Social" Grid.Column="1" Margin="0" Grid.Row="3" VerticalContentAlignment="Center"/>
-                        <Label Content="Nombre" Grid.Column="1" Margin="0" Grid.Row="4" Grid.RowSpan="2" VerticalContentAlignment="Center"/>
+                        <Label Content="Nombre" Grid.Column="1" Margin="0" Grid.Row="5" VerticalContentAlignment="Center"/>
                         <Label Content="Mail" Grid.Column="1" Margin="0" Grid.Row="7" VerticalContentAlignment="Center"/>
-                        <Label Content="Direccion" Grid.Column="1" Margin="0" Grid.Row="8" Grid.RowSpan="2" VerticalContentAlignment="Center"/>
+                        <Label Content="Direccion" Grid.Column="1" Margin="0" Grid.Row="9" VerticalContentAlignment="Center"/>
                         <Label Content="Telefono" Grid.Column="1" Margin="0" Grid.Row="11" VerticalContentAlignment="Center"/>
-                        <Label Content="Actividad" Grid.Column="1" Margin="0" Grid.Row="13" Grid.RowSpan="2" VerticalContentAlignment="Center"/>
+                        <Label Content="Actividad" Grid.Column="1" Margin="0" Grid.Row="13" VerticalContentAlignment="Center"/>
                         <Label Content="Tipo" Grid.Column="1" Margin="0" Grid.Row="15" VerticalContentAlignment="Center"/>
                         <Image Grid.Row="1" Grid.RowSpan="5" Source="img/white_logo_transparent_background.png" Margin="5"/>
                     </Grid>
@@ -123,21 +123,35 @@
 
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="0*"/>
-                                <RowDefinition Height="90*"/>
-                                <RowDefinition Height="118*"/>
-                                <RowDefinition Height="117*"/>
+                                <RowDefinition Height="32*"/>
+                                <RowDefinition Height="8*"/>
+                                <RowDefinition Height="32*"/>
+                                <RowDefinition Height="11*"/>
+                                <RowDefinition Height="109*"/>
+                                <RowDefinition Height="108*"/>
                                 <RowDefinition Height="0*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="0*"/>
+                                <ColumnDefinition Width="103*"/>
+                                <ColumnDefinition Width="36*"/>
+                                <ColumnDefinition Width="158*"/>
                                 <ColumnDefinition Width="9*"/>
-                                <ColumnDefinition Width="50*"/>
+                                <ColumnDefinition Width="163*"/>
+                                <ColumnDefinition Width="9*"/>
+                                <ColumnDefinition Width="136*"/>
+                                <ColumnDefinition Width="60*"/>
                                 <ColumnDefinition Width="0*"/>
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="dgClientes" Height="auto" Width="auto" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#FF8F8F8F" Grid.RowSpan="2" Grid.Row="2" Grid.ColumnSpan="2" Margin="0"/>
-                            <Image Grid.Column="1" HorizontalAlignment="Left" Height="100" Grid.RowSpan="3" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
-                            <Image Source="img/white_logo_transparent_background.png" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                            <DataGrid x:Name="dgClientes" Height="auto" Width="auto" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#FF8F8F8F" Grid.Row="5" Grid.ColumnSpan="8" Grid.RowSpan="2"/>
+                            <Image Source="img/white_logo_transparent_background.png" Grid.ColumnSpan="2" Grid.RowSpan="5" Margin="0,0,0,10"/>
+                            <TextBox x:Name="txtBuscarRutCliente" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ingrese RUT" HorizontalContentAlignment="Left" Padding="0"/>
+                            <ComboBox x:Name="cboFiltrarTipoCliente" Grid.Column="7" Grid.Row="3" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Seleccionar" VerticalAlignment="Center" DisplayMemberPath="Descripcion" SelectedValuePath="IdTipoEmpresa" HorizontalContentAlignment="Left" Padding="0" Height="30" Margin="1,2,0,0" VerticalContentAlignment="Bottom" />
+                            <Button x:Name="btnFiltrarActividad" Content="Buscar por Actividad" Grid.Column="5" Height="Auto" Padding="0,4" Margin="1,0" Grid.Row="1" Click="BtnFiltrarActividad_Click"/>
+                            <Button x:Name="btnFiltrarRutCliente" Content="Buscar por RUT" Grid.Column="3" Grid.RowSpan="2" Margin="0,0,1,0" Height="Auto" Click="BtnFiltrarRut_Click" />
+                            <Button x:Name="btnFiltrarTipoCliente" Content="Buscar por tipo" Grid.Column="7" Grid.RowSpan="2" Margin="1,0,0,0" Height="Auto" Click="BtnFiltrarTipo_Click"/>
+                            <ComboBox x:Name="cboFiltrarActividad" Grid.Column="5" Grid.Row="3" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="Seleccionar" VerticalAlignment="Stretch" DisplayMemberPath="Descripcion" SelectedValuePath="IdActividadEmpresa" HorizontalContentAlignment="Left" Padding="0" Height="30" Margin="0,2,0,0" VerticalContentAlignment="Bottom" />
 
                         </Grid>
                     </StackPanel>
@@ -290,8 +304,8 @@
                                 <RowDefinition Height="32*"/>
                                 <RowDefinition Height="11*"/>
                                 <RowDefinition Height="109*"/>
-                                <RowDefinition Height="105*"/>
-                                <RowDefinition Height="3*"/>
+                                <RowDefinition Height="108*"/>
+                                <RowDefinition Height="0*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="0*"/>
@@ -306,15 +320,15 @@
                                 <ColumnDefinition Width="0*"/>
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="dgListaContratos" Height="auto" Width="auto" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#FF8F8F8F" Grid.RowSpan="3" Grid.Row="5" Grid.ColumnSpan="8"/>
+                            <DataGrid x:Name="dgListaContratos" Height="auto" Width="auto" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#FF8F8F8F" Grid.RowSpan="2" Grid.Row="5" Grid.ColumnSpan="8"/>
                             <Image Grid.Column="1" Source="img/white_logo_transparent_background.png" Grid.RowSpan="5" Margin="0,0,0,10"/>
-                            <Button x:Name="btnFiltrarNumero" Content="Buscar por Nº de Contrato" Grid.Column="3" Grid.RowSpan="2" Height="Auto" Padding="0,4" Click="BtnFiltrarNumero_Click"/>
-                            <Button x:Name="btnFiltrarRut" Content="Buscar por RUT" Grid.Column="5" Grid.RowSpan="2" Margin="1,0,0,0" Height="Auto" Click="BtnFiltrarRut_Click" />
-                            <Button x:Name="btnFiltrarTipo" Content="Buscar por tipo" Grid.Column="7" Grid.RowSpan="2" Margin="1,0,0,0" Height="Auto" Click="BtnFiltrarTipo_Click"/>
+                            <Button x:Name="btnFiltrarNumeroContrato" Content="Buscar por Nº de Contrato" Grid.Column="3" Grid.RowSpan="2" Height="Auto" Padding="0,4" Click="BtnFiltrarNumero_Click"/>
+                            <Button x:Name="btnFiltrarRutContrato" Content="Buscar por RUT" Grid.Column="5" Grid.RowSpan="2" Margin="1,0,0,0" Height="Auto" Click="BtnFiltrarRut_Click" />
+                            <Button x:Name="btnFiltrarTipoEvento" Content="Buscar por tipo" Grid.Column="7" Grid.RowSpan="2" Margin="1,0,0,0" Height="Auto" Click="BtnFiltrarTipo_Click"/>
 
-                            <TextBox x:Name="txtBuscarNumero" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" Text="Ingrese Numero" HorizontalContentAlignment="Right"/>
-                            <TextBox x:Name="txtBuscarRut" Grid.Column="5" Grid.Row="3" TextWrapping="Wrap" Text="Ingrese RUT" HorizontalContentAlignment="Right"/>
-                            <ComboBox x:Name="cboBuscarTipo" Grid.Column="7" Grid.Row="3" VerticalAlignment="Stretch"/>
+                            <TextBox x:Name="txtBuscarNumeroContrato" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ingrese Numero" HorizontalContentAlignment="Right"/>
+                            <TextBox x:Name="txtBuscarRutContrato" Grid.Column="5" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ingrese RUT" HorizontalContentAlignment="Right"/>
+                            <ComboBox x:Name="cboFiltrarTipoEvento" Grid.Column="7" Grid.Row="3" VerticalAlignment="Stretch" SelectedValuePath="IdTipoEmpresa" DisplayMemberPath="Descripcion" />
 
                         </Grid>
                     </StackPanel>

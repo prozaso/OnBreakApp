@@ -153,16 +153,17 @@ namespace OnBreakApp
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             SizeToContent = SizeToContent.WidthAndHeight;
 
-            
-            //Gestion Clientes
-            dgClientes.ItemsSource = null;
-            dgClientes.ItemsSource = ClienteCollection.ReadAll();
 
+            //Gestion Clientes
             cboActividad.ItemsSource = null;
             cboActividad.ItemsSource = ActividadEmpresaCollection.ListaActividadEmpresa();
 
             cboTipo.ItemsSource = null;
             cboTipo.ItemsSource = TipoEmpresaCollection.ListaTipoEmpresa();
+            CargarListaClientes();
+
+            cboFiltrarActividad.ItemsSource = ActividadEmpresaCollection.ListaActividadEmpresa();
+            cboFiltrarTipoCliente.ItemsSource = TipoEmpresaCollection.ListaTipoEmpresa();
 
             //Lista Contratos
             dgListaContratos.ItemsSource = null;
@@ -174,10 +175,17 @@ namespace OnBreakApp
             cboTipoEvento.ItemsSource = null;
             cboTipoEvento.ItemsSource = TipoEventoCollection.ListaTipoEvento();
 
-            cboBuscarTipo.ItemsSource = null;
-            cboBuscarTipo.ItemsSource = TipoEmpresaCollection.ListaTipoEmpresa();
+            cboFiltrarTipoContrato.ItemsSource = null;
+            cboFiltrarTipoContrato.ItemsSource = TipoEmpresaCollection.ListaTipoEmpresa();
 
-        
+
+        }
+
+        private void CargarListaClientes()
+        {
+            //Lista Clientes
+            dgClientes.ItemsSource = null;
+            dgClientes.ItemsSource = ClienteCollection.ReadAll();
         }
 
 
@@ -821,21 +829,57 @@ namespace OnBreakApp
 
         private void BtnFiltrarNumero_Click(object sender, RoutedEventArgs e)
         {
+
             dgListaContratos.ItemsSource = null;
-            dgListaContratos.ItemsSource = ContratoCollection.ContratoListarFiltroNumero(txtBuscarNumero.Text);
+            dgListaContratos.ItemsSource = ContratoCollection.ContratoListarFiltroNumero(txtBuscarNumeroContrato.Text);
 
         }
 
         private void BtnFiltrarRut_Click(object sender, RoutedEventArgs e)
         {
-            dgListaContratos.ItemsSource = null;
-            dgListaContratos.ItemsSource = ContratoCollection.ContratoListarFiltroRutCliente(txtBuscarRut.Text);
+
+            if (ClienteCollection.BuscarClientePorRut(txtBuscarRutCliente.Text) != null)
+            {
+                dgClientes.ItemsSource = null;
+                dgClientes.ItemsSource = ClienteCollection.ClienteFiltrarPorRut(txtBuscarRutCliente.Text);
+            }
+            else
+            {
+                MessageBox.Show("Cliente no existe");
+                CargarListaClientes();
+            }
+
         }
 
         private void BtnFiltrarTipo_Click(object sender, RoutedEventArgs e)
         {
-            dgListaContratos.ItemsSource = null;
-            dgListaContratos.ItemsSource = ContratoCollection.ContratoListarFiltroTipoEvento(cboBuscarTipo.SelectedIndex);
+
+            if (cboFiltrarTipoCliente.SelectedValue.ToString() != null)
+            {
+                dgClientes.ItemsSource = null;
+                dgClientes.ItemsSource = ClienteCollection.ClienteFiltrarPorTipo(int.Parse(cboFiltrarTipoContrato.SelectedValue.ToString()));
+            }
+            else
+            {
+                MessageBox.Show("No existe Cliente con Tipo seleccionado");
+                CargarListaClientes();
+            }
+
+        }
+
+
+        private void BtnFiltrarActividad_Click(object sender, RoutedEventArgs e)
+        {
+            if (cboFiltrarActividad.SelectedValue.ToString() != null)
+            {
+                dgClientes.ItemsSource = null;
+                dgClientes.ItemsSource = ClienteCollection.ClienteFiltrarPorActividad(int.Parse(cboFiltrarActividad.SelectedValue.ToString()));
+            }
+            else
+            {
+                MessageBox.Show("No existe Cliente con Actividad seleccionada");
+                CargarListaClientes();
+            }
         }
     }
 }
