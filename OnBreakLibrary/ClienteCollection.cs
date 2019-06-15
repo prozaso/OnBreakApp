@@ -161,53 +161,71 @@ namespace OnBreakLibrary
 
         public IEnumerable<Object> ClienteFiltrarPorTipo(int tipoEmpresa)
         {
-            return (from c in this.bd.Cliente
-                    join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
-                    join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
-                    let RUT = c.RutCliente
-                    let Contacto = c.NombreContacto
-                    let Correo = c.MailContacto
-                    let Actividad = a.Descripcion
-                    let Tipo = t.Descripcion
-                    where c.IdTipoEmpresa == tipoEmpresa
-                    select new
-                    {
-                        RUT,
-                        c.RazonSocial,
-                        Contacto,
-                        Correo,
-                        c.Direccion,
-                        c.Telefono,
-                        Actividad,
-                        Tipo
+            try
+            {
+                return (from c in this.bd.Cliente
+                        join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
+                        join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
+                        let RUT = c.RutCliente
+                        let Contacto = c.NombreContacto
+                        let Correo = c.MailContacto
+                        let Actividad = a.Descripcion
+                        let Tipo = t.Descripcion
+                        where c.IdTipoEmpresa == tipoEmpresa
+                        select new
+                        {
+                            RUT,
+                            c.RazonSocial,
+                            Contacto,
+                            Correo,
+                            c.Direccion,
+                            c.Telefono,
+                            Actividad,
+                            Tipo
 
-                    }).ToList();
+                        }).ToList();
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
 
         public IEnumerable<Object> ClienteFiltrarPorActividad(int actividad)
         {
-            return (from c in this.bd.Cliente
-                    join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
-                    join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
-                    let RUT = c.RutCliente
-                    let Contacto = c.NombreContacto
-                    let Correo = c.MailContacto
-                    let Actividad = a.Descripcion
-                    let Tipo = t.Descripcion
-                    where c.IdActividadEmpresa == actividad
-                    select new
-                    {
-                        RUT,
-                        c.RazonSocial,
-                        Contacto,
-                        Correo,
-                        c.Direccion,
-                        c.Telefono,
-                        Actividad,
-                        Tipo
+            try
+            {
+                return (from c in this.bd.Cliente
+                        join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
+                        join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
+                        let RUT = c.RutCliente
+                        let Contacto = c.NombreContacto
+                        let Correo = c.MailContacto
+                        let Actividad = a.Descripcion
+                        let Tipo = t.Descripcion
+                        where c.IdActividadEmpresa == actividad
+                        select new
+                        {
+                            RUT,
+                            c.RazonSocial,
+                            Contacto,
+                            Correo,
+                            c.Direccion,
+                            c.Telefono,
+                            Actividad,
+                            Tipo
 
-                    }).ToList();
+                        }).ToList();
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+
+            
         }
 
 
