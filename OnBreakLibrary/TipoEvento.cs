@@ -15,8 +15,8 @@ namespace OnBreakLibrary
 
         public TipoEvento(int _idTipoEvento, string _descripcion)
         {
-            this._idTipoEvento = _idTipoEvento;
-            this._descripcion = _descripcion;
+            IdTipoEvento = _idTipoEvento;
+            Descripcion = _descripcion;
         }
 
         public TipoEvento()

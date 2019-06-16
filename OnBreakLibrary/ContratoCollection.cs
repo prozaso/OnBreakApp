@@ -29,10 +29,11 @@ namespace OnBreakLibrary
                     join d in this.bd.TipoEvento
                         on a.IdTipoEvento equals d.IdTipoEvento
                     let Rut = b.RutCliente
-                    let Modalidad = c.Nombre
+                    let Modalidad = c.Nombre.Trim()
                     let Evento = d.Descripcion
                     let HoraInicio = a.FechaHoraInicio
                     let HoraTermino = a.FechaHoraTermino
+
 
                     select new
                     {
@@ -40,8 +41,8 @@ namespace OnBreakLibrary
                         a.Creacion,
                         a.Termino,
                         b.RutCliente,
-                        c.Nombre,
-                        d.Descripcion,
+                        Modalidad,
+                        Evento,
                         HoraInicio,
                         HoraTermino,
                         a.Asistentes,
@@ -53,30 +54,41 @@ namespace OnBreakLibrary
                     }).ToList();
         }
 
-        public Contrato BuscarContratoPorNumero(string numero)
+        public IEnumerable<Object> BuscarContratoPorNumero(string numero)
         {
             try
             {
-                return (from c in this.bd.Contrato
-                        where c.Numero == numero
-                        select new Contrato()
+                return (from a in this.bd.Contrato
+                        join b in this.bd.Cliente
+                            on a.RutCliente equals b.RutCliente
+                        join c in this.bd.ModalidadServicio
+                            on a.IdModalidad equals c.IdModalidad
+                        join d in this.bd.TipoEvento
+                            on a.IdTipoEvento equals d.IdTipoEvento
+                        let Rut = b.RutCliente
+                        let Modalidad = c.Nombre.Trim()
+                        let Evento = d.Descripcion
+                        let HoraInicio = a.FechaHoraInicio
+                        let HoraTermino = a.FechaHoraTermino
+                        where a.Numero == numero
+
+                        select new 
                         {
+                            a.Numero,
+                            a.Creacion,
+                            a.Termino,
+                            b.RutCliente,
+                            Modalidad,
+                            Evento,
+                            HoraInicio,
+                            HoraTermino,
+                            a.Asistentes,
+                            a.PersonalAdicional,
+                            a.Realizado,
+                            a.ValorTotalContrato,
+                            a.Observaciones
 
-                            Numero = c.Numero,
-                            Creacion = c.Creacion,
-                            Termino = c.Termino,
-                            RutCliente = c.RutCliente,
-                            IdModalidad = c.IdModalidad,
-                            IdTipoEvento = c.IdTipoEvento,
-                            FechaHoraInicio = c.FechaHoraInicio,
-                            FechaHoraTermino = c.FechaHoraTermino,
-                            Asistentes = c.Asistentes,
-                            PersonalAdicional = c.PersonalAdicional,
-                            Realizado = c.Realizado,
-                            ValorTotalContrato = c.ValorTotalContrato,
-                            Observaciones = c.Observaciones
-
-                        }).First();
+                        }).ToList();
             }
             catch (Exception)
             {
@@ -146,13 +158,11 @@ namespace OnBreakLibrary
             }
         }
 
-        public List<Contrato> ContratoListarFiltroNumero(string numero)
+        public IEnumerable<Object> ContratoListarFiltroNumero(string numero)
         {
             try
             {
                 return (from a in this.bd.Contrato
-                        join m in this.bd.ModalidadServicio on a.IdModalidad equals m.IdModalidad
-                        join t in this.bd.TipoEvento on a.IdTipoEvento equals t.IdTipoEvento
                         where a.Numero == numero
                         select new Contrato()
                         {
@@ -160,8 +170,7 @@ namespace OnBreakLibrary
                             Creacion = a.Creacion,
                             Termino = a.Termino,
                             RutCliente = a.RutCliente,
-                            IdModalidad = m.Nombre,
-                            IdTipoEvento = t.IdTipoEvento,
+
                             FechaHoraInicio = a.FechaHoraInicio,
                             FechaHoraTermino = a.FechaHoraTermino,
                             Asistentes = a.Asistentes,

@@ -18,11 +18,11 @@ namespace OnBreakLibrary
 
         public ModalidadServicio(string _idModalidad, int _idTipoEvento, string _nombre, float _valorBase, int _personalBase)
         {
-            this._idModalidad = _idModalidad;
-            this._idTipoEvento = _idTipoEvento;
-            this._nombre = _nombre;
-            this._valorBase = _valorBase;
-            this._personalBase = _personalBase;
+            IdModalidad = _idModalidad;
+            IdTipoEvento = _idTipoEvento;
+            Nombre = _nombre;
+            ValorBase = _valorBase;
+            PersonalBase = _personalBase;
 
         }
 
@@ -30,8 +30,6 @@ namespace OnBreakLibrary
         {
 
         }
-
-
 
         public string IdModalidad
         {

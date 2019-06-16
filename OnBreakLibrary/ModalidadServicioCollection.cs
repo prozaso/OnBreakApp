@@ -19,7 +19,7 @@ namespace OnBreakLibrary
                     select new ModalidadServicio()
                     {
                         IdTipoEvento = t.IdTipoEvento,
-                        Nombre = t.Nombre.Trim()
+                        Nombre = t.Nombre
                     }).ToList();
         }
 
@@ -31,7 +31,7 @@ namespace OnBreakLibrary
                     select new ModalidadServicio()
                     {
                         IdModalidad = t.IdModalidad,
-                        Nombre = t.Nombre.Trim()
+                        Nombre = t.Nombre
 
                     }).ToList();
         }

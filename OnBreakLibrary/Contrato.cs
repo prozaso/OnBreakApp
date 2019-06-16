@@ -47,125 +47,29 @@ namespace OnBreakLibrary
 
         }
 
-
-
-        public string Observaciones
+        public string Numero
         {
             get
             {
-                return _observaciones;
+                return _numero;
             }
+
             set
             {
-                _observaciones = value;
+                _numero = value;
             }
         }
 
-        public double ValorTotalContrato
-        {
-            get
-            {
-                return _valorTotalContrato;
-            }
-            set
-            {
-                _valorTotalContrato = value;
-            }
-        }
 
-        public bool Realizado
+        public DateTime Creacion
         {
             get
             {
-                return _realizado;
+                return _creacion;
             }
             set
             {
-                _realizado = value;
-            }
-        }
-
-        public int PersonalAdicional
-        {
-            get
-            {
-                return _personalAdicional;
-            }
-            set
-            {
-                _personalAdicional = value;
-            }
-        }
-
-        public int Asistentes
-        {
-            get
-            {
-                return _asistentes;
-            }
-            set
-            {
-                _asistentes = value;
-            }
-        }
-
-        public DateTime FechaHoraTermino
-        {
-            get
-            {
-                return _fechaHoraTermino;
-            }
-            set
-            {
-                _fechaHoraTermino = value;
-            }
-        }
-
-        public DateTime FechaHoraInicio
-        {
-            get
-            {
-                return _fechaHoraInicio;
-            }
-            set
-            {
-                _fechaHoraInicio = value;
-            }
-        }
-
-        public int IdTipoEvento
-        {
-            get
-            {
-                return _idTipoEvento;
-            }
-            set
-            {
-                _idTipoEvento = value;
-            }
-        }
-
-        public string IdModalidad
-        {
-            get
-            {
-                return _idModalidad;
-            }
-            set
-            {
-                _idModalidad = value;
-            }
-        }
-
-        public string RutCliente
-        {
-            get
-            {
-                return _rutCliente;
-            }
-            set
-            {
-                _rutCliente = value;
+                _creacion = value;
             }
         }
 
@@ -181,29 +85,125 @@ namespace OnBreakLibrary
             }
         }
 
-        public DateTime Creacion
+        public string RutCliente
         {
             get
             {
-                return _creacion;
+                return _rutCliente;
             }
             set
             {
-                _creacion = value;
+                _rutCliente = value;
             }
         }
 
-        public string Numero
+        public string IdModalidad
         {
             get
             {
-                return _numero;
+                return _idModalidad;
             }
-
             set
             {
-                _numero = value;
+                _idModalidad = value;
             }
         }
+
+        public int IdTipoEvento
+        {
+            get
+            {
+                return _idTipoEvento;
+            }
+            set
+            {
+                _idTipoEvento = value;
+            }
+        }
+
+        public DateTime FechaHoraInicio
+        {
+            get
+            {
+                return _fechaHoraInicio;
+            }
+            set
+            {
+                _fechaHoraInicio = value;
+            }
+        }
+
+        public DateTime FechaHoraTermino
+        {
+            get
+            {
+                return _fechaHoraTermino;
+            }
+            set
+            {
+                _fechaHoraTermino = value;
+            }
+        }
+
+        public int Asistentes
+        {
+            get
+            {
+                return _asistentes;
+            }
+            set
+            {
+                _asistentes = value;
+            }
+        }
+
+        public int PersonalAdicional
+        {
+            get
+            {
+                return _personalAdicional;
+            }
+            set
+            {
+                _personalAdicional = value;
+            }
+        }
+
+        public bool Realizado
+        {
+            get
+            {
+                return _realizado;
+            }
+            set
+            {
+                _realizado = value;
+            }
+        }
+
+        public double ValorTotalContrato
+        {
+            get
+            {
+                return _valorTotalContrato;
+            }
+            set
+            {
+                _valorTotalContrato = value;
+            }
+        }
+
+        public string Observaciones
+        {
+            get
+            {
+                return _observaciones;
+            }
+            set
+            {
+                _observaciones = value;
+            }
+        }
+
     }
 }
