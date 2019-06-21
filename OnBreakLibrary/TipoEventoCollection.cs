@@ -18,7 +18,7 @@ namespace OnBreakLibrary
                     select new TipoEvento()
                     {
                         IdTipoEvento = t.IdTipoEvento,
-                        Descripcion = t.Descripcion
+                        Descripcion = t.Descripcion.Trim()
                     }).ToList();
         }
 

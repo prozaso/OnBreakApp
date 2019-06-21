@@ -16,7 +16,7 @@ namespace OnBreakLibrary
         public TipoEvento(int _idTipoEvento, string _descripcion)
         {
             IdTipoEvento = _idTipoEvento;
-            Descripcion = _descripcion;
+            Descripcion = _descripcion.Trim();
         }
 
         public TipoEvento()
@@ -28,11 +28,11 @@ namespace OnBreakLibrary
         {
             get
             {
-                return _descripcion;
+                return _descripcion.Trim();
             }
             set
             {
-                _descripcion = value;
+                _descripcion = value.Trim();
             }
         }
 

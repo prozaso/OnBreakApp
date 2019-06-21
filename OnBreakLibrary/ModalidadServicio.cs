@@ -20,7 +20,7 @@ namespace OnBreakLibrary
         {
             IdModalidad = _idModalidad;
             IdTipoEvento = _idTipoEvento;
-            Nombre = _nombre;
+            Nombre = _nombre.Trim();
             ValorBase = _valorBase;
             PersonalBase = _personalBase;
 

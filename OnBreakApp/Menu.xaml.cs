@@ -259,7 +259,11 @@ namespace OnBreakApp
 
             try
             {
-                if (cliente == null)
+                if (rut == "")
+                {
+                    MessageBox.Show("Por favor ingrese un RUT");
+                }
+                else if (cliente == null)
                 {
                     MessageBox.Show("Cliente no existe");
                 }
@@ -293,7 +297,11 @@ namespace OnBreakApp
 
                 Cliente cliente = new Cliente();
 
-                if (ClienteCollection.BuscarClientePorRut(rut) != null)
+                if (rut == "")
+                {
+                    MessageBox.Show("Por favor ingrese un RUT");
+                }
+                else if (ClienteCollection.BuscarClientePorRut(rut) != null)
                 {
                     MessageBox.Show("Este cliente/Rut ya se encuentra en sistema");
                 }
@@ -381,8 +389,11 @@ namespace OnBreakApp
 
             try
             {
-
-                if (ClienteCollection.BuscarClientePorRut(rut) == null)
+                if (rut == "")
+                {
+                    MessageBox.Show("Por favor ingrese un RUT");
+                }
+                else if (ClienteCollection.BuscarClientePorRut(rut) == null)
                 {
                     MessageBox.Show("Cliente no existe");
                     return;
@@ -630,7 +641,7 @@ namespace OnBreakApp
                 contrato.RutCliente = txtRutClienteContrato.Text;
 
                 contrato.IdTipoEvento = int.Parse(cboTipoEvento.SelectedValue.ToString());
-                contrato.IdModalidad = cboTipoEventoNombre.SelectedValue.ToString();
+                contrato.IdModalidad = cboTipoEventoNombre.SelectedValue.ToString().Trim();
 
                 //guardamos la fecha y hora de inicio del evento
                 string fechaInicio = fechaInicioPicker.SelectedDate.Value.ToString("dd/MM/yyyy");
@@ -832,14 +843,24 @@ namespace OnBreakApp
 
         private void BtnFiltrarNumero_Click(object sender, RoutedEventArgs e)
         {
-            if (txtBuscarNumeroContrato.Text.Replace(" ", "") == "")
+
+            string numero = txtBuscarNumeroContrato.Text.Replace(" ", "");
+
+            if (numero == "")
             {
                 MessageBox.Show("Porfavor ingrese numero de contrato");
+                CargarListaContratos();
+            }
+            else if (numero.Length < 12)
+            {
+                MessageBox.Show("Por favor ingrese un numero de contrato valido");
+                CargarListaContratos();
             }
             else if (ContratoCollection.BuscarContratoPorNumero(txtBuscarNumeroContrato.Text) != null)
             {
                 dgListaContratos.ItemsSource = null;
                 dgListaContratos.ItemsSource = ContratoCollection.ContratoListarFiltroNumero(txtBuscarNumeroContrato.Text);
+                txtBuscarNumeroContrato.Text = "";
             }
             else
             {
@@ -851,10 +872,24 @@ namespace OnBreakApp
 
         private void BtnFiltrarRutContrato_Click(object sender, RoutedEventArgs e)
         {
-            if (ContratoCollection.ContratoBuscarPorRut(txtBuscarRutContrato.Text).Equals(""))
+            string rut = txtBuscarRutContrato.Text.Replace(" ", "");
+            rut = txtBuscarRutContrato.Text.Replace(".", "");
+
+            if (rut.Length < 9)
+            {
+                MessageBox.Show("Por favor ingrese un RUT valido");
+                CargarListaContratos();
+            }
+            else if (rut == "")
+            {
+                MessageBox.Show("Por favor ingrese un RUT");
+                CargarListaContratos();
+            }
+            else if (ContratoCollection.ContratoBuscarPorRut(rut.Replace(".", "")) != null)
             {
                 dgListaContratos.ItemsSource = null;
                 dgListaContratos.ItemsSource = ContratoCollection.ContratoListarFiltroRutCliente(txtBuscarRutContrato.Text);
+                txtBuscarRutContrato.Text = "";
             }
             else
             {
