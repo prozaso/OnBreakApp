@@ -31,5 +31,9 @@ namespace OnBreak.DALC
         public DbSet<ModalidadServicio> ModalidadServicio { get; set; }
         public DbSet<TipoEmpresa> TipoEmpresa { get; set; }
         public DbSet<TipoEvento> TipoEvento { get; set; }
+        public DbSet<Cenas> Cenas { get; set; }
+        public DbSet<Cocktail> Cocktail { get; set; }
+        public DbSet<CoffeeBreak> CoffeeBreak { get; set; }
+        public DbSet<TipoAmbientacion> TipoAmbientacion { get; set; }
     }
 }

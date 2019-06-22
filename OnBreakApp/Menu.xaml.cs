@@ -595,13 +595,18 @@ namespace OnBreakApp
         private void BtnRutCliente_Click(object sender, RoutedEventArgs e)
         {
 
-            String rut = txtRutClienteContrato.Text;
+            String rut = txtRutClienteContrato.Text.Replace(".", "");
+            rut = rut.Replace(" ", "");
 
             Cliente cliente = this.ClienteCollection.BuscarClientePorRut(rut);
 
             try
             {
-                if (cliente == null)
+                if (rut == "")
+                {
+                    MessageBox.Show("Por favor ingrese un RUT");
+                }
+                else if (cliente == null)
                 {
                     MessageBox.Show("Cliente no existe");
                 }
@@ -638,7 +643,10 @@ namespace OnBreakApp
                 string fechaTerminoUsuario = DateTime.Now.ToString("dd/MM/yyyy");
                 contrato.Termino = DateTime.Parse(fechaTerminoUsuario);
 
-                contrato.RutCliente = txtRutClienteContrato.Text;
+                //Guardamos rut sin puntos ni espacios
+                string rut = txtRutClienteContrato.Text.Replace(".", "");
+                rut = rut.Replace(" ", "");
+                contrato.RutCliente = rut;
 
                 contrato.IdTipoEvento = int.Parse(cboTipoEvento.SelectedValue.ToString());
                 contrato.IdModalidad = cboTipoEventoNombre.SelectedValue.ToString().Trim();
@@ -885,7 +893,7 @@ namespace OnBreakApp
                 MessageBox.Show("Por favor ingrese un RUT");
                 CargarListaContratos();
             }
-            else if (ContratoCollection.ContratoBuscarPorRut(rut.Replace(".", "")) != null)
+            else if (ContratoCollection.ContratoBuscarPorRut(rut) != null)
             {
                 dgListaContratos.ItemsSource = null;
                 dgListaContratos.ItemsSource = ContratoCollection.ContratoListarFiltroRutCliente(txtBuscarRutContrato.Text);
@@ -901,19 +909,38 @@ namespace OnBreakApp
 
         private void BtnFiltrarTipoEvento_Click(object sender, RoutedEventArgs e)
         {
-
+            if (cboFiltrarTipoEvento.SelectedValue == null)
+            {
+                MessageBox.Show("Para filtrar por tipo primero debe seleccionarlo");
+                CargarListaContratos();
+            }
+            else if (cboFiltrarTipoEvento.SelectedValue != null)
+            {
+                dgListaContratos.ItemsSource = null;
+                dgListaContratos.ItemsSource = ContratoCollection.ContratoListarFiltroTipoEvento(int.Parse(cboFiltrarTipoEvento.SelectedValue.ToString()));
+                cboFiltrarTipoEvento.SelectedIndex = -1;
+            }
+            else
+            {
+                MessageBox.Show("No existen Contratos con el tipo seleccionado");
+                CargarListaContratos();
+                cboFiltrarTipoEvento.SelectedIndex = -1;
+            }
         }
 
 
         //Lista Clientes
         private void BtnFiltrarRut_Click(object sender, RoutedEventArgs e)
         {
-            if (txtBuscarRutCliente.Text.Replace(" ", "") == "")
+            string rut = txtBuscarRutCliente.Text.Replace(" ", "");
+            rut = rut.Replace(".", "");
+
+            if (rut == "")
             {
                 MessageBox.Show("Para buscar un cliente debe ingresar un RUT valido");
                 CargarListaClientes();
             }
-            else if (ClienteCollection.BuscarClientePorRut(txtBuscarRutCliente.Text) != null)
+            else if (ClienteCollection.BuscarClientePorRut(rut) != null)
             {
                 dgClientes.ItemsSource = null;
                 dgClientes.ItemsSource = ClienteCollection.ClienteFiltrarPorRut(txtBuscarRutCliente.Text);
@@ -944,7 +971,7 @@ namespace OnBreakApp
             }
             else
             {
-                MessageBox.Show("No existen Contratos con Tipo seleccionado");
+                MessageBox.Show("No existen Contratos con el tipo seleccionado");
                 CargarListaClientes();
                 cboFiltrarTipoCliente.SelectedIndex = -1;
             }
@@ -972,6 +999,5 @@ namespace OnBreakApp
             }
         }
 
-        
     }
 }

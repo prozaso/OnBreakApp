@@ -164,20 +164,20 @@ namespace OnBreakLibrary
             {
                 return (from a in this.bd.Contrato
                         where a.Numero == numero
-                        select new Contrato()
-                        {
-                            Numero = a.Numero,
-                            Creacion = a.Creacion,
-                            Termino = a.Termino,
-                            RutCliente = a.RutCliente,
 
-                            FechaHoraInicio = a.FechaHoraInicio,
-                            FechaHoraTermino = a.FechaHoraTermino,
-                            Asistentes = a.Asistentes,
-                            PersonalAdicional = a.PersonalAdicional,
-                            Realizado = a.Realizado,
-                            ValorTotalContrato = a.ValorTotalContrato,
-                            Observaciones = a.Observaciones
+                        select new
+                        {
+                            a.Numero,
+                            a.Creacion,
+                            a.Termino,
+                            a.RutCliente,
+                            a.FechaHoraInicio,
+                            a.FechaHoraTermino,
+                            a.Asistentes,
+                            a.PersonalAdicional,
+                            a.Realizado,
+                            a.ValorTotalContrato,
+                            a.Observaciones
 
                         }).ToList();
             }
@@ -186,27 +186,28 @@ namespace OnBreakLibrary
                 return null;
             }
         }
-        public List<Contrato> ContratoListarFiltroRutCliente(string rutCliente)
+        public IEnumerable<Object> ContratoListarFiltroRutCliente(string rutCliente)
         {
             try
             {
                 return (from c in this.bd.Contrato
                         where c.RutCliente == rutCliente
-                        select new Contrato()
+
+                        select new
                         {
-                            Numero = c.Numero,
-                            Creacion = c.Creacion,
-                            Termino = c.Termino,
-                            RutCliente = c.RutCliente,
-                            IdModalidad = c.IdModalidad,
-                            IdTipoEvento = c.IdTipoEvento,
-                            FechaHoraInicio = c.FechaHoraInicio,
-                            FechaHoraTermino = c.FechaHoraTermino,
-                            Asistentes = c.Asistentes,
-                            PersonalAdicional = c.PersonalAdicional,
-                            Realizado = c.Realizado,
-                            ValorTotalContrato = c.ValorTotalContrato,
-                            Observaciones = c.Observaciones
+                            c.Numero,
+                            c.Creacion,
+                            c.Termino,
+                            c.RutCliente,
+                            c.IdModalidad,
+                            c.IdTipoEvento,
+                            c.FechaHoraInicio,
+                            c.FechaHoraTermino,
+                            c.Asistentes,
+                            c.PersonalAdicional,
+                            c.Realizado,
+                            c.ValorTotalContrato,
+                            c.Observaciones
 
                         }).ToList();
             }
@@ -215,7 +216,7 @@ namespace OnBreakLibrary
                 return null;
             }
         }
-        public List<Contrato> ContratoListarFiltroTipoEvento(int tipoEvento)
+        public IEnumerable<Object> ContratoListarFiltroTipoEvento(int tipoEvento)
         {
             try
             {
@@ -223,21 +224,23 @@ namespace OnBreakLibrary
                         join m in this.bd.ModalidadServicio on c.IdModalidad equals m.IdModalidad
                         join t in this.bd.TipoEvento on c.IdTipoEvento equals t.IdTipoEvento
                         where c.IdTipoEvento == tipoEvento
-                        select new Contrato()
+
+                        select new
                         {
-                            Numero = c.Numero,
-                            Creacion = c.Creacion,
-                            Termino = c.Termino,
-                            RutCliente = c.RutCliente,
-                            IdModalidad = m.Nombre,
-                            IdTipoEvento = t.IdTipoEvento,
-                            FechaHoraInicio = c.FechaHoraInicio,
-                            FechaHoraTermino = c.FechaHoraTermino,
-                            Asistentes = c.Asistentes,
-                            PersonalAdicional = c.PersonalAdicional,
-                            Realizado = c.Realizado,
-                            ValorTotalContrato = c.ValorTotalContrato,
-                            Observaciones = c.Observaciones
+                            c.Numero,
+                            c.Creacion,
+                            c.Termino,
+                            c.RutCliente,
+                            m.Nombre,
+                            t.IdTipoEvento,
+                            c.FechaHoraInicio,
+                            c.FechaHoraTermino,
+                            c.Asistentes,
+                            c.PersonalAdicional,
+                            c.Realizado,
+                            c.ValorTotalContrato,
+                            c.Observaciones
+
                         }).ToList();
             }
             catch (Exception)
@@ -246,7 +249,7 @@ namespace OnBreakLibrary
             }
         }
 
-        public List<Contrato> ContratoBuscarPorRut(string rut)
+        public IEnumerable<Object> ContratoBuscarPorRut(string rut)
         {
             try
             {
@@ -254,21 +257,22 @@ namespace OnBreakLibrary
                         join m in this.bd.ModalidadServicio on c.IdModalidad equals m.IdModalidad
                         join t in this.bd.TipoEvento on c.IdTipoEvento equals t.IdTipoEvento
                         where c.RutCliente == rut
-                        select new Contrato()
+
+                        select new
                         {
-                            Numero = c.Numero,
-                            Creacion = c.Creacion,
-                            Termino = c.Termino,
-                            RutCliente = c.RutCliente,
-                            IdModalidad = m.Nombre,
-                            IdTipoEvento = t.IdTipoEvento,
-                            FechaHoraInicio = c.FechaHoraInicio,
-                            FechaHoraTermino = c.FechaHoraTermino,
-                            Asistentes = c.Asistentes,
-                            PersonalAdicional = c.PersonalAdicional,
-                            Realizado = c.Realizado,
-                            ValorTotalContrato = c.ValorTotalContrato,
-                            Observaciones = c.Observaciones
+                            c.Numero,
+                            c.Creacion,
+                            c.Termino,
+                            c.RutCliente,
+                            m.Nombre,
+                            t.IdTipoEvento,
+                            c.FechaHoraInicio,
+                            c.FechaHoraTermino,
+                            c.Asistentes,
+                            c.PersonalAdicional,
+                            c.Realizado,
+                            c.ValorTotalContrato,
+                            c.Observaciones
 
                         }).ToList();
             }

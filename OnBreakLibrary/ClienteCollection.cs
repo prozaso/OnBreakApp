@@ -21,6 +21,7 @@ namespace OnBreakLibrary
                     on c.IdTipoEmpresa equals t.IdTipoEmpresa
                     let ActividadEmpresa = a.Descripcion
                     let TipoEmpresa = t.Descripcion
+
                     select new
                     {
                         c.RutCliente,
@@ -31,6 +32,7 @@ namespace OnBreakLibrary
                         c.Telefono,
                         ActividadEmpresa,
                         TipoEmpresa
+
                     }).ToList();
         }
 
@@ -129,7 +131,7 @@ namespace OnBreakLibrary
             }
         }
 
-        public List<Cliente> ClienteFiltrarPorRut(string rut)
+        public IEnumerable<Object> ClienteFiltrarPorRut(string rut)
         {
 
             try
@@ -138,16 +140,17 @@ namespace OnBreakLibrary
                         join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
                         join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
                         where c.RutCliente == rut
-                        select new Cliente
+
+                        select new
                         {
-                            RutCliente = c.RutCliente,
-                            RazonSocial = c.RazonSocial,
-                            NombreContacto = c.NombreContacto,
-                            MailContacto = c.MailContacto,
-                            Direccion = c.Direccion,
-                            Telefono = c.Telefono,
-                            IdActividadEmpresa = a.IdActividadEmpresa,
-                            IdTipoEmpresa = t.IdTipoEmpresa
+                            c.RutCliente,
+                            c.RazonSocial,
+                            c.NombreContacto,
+                            c.MailContacto,
+                            c.Direccion,
+                            c.Telefono,
+                            a.IdActividadEmpresa,
+                            t.IdTipoEmpresa
 
                         }).ToList();
             }
@@ -206,6 +209,7 @@ namespace OnBreakLibrary
                         let Actividad = a.Descripcion
                         let Tipo = t.Descripcion
                         where c.IdActividadEmpresa == actividad
+
                         select new
                         {
                             RUT,

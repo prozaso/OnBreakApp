@@ -76,6 +76,15 @@
                             <ColumnDefinition Width="0*"/>
                         </Grid.ColumnDefinitions>
 
+
+
+                        <TextBlock VerticalAlignment="Center" Height="28" Margin="56,4,16,1" Grid.Row="7">Light</TextBlock>
+                        <ToggleButton Margin="8,5,16,5" Command="{Binding ToggleBaseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" Grid.Row="9" />
+                        <TextBlock VerticalAlignment="Center" Margin="0,4,76,12" Grid.Row="7">Dark</TextBlock>
+
+
+
+
                         <Button x:Name="btnBuscar" Content="Buscar" Width="auto" Grid.Row="1" Grid.Column="5" Height="Auto" Padding="0" Click="BtnBuscar_Click"/>
 
                         <TextBox x:Name="txtRut" materialDesign:HintAssist.Hint="RUT" Width="auto" Grid.Row="1" Grid.Column="3" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0"/>
@@ -324,10 +333,10 @@
                             <Image Grid.Column="1" Source="img/white_logo_transparent_background.png" Grid.RowSpan="5" Margin="0,0,0,10"/>
                             <Button x:Name="btnFiltrarNumeroContrato" Content="Buscar por Nº de Contrato" Grid.Column="3" Grid.RowSpan="2" Height="Auto" Padding="0,4" Click="BtnFiltrarNumero_Click"/>
                             <Button x:Name="btnFiltrarRutContrato" Content="Buscar por RUT" Grid.Column="5" Grid.RowSpan="2" Margin="1,0,0,0" Height="Auto" Click="BtnFiltrarRutContrato_Click" />
-                            <Button x:Name="btnFiltrarTipoEvento" Content="Buscar por tipo" Grid.Column="7" Grid.RowSpan="2" Margin="1,0,0,0" Height="Auto" Click="BtnFiltrarTipoEvento_Click"/>
+                            <Button x:Name="btnFiltrarTipoEvento" Content="Buscar por tipo" Grid.Column="7" Grid.RowSpan="2" Margin="1,0,0,0" Height="Auto" Click="BtnFiltrarTipoEvento_Click" HorizontalAlignment="Left" Width="135"/>
 
-                            <TextBox x:Name="txtBuscarNumeroContrato" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ingrese Numero" HorizontalContentAlignment="Right"/>
-                            <TextBox x:Name="txtBuscarRutContrato" Grid.Column="5" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ingrese RUT" HorizontalContentAlignment="Right"/>
+                            <TextBox x:Name="txtBuscarNumeroContrato" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ingrese Numero" HorizontalContentAlignment="Right" Padding="1,2,1,1"/>
+                            <TextBox x:Name="txtBuscarRutContrato" Grid.Column="5" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ingrese RUT" HorizontalContentAlignment="Right" Padding="1,2,1,1"/>
                             <ComboBox x:Name="cboFiltrarTipoEvento" Grid.Column="7" Grid.Row="3" materialDesign:HintAssist.Hint="Seleccionar" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Stretch" SelectedValuePath="IdTipoEmpresa" DisplayMemberPath="Descripcion" HorizontalContentAlignment="Left" Padding="0" />
 
                         </Grid>
