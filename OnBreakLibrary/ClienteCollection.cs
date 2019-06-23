@@ -15,22 +15,23 @@ namespace OnBreakLibrary
         public IEnumerable<Object> ReadAll()
         {
             return (from c in this.bd.Cliente
-                    join a in this.bd.ActividadEmpresa
-                    on c.IdActividadEmpresa equals a.IdActividadEmpresa
-                    join t in this.bd.TipoEmpresa
-                    on c.IdTipoEmpresa equals t.IdTipoEmpresa
-                    let ActividadEmpresa = a.Descripcion
+                    join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
+                    join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
+                    let RUT = c.RutCliente
+                    let Contacto = c.NombreContacto
+                    let Mail = c.MailContacto
+                    let Actividad = a.Descripcion
                     let TipoEmpresa = t.Descripcion
 
                     select new
                     {
-                        c.RutCliente,
+                        RUT,
                         c.RazonSocial,
-                        c.NombreContacto,
-                        c.MailContacto,
+                        Contacto,
+                        Mail,
                         c.Direccion,
                         c.Telefono,
-                        ActividadEmpresa,
+                        Actividad,
                         TipoEmpresa
 
                     }).ToList();
@@ -88,6 +89,22 @@ namespace OnBreakLibrary
             }
         }
 
+        public bool EliminarCliente(string rut)
+        {
+            try
+            {
+                OnBreak.DALC.Cliente c = bd.Cliente.Find(rut);
+                bd.Cliente.Remove(c);
+                bd.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
         public Cliente BuscarClientePorRut(string rut)
         {
             try
@@ -115,42 +132,85 @@ namespace OnBreakLibrary
             }
         }
 
-        public bool EliminarCliente(string rut)
+        public Cliente BuscarClientePorTipo(int tipo)
         {
             try
             {
-                OnBreak.DALC.Cliente c = bd.Cliente.Find(rut);
-                bd.Cliente.Remove(c);
-                bd.SaveChanges();
-                return true;
+                return (from c in this.bd.Cliente
+                        where c.IdTipoEmpresa == tipo
+                        select new Cliente()
+                        {
+
+                            RutCliente = c.RutCliente,
+                            RazonSocial = c.RazonSocial,
+                            NombreContacto = c.NombreContacto,
+                            MailContacto = c.MailContacto,
+                            Direccion = c.Direccion,
+                            Telefono = c.Telefono,
+                            IdActividadEmpresa = c.IdActividadEmpresa,
+                            IdTipoEmpresa = c.IdTipoEmpresa
+
+                        }).First();
             }
             catch (Exception)
             {
 
-                return false;
+                return null;
             }
         }
 
+        public Cliente BuscarClientePorActividad(int actividad)
+        {
+            try
+            {
+                return (from c in this.bd.Cliente
+                        where c.IdActividadEmpresa == actividad
+                        select new Cliente()
+                        {
+
+                            RutCliente = c.RutCliente,
+                            RazonSocial = c.RazonSocial,
+                            NombreContacto = c.NombreContacto,
+                            MailContacto = c.MailContacto,
+                            Direccion = c.Direccion,
+                            Telefono = c.Telefono,
+                            IdActividadEmpresa = c.IdActividadEmpresa,
+                            IdTipoEmpresa = c.IdTipoEmpresa
+
+                        }).First();
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+
+
         public IEnumerable<Object> ClienteFiltrarPorRut(string rut)
         {
-
             try
             {
                 return (from c in this.bd.Cliente
                         join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
                         join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
-                        where c.RutCliente == rut
+                        let RUT = c.RutCliente
+                        let Contacto = c.NombreContacto
+                        let Mail = c.MailContacto
+                        let Actividad = a.Descripcion
+                        let TipoEmpresa = t.Descripcion
+                            where c.RutCliente == rut
 
                         select new
                         {
-                            c.RutCliente,
+                            RUT,
                             c.RazonSocial,
-                            c.NombreContacto,
-                            c.MailContacto,
+                            Contacto,
+                            Mail,
                             c.Direccion,
                             c.Telefono,
-                            a.IdActividadEmpresa,
-                            t.IdTipoEmpresa
+                            Actividad,
+                            TipoEmpresa
 
                         }).ToList();
             }
@@ -171,20 +231,21 @@ namespace OnBreakLibrary
                         join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
                         let RUT = c.RutCliente
                         let Contacto = c.NombreContacto
-                        let Correo = c.MailContacto
+                        let Mail = c.MailContacto
                         let Actividad = a.Descripcion
-                        let Tipo = t.Descripcion
-                        where c.IdTipoEmpresa == tipoEmpresa
+                        let TipoEmpresa = t.Descripcion
+                            where c.IdTipoEmpresa == tipoEmpresa
+
                         select new
                         {
                             RUT,
                             c.RazonSocial,
                             Contacto,
-                            Correo,
+                            Mail,
                             c.Direccion,
                             c.Telefono,
                             Actividad,
-                            Tipo
+                            TipoEmpresa
 
                         }).ToList();
             }
@@ -205,9 +266,9 @@ namespace OnBreakLibrary
                         join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
                         let RUT = c.RutCliente
                         let Contacto = c.NombreContacto
-                        let Correo = c.MailContacto
+                        let Mail = c.MailContacto
                         let Actividad = a.Descripcion
-                        let Tipo = t.Descripcion
+                        let TipoEmpresa = t.Descripcion
                         where c.IdActividadEmpresa == actividad
 
                         select new
@@ -215,11 +276,11 @@ namespace OnBreakLibrary
                             RUT,
                             c.RazonSocial,
                             Contacto,
-                            Correo,
+                            Mail,
                             c.Direccion,
                             c.Telefono,
                             Actividad,
-                            Tipo
+                            TipoEmpresa
 
                         }).ToList();
             }

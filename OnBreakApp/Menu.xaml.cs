@@ -896,7 +896,7 @@ namespace OnBreakApp
             else if (ContratoCollection.ContratoBuscarPorRut(rut) != null)
             {
                 dgListaContratos.ItemsSource = null;
-                dgListaContratos.ItemsSource = ContratoCollection.ContratoListarFiltroRutCliente(txtBuscarRutContrato.Text);
+                dgListaContratos.ItemsSource = ContratoCollection.ContratoListarFiltroRutCliente(rut);
                 txtBuscarRutContrato.Text = "";
             }
             else
@@ -937,19 +937,25 @@ namespace OnBreakApp
 
             if (rut == "")
             {
-                MessageBox.Show("Para buscar un cliente debe ingresar un RUT valido");
+                MessageBox.Show("Para buscar un cliente debe ingresar un RUT");
                 CargarListaClientes();
             }
-            else if (ClienteCollection.BuscarClientePorRut(rut) != null)
+            else if (rut.Length < 9 || rut.Length > 12)
             {
-                dgClientes.ItemsSource = null;
-                dgClientes.ItemsSource = ClienteCollection.ClienteFiltrarPorRut(txtBuscarRutCliente.Text);
+                MessageBox.Show("Por favor ingrese un RUT valido");
+            }
+            else if (ClienteCollection.BuscarClientePorRut(rut) == null)
+            {
+
+                MessageBox.Show("Cliente no existe");
+                CargarListaClientes();
                 txtBuscarRutCliente.Text = "";
             }
             else
             {
-                MessageBox.Show("Cliente no existe");
-                CargarListaClientes();
+
+                dgClientes.ItemsSource = null;
+                dgClientes.ItemsSource = ClienteCollection.ClienteFiltrarPorRut(rut);
                 txtBuscarRutCliente.Text = "";
             }
 
@@ -958,21 +964,23 @@ namespace OnBreakApp
         private void BtnFiltrarTipo_Click(object sender, RoutedEventArgs e)
         {
 
-            if (cboFiltrarTipoCliente.SelectedValue == null)
+            if (cboFiltrarTipoCliente.SelectedIndex == -1)
             {
                 MessageBox.Show("Para filtrar por tipo primero debe seleccionarlo");
                 CargarListaClientes();
             }
-            else if (cboFiltrarTipoCliente.SelectedValue != null)
+            else if (ClienteCollection.BuscarClientePorTipo(int.Parse(cboFiltrarTipoCliente.SelectedValue.ToString())) == null)
             {
-                dgClientes.ItemsSource = null;
-                dgClientes.ItemsSource = ClienteCollection.ClienteFiltrarPorTipo(int.Parse(cboFiltrarTipoCliente.SelectedValue.ToString()));
+
+                MessageBox.Show("No existen Contratos con el tipo de Cliente seleccionado");
+                CargarListaClientes();
                 cboFiltrarTipoCliente.SelectedIndex = -1;
             }
             else
             {
-                MessageBox.Show("No existen Contratos con el tipo seleccionado");
-                CargarListaClientes();
+
+                dgClientes.ItemsSource = null;
+                dgClientes.ItemsSource = ClienteCollection.ClienteFiltrarPorTipo(int.Parse(cboFiltrarTipoCliente.SelectedValue.ToString()));
                 cboFiltrarTipoCliente.SelectedIndex = -1;
             }
 
@@ -980,21 +988,23 @@ namespace OnBreakApp
 
         private void BtnFiltrarActividad_Click(object sender, RoutedEventArgs e)
         {
-            if (cboFiltrarActividad.SelectedValue == null)
+            if (cboFiltrarActividad.SelectedIndex == -1)
             {
                 MessageBox.Show("Para filtrar por actividad primero debe seleccionarla");
                 CargarListaClientes();
             }
-            else if (cboFiltrarActividad.SelectedValue != null)
+            else if (ClienteCollection.BuscarClientePorActividad(int.Parse(cboFiltrarActividad.SelectedValue.ToString())) == null)
             {
-                dgClientes.ItemsSource = null;
-                dgClientes.ItemsSource = ClienteCollection.ClienteFiltrarPorActividad(int.Parse(cboFiltrarActividad.SelectedValue.ToString()));
+
+                MessageBox.Show("No existen Clientes con la actividad seleccionada");
+                CargarListaClientes();
                 cboFiltrarActividad.SelectedIndex = -1;
             }
             else
             {
-                MessageBox.Show("No existe Cliente con Actividad seleccionada");
-                CargarListaClientes();
+
+                dgClientes.ItemsSource = null;
+                dgClientes.ItemsSource = ClienteCollection.ClienteFiltrarPorActividad(int.Parse(cboFiltrarActividad.SelectedValue.ToString()));
                 cboFiltrarActividad.SelectedIndex = -1;
             }
         }

@@ -18,15 +18,23 @@ namespace OnBreakLibrary
             {
                 rut = rut.Replace(".", "");
                 rut = rut.Replace("-", "");
+                //guardamos el penultimo digito para validar si es guion
+                //string guion = rut[rut.Length - 2].ToString();
+                ////guardamos el ultimo digito para validar si es un numero
+                //string dv = rut[rut.Length - 1].ToString();
 
-                if (rut.Length > 8 && rut.Length < 10)
+                //Regex val = new Regex("^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$");
+
+                if (rut.Length > 7 && rut.Length < 10)
                 {
+
                     return true;
                 }
                 else
                 {
                     return false;
                 }
+
 
             }
             catch (Exception)
@@ -42,9 +50,6 @@ namespace OnBreakLibrary
 
             return isEmail;
         }
-
-
-
 
         public static bool IsValidEmail(string email)
         {
@@ -90,7 +95,6 @@ namespace OnBreakLibrary
                 return false;
             }
         }
-
 
         public static bool validadorTexto(string texto)
         {
