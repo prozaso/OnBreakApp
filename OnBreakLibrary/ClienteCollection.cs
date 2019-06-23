@@ -12,6 +12,7 @@ namespace OnBreakLibrary
 
         OnBreakEntities bd = new OnBreakEntities();
 
+        //Listar todo
         public IEnumerable<Object> ReadAll()
         {
             return (from c in this.bd.Cliente
@@ -37,6 +38,7 @@ namespace OnBreakLibrary
                     }).ToList();
         }
 
+        //Gestiones
         public bool AgregarCliente(Cliente cliente)
         {
             try
@@ -105,12 +107,14 @@ namespace OnBreakLibrary
             }
         }
 
+        //Buscadores
         public Cliente BuscarClientePorRut(string rut)
         {
             try
             {
                 return (from c in this.bd.Cliente
                         where c.RutCliente == rut
+
                         select new Cliente()
                         {
 
@@ -138,6 +142,7 @@ namespace OnBreakLibrary
             {
                 return (from c in this.bd.Cliente
                         where c.IdTipoEmpresa == tipo
+
                         select new Cliente()
                         {
 
@@ -151,6 +156,7 @@ namespace OnBreakLibrary
                             IdTipoEmpresa = c.IdTipoEmpresa
 
                         }).First();
+
             }
             catch (Exception)
             {
@@ -186,7 +192,7 @@ namespace OnBreakLibrary
             }
         }
 
-
+        //Filtros
         public IEnumerable<Object> ClienteFiltrarPorRut(string rut)
         {
             try
@@ -221,7 +227,6 @@ namespace OnBreakLibrary
             }
         }
 
-
         public IEnumerable<Object> ClienteFiltrarPorTipo(int tipoEmpresa)
         {
             try
@@ -255,7 +260,6 @@ namespace OnBreakLibrary
                 return null;
             }
         }
-
 
         public IEnumerable<Object> ClienteFiltrarPorActividad(int actividad)
         {

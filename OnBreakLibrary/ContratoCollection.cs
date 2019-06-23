@@ -18,7 +18,7 @@ namespace OnBreakLibrary
         private List<int> _asistentes = new List<int>();
         private List<int> _personalAdicional = new List<int>();
 
-
+        //Listar todo
         public IEnumerable<Object> ReadAll()
         {
             return (from a in this.bd.Contrato
@@ -54,49 +54,7 @@ namespace OnBreakLibrary
                     }).ToList();
         }
 
-        public IEnumerable<Object> BuscarContratoPorNumero(string numero)
-        {
-            try
-            {
-                return (from a in this.bd.Contrato
-                        join b in this.bd.Cliente
-                            on a.RutCliente equals b.RutCliente
-                        join c in this.bd.ModalidadServicio
-                            on a.IdModalidad equals c.IdModalidad
-                        join d in this.bd.TipoEvento
-                            on a.IdTipoEvento equals d.IdTipoEvento
-                        let Rut = b.RutCliente
-                        let Modalidad = c.Nombre.Trim()
-                        let Evento = d.Descripcion
-                        let HoraInicio = a.FechaHoraInicio
-                        let HoraTermino = a.FechaHoraTermino
-                        where a.Numero == numero
-
-                        select new 
-                        {
-                            a.Numero,
-                            a.Creacion,
-                            a.Termino,
-                            b.RutCliente,
-                            Modalidad,
-                            Evento,
-                            HoraInicio,
-                            HoraTermino,
-                            a.Asistentes,
-                            a.PersonalAdicional,
-                            a.Realizado,
-                            a.ValorTotalContrato,
-                            a.Observaciones
-
-                        }).ToList();
-            }
-            catch (Exception)
-            {
-
-                return null;
-            }
-        }
-
+        //Gestiones
         public bool CrearContrato(Contrato contrato)
         {
             try
@@ -158,21 +116,139 @@ namespace OnBreakLibrary
             }
         }
 
+        //buscadores
+        public Contrato BuscarContratoPorRut(string rut)
+        {
+            try
+            {
+                return (from c in this.bd.Contrato
+                        where c.RutCliente == rut
+
+                        select new Contrato()
+                        {
+                            Numero = c.Numero,
+                            Creacion = c.Creacion,
+                            Termino = c.Termino,
+                            RutCliente = c.RutCliente,
+                            IdModalidad = c.IdModalidad,
+                            IdTipoEvento = c.IdTipoEvento,
+                            FechaHoraInicio = c.FechaHoraInicio,
+                            FechaHoraTermino = c.FechaHoraTermino,
+                            Asistentes = c.Asistentes,
+                            PersonalAdicional = c.PersonalAdicional,
+                            Realizado = c.Realizado,
+                            ValorTotalContrato = c.ValorTotalContrato,
+                            Observaciones = c.Observaciones
+
+                        }).First();
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public Contrato BuscarContratoPorNumero(string numero)
+        {
+            try
+            {
+                return (from c in this.bd.Contrato
+                        where c.Numero == numero
+
+                        select new Contrato()
+                        {
+                            Numero = c.Numero,
+                            Creacion = c.Creacion,
+                            Termino = c.Termino,
+                            RutCliente = c.RutCliente,
+                            IdModalidad = c.IdModalidad,
+                            IdTipoEvento = c.IdTipoEvento,
+                            FechaHoraInicio = c.FechaHoraInicio,
+                            FechaHoraTermino = c.FechaHoraTermino,
+                            Asistentes = c.Asistentes,
+                            PersonalAdicional = c.PersonalAdicional,
+                            Realizado = c.Realizado,
+                            ValorTotalContrato = c.ValorTotalContrato,
+                            Observaciones = c.Observaciones
+
+                        }).First();
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public Contrato BuscarContratoPorTipo(int tipoEvento)
+        {
+            try
+            {
+                return (from c in this.bd.Contrato
+                        join m in this.bd.ModalidadServicio
+                            on c.IdTipoEvento equals m.IdTipoEvento
+                        join t in this.bd.TipoEvento
+                            on m.IdTipoEvento equals t.IdTipoEvento
+                        join cl in this.bd.Cliente
+                            on c.RutCliente equals cl.RutCliente
+                        where c.IdTipoEvento == tipoEvento
+
+                        select new Contrato()
+                        {
+                            Numero = c.Numero,
+                            Creacion = c.Creacion,
+                            Termino = c.Termino,
+                            RutCliente = c.RutCliente,
+                            IdModalidad = c.IdModalidad,
+                            IdTipoEvento = c.IdTipoEvento,
+                            FechaHoraInicio = c.FechaHoraInicio,
+                            FechaHoraTermino = c.FechaHoraTermino,
+                            Asistentes = c.Asistentes,
+                            PersonalAdicional = c.PersonalAdicional,
+                            Realizado = c.Realizado,
+                            ValorTotalContrato = c.ValorTotalContrato,
+                            Observaciones = c.Observaciones
+
+                        }).First();
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        //filtros
         public IEnumerable<Object> ContratoListarFiltroNumero(string numero)
         {
             try
             {
                 return (from a in this.bd.Contrato
+                        join b in this.bd.Cliente
+                            on a.RutCliente equals b.RutCliente
+                        join c in this.bd.ModalidadServicio
+                            on a.IdModalidad equals c.IdModalidad
+                        join d in this.bd.TipoEvento
+                            on a.IdTipoEvento equals d.IdTipoEvento
+                        let Rut = b.RutCliente
+                        let Modalidad = c.Nombre.Trim()
+                        let Evento = d.Descripcion
+                        let HoraInicio = a.FechaHoraInicio
+                        let HoraTermino = a.FechaHoraTermino
                         where a.Numero == numero
+
 
                         select new
                         {
                             a.Numero,
                             a.Creacion,
                             a.Termino,
-                            a.RutCliente,
-                            a.FechaHoraInicio,
-                            a.FechaHoraTermino,
+                            b.RutCliente,
+                            Modalidad,
+                            Evento,
+                            HoraInicio,
+                            HoraTermino,
                             a.Asistentes,
                             a.PersonalAdicional,
                             a.Realizado,
@@ -180,6 +256,7 @@ namespace OnBreakLibrary
                             a.Observaciones
 
                         }).ToList();
+
             }
             catch (Exception)
             {
@@ -245,7 +322,7 @@ namespace OnBreakLibrary
                         let Evento = d.Descripcion
                         let HoraInicio = a.FechaHoraInicio
                         let HoraTermino = a.FechaHoraTermino
-                        where a.IdTipoEvento == tipoEvento
+                            where a.IdTipoEvento == tipoEvento
 
                         select new
                         {
@@ -272,38 +349,7 @@ namespace OnBreakLibrary
             }
         }
 
-        public IEnumerable<Object> ContratoBuscarPorRut(string rut)
-        {
-            try
-            {
-                return (from c in this.bd.Contrato
-                        join m in this.bd.ModalidadServicio on c.IdModalidad equals m.IdModalidad
-                        join t in this.bd.TipoEvento on c.IdTipoEvento equals t.IdTipoEvento
-                        where c.RutCliente == rut
 
-                        select new
-                        {
-                            c.Numero,
-                            c.Creacion,
-                            c.Termino,
-                            c.RutCliente,
-                            m.Nombre,
-                            t.IdTipoEvento,
-                            c.FechaHoraInicio,
-                            c.FechaHoraTermino,
-                            c.Asistentes,
-                            c.PersonalAdicional,
-                            c.Realizado,
-                            c.ValorTotalContrato,
-                            c.Observaciones
-
-                        }).ToList();
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
 
 
     }

@@ -337,7 +337,7 @@
 
                             <TextBox x:Name="txtBuscarNumeroContrato" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ingrese Numero" HorizontalContentAlignment="Right" Padding="1,2,1,1"/>
                             <TextBox x:Name="txtBuscarRutContrato" Grid.Column="5" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ingrese RUT" HorizontalContentAlignment="Right" Padding="1,2,1,1"/>
-                            <ComboBox x:Name="cboFiltrarTipoEvento" Grid.Column="7" Grid.Row="3" materialDesign:HintAssist.Hint="Seleccionar" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Stretch" SelectedValuePath="IdTipoEmpresa" DisplayMemberPath="Descripcion" HorizontalContentAlignment="Left" Padding="0" />
+                            <ComboBox x:Name="cboFiltrarTipoEvento" Grid.Column="7" Grid.Row="3" materialDesign:HintAssist.Hint="Seleccionar" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Stretch" SelectedValuePath="IdTipoEvento" DisplayMemberPath="Descripcion" HorizontalContentAlignment="Left" Padding="0" />
 
                         </Grid>
                     </StackPanel>
