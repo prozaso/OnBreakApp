@@ -48,21 +48,21 @@
                     <Grid Height="291" Width="674" Margin="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0*"/>
-                            <RowDefinition Height="30*"/>
+                            <RowDefinition Height="33*"/>
                             <RowDefinition Height="4*"/>
-                            <RowDefinition Height="30*"/>
+                            <RowDefinition Height="33*"/>
                             <RowDefinition Height="4*"/>
-                            <RowDefinition Height="30*"/>
+                            <RowDefinition Height="33*"/>
                             <RowDefinition Height="4*"/>
-                            <RowDefinition Height="30*"/>
+                            <RowDefinition Height="32*"/>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="32*"/>
                             <RowDefinition Height="4*"/>
-                            <RowDefinition Height="30*"/>
+                            <RowDefinition Height="33*"/>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="32*"/>
                             <RowDefinition Height="4*"/>
-                            <RowDefinition Height="30*"/>
-                            <RowDefinition Height="4*"/>
-                            <RowDefinition Height="30*"/>
-                            <RowDefinition Height="4*"/>
-                            <RowDefinition Height="30*"/>
+                            <RowDefinition Height="33*"/>
                             <RowDefinition Height="0*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
@@ -78,19 +78,12 @@
 
 
 
-                        <TextBlock VerticalAlignment="Center" Height="28" Margin="56,4,16,1" Grid.Row="7">Light</TextBlock>
-                        <ToggleButton Margin="8,5,16,5" Command="{Binding ToggleBaseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" Grid.Row="9" />
-                        <TextBlock VerticalAlignment="Center" Margin="0,4,76,12" Grid.Row="7">Dark</TextBlock>
-
-
-
-
                         <Button x:Name="btnBuscar" Content="Buscar" Width="auto" Grid.Row="1" Grid.Column="5" Height="Auto" Padding="0" Click="BtnBuscar_Click"/>
 
-                        <TextBox x:Name="txtRut" materialDesign:HintAssist.Hint="RUT" Width="auto" Grid.Row="1" Grid.Column="3" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0"/>
+                        <TextBox x:Name="txtRut" materialDesign:HintAssist.Hint="Ej: 12.345.678-9" Width="auto" Grid.Row="1" Grid.Column="3" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0"/>
                         <TextBox x:Name="txtRazon" materialDesign:HintAssist.Hint="Razon Social" Width="auto" Grid.Row="3" Grid.Column="3" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0" Margin="0"/>
                         <TextBox x:Name="txtNombre" materialDesign:HintAssist.Hint="Nombre" Width="auto" Grid.Row="5" Grid.Column="3" Height="auto" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0"/>
-                        <TextBox x:Name="txtMail" materialDesign:HintAssist.Hint="Mail" Width="auto" Grid.Row="7" Grid.Column="3" Height="auto" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0"/>
+                        <TextBox x:Name="txtMail" materialDesign:HintAssist.Hint="Ej: esteEs@miEmail.cl" Width="auto" Grid.Row="7" Grid.Column="3" Height="auto" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0"/>
                         <TextBox x:Name="txtDireccion" materialDesign:HintAssist.Hint="Direccion" Width="auto" Grid.Row="9" Grid.Column="3" Height="auto" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0"/>
                         <TextBox x:Name="txtTelefono" materialDesign:HintAssist.Hint="Telefono" Width="auto" Grid.Row="11" Grid.Column="3" Height="auto" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Padding="0"/>
                         <Button x:Name="btnGuardar" Content="Guardar" Grid.Row="3" Grid.Column="5" Height="Auto" Padding="0" Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="BtnGuardar_Click"/>
@@ -155,7 +148,7 @@
 
                             <DataGrid x:Name="dgClientes" Height="auto" Width="auto" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#FF8F8F8F" Grid.Row="5" Grid.ColumnSpan="8" Grid.RowSpan="2"/>
                             <Image Source="img/white_logo_transparent_background.png" Grid.ColumnSpan="2" Grid.RowSpan="5" Margin="0,0,0,10"/>
-                            <TextBox x:Name="txtBuscarRutCliente" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ingrese RUT" HorizontalContentAlignment="Left" Padding="0"/>
+                            <TextBox x:Name="txtBuscarRutCliente" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ej: 12.345.678-9" HorizontalContentAlignment="Left" Padding="0"/>
                             <ComboBox x:Name="cboFiltrarTipoCliente" Grid.Column="7" Grid.Row="3" materialDesign:HintAssist.Hint="Seleccionar" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Center" DisplayMemberPath="Descripcion" SelectedValuePath="IdTipoEmpresa" HorizontalContentAlignment="Left" Padding="0" Height="30" Margin="1,2,0,0" />
                             <Button x:Name="btnFiltrarActividad" Content="Buscar por Actividad" Grid.Column="5" Height="Auto" Padding="0,4" Margin="1,0" Grid.Row="1" Click="BtnFiltrarActividad_Click"/>
                             <Button x:Name="btnFiltrarRutCliente" Content="Buscar por RUT" Grid.Column="3" Grid.RowSpan="2" Margin="0,0,1,0" Height="Auto" Click="BtnFiltrarRut_Click" />
@@ -241,7 +234,7 @@
 
                             <Button x:Name="btnValorEvento" Content="VALOR EVENTO" Grid.Row="37" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="Auto" Padding="5" Grid.ColumnSpan="6" Click="BtnValorEvento_Click" Grid.RowSpan="2"/>
                             <TextBlock x:Name="txtValorEvento" Grid.Column="7" Grid.Row="37" TextWrapping="Wrap" Text="$" TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.RowSpan="2" Padding="0,11,0,0" />
-                            <TextBox x:Name="txtRutClienteContrato" materialDesign:HintAssist.Hint="Rut del Cliente" Grid.Column="7" Grid.Row="10"/>
+                            <TextBox x:Name="txtRutClienteContrato" materialDesign:HintAssist.Hint="Ej: 12.345.678-9" Grid.Column="7" Grid.Row="10"/>
                             <TextBox x:Name="txtNumeroDeContrato" materialDesign:HintAssist.Hint="Numero de Contrato" Grid.Column="7" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Stretch" Grid.Row="6" Grid.RowSpan="2"/>
                             <Button x:Name="btnNumeroDeContrato" Grid.Row="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="Auto" Padding="5" Grid.ColumnSpan="6" Grid.RowSpan="3" Click="BtnNumeroDeContrato_Click">
                                 <StackPanel>
@@ -335,8 +328,8 @@
                             <Button x:Name="btnFiltrarRutContrato" Content="Buscar por RUT" Grid.Column="5" Grid.RowSpan="2" Margin="1,0,0,0" Height="Auto" Click="BtnFiltrarRutContrato_Click" />
                             <Button x:Name="btnFiltrarTipoEvento" Content="Buscar por tipo" Grid.Column="7" Grid.RowSpan="2" Margin="1,0,0,0" Height="Auto" Click="BtnFiltrarTipoEvento_Click" HorizontalAlignment="Left" Width="135"/>
 
-                            <TextBox x:Name="txtBuscarNumeroContrato" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ingrese Numero" HorizontalContentAlignment="Right" Padding="1,2,1,1"/>
-                            <TextBox x:Name="txtBuscarRutContrato" Grid.Column="5" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ingrese RUT" HorizontalContentAlignment="Right" Padding="1,2,1,1"/>
+                            <TextBox x:Name="txtBuscarNumeroContrato" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ej: 123456789012" HorizontalContentAlignment="Left" Padding="1,2,1,1" VerticalAlignment="Bottom"/>
+                            <TextBox x:Name="txtBuscarRutContrato" Grid.Column="5" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ej: 12.345.678-9" HorizontalContentAlignment="Left" Padding="1,2,1,1" VerticalAlignment="Bottom"/>
                             <ComboBox x:Name="cboFiltrarTipoEvento" Grid.Column="7" Grid.Row="3" materialDesign:HintAssist.Hint="Seleccionar" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Stretch" SelectedValuePath="IdTipoEvento" DisplayMemberPath="Descripcion" HorizontalContentAlignment="Left" Padding="0" />
 
                         </Grid>

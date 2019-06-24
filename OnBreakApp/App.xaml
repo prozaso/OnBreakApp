@@ -33,8 +33,8 @@
             </ResourceDictionary.MergedDictionaries>
 
             <!-- MahApps Brushes -->
-            <SolidColorBrush x:Key="HighlightBrush" Color="{DynamicResource Primary700}"/>
-            <SolidColorBrush x:Key="AccentBaseColorBrush" Color="{DynamicResource Primary600}" />
+            <SolidColorBrush x:Key="HighlightBrush" Color="{DynamicResource Primary700}"/> 
+            <SolidColorBrush x:Key="AccentBaseColorBrush" Color="{DynamicResource Primary600}"/>
             <SolidColorBrush x:Key="AccentColorBrush" Color="{DynamicResource Primary500}"/>
             <SolidColorBrush x:Key="AccentColorBrush2" Color="{DynamicResource Primary400}"/>
             <SolidColorBrush x:Key="AccentColorBrush3" Color="{DynamicResource Primary300}"/>
