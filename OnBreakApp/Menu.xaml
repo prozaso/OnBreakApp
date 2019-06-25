@@ -328,7 +328,7 @@
                             <Button x:Name="btnFiltrarRutContrato" Content="Buscar por RUT" Grid.Column="5" Grid.RowSpan="2" Margin="1,0,0,0" Height="Auto" Click="BtnFiltrarRutContrato_Click" />
                             <Button x:Name="btnFiltrarTipoEvento" Content="Buscar por tipo" Grid.Column="7" Grid.RowSpan="2" Margin="1,0,0,0" Height="Auto" Click="BtnFiltrarTipoEvento_Click" HorizontalAlignment="Left" Width="135"/>
 
-                            <TextBox x:Name="txtBuscarNumeroContrato" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ej: 123456789012" HorizontalContentAlignment="Left" Padding="1,2,1,1" VerticalAlignment="Bottom"/>
+                            <TextBox x:Name="txtBuscarNumeroContrato" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ej: 123456789012" HorizontalContentAlignment="Left" Padding="1,2,1,1" Height="30" VerticalAlignment="Bottom"/>
                             <TextBox x:Name="txtBuscarRutContrato" Grid.Column="5" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ej: 12.345.678-9" HorizontalContentAlignment="Left" Padding="1,2,1,1" VerticalAlignment="Bottom"/>
                             <ComboBox x:Name="cboFiltrarTipoEvento" Grid.Column="7" Grid.Row="3" materialDesign:HintAssist.Hint="Seleccionar" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Stretch" SelectedValuePath="IdTipoEvento" DisplayMemberPath="Descripcion" HorizontalContentAlignment="Left" Padding="0" />
 

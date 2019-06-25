@@ -49,7 +49,7 @@ namespace OnBreakLibrary
                         a.PersonalAdicional,
                         a.Realizado,
                         a.ValorTotalContrato,
-                        a.Observaciones
+                        a.Observaciones,
 
                     }).ToList();
         }
@@ -94,7 +94,8 @@ namespace OnBreakLibrary
             {
                 OnBreak.DALC.Contrato c = this.bd.Contrato.Find(contrato.Numero);
                 c.Numero = contrato.Numero;
-                c.RutCliente = contrato.RutCliente;
+                c.Creacion = contrato.Creacion;
+                c.Termino = contrato.Termino;
                 c.IdModalidad = contrato.IdModalidad;
                 c.IdTipoEvento = contrato.IdTipoEvento;
                 c.FechaHoraInicio = contrato.FechaHoraInicio;
@@ -103,6 +104,25 @@ namespace OnBreakLibrary
                 c.PersonalAdicional = contrato.PersonalAdicional;
                 c.ValorTotalContrato = contrato.ValorTotalContrato;
                 c.Observaciones = contrato.Observaciones;
+
+                this.bd.Entry(c).State = System.Data.EntityState.Modified;
+                this.bd.SaveChanges();
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
+        public bool TerminarContrato(Contrato contrato)
+        {
+            try
+            {
+                OnBreak.DALC.Contrato c = this.bd.Contrato.Find(contrato.Numero);
+                c.Realizado = contrato.Realizado;
 
                 this.bd.Entry(c).State = System.Data.EntityState.Modified;
                 this.bd.SaveChanges();
@@ -154,6 +174,8 @@ namespace OnBreakLibrary
             try
             {
                 return (from c in this.bd.Contrato
+                        join cl in this.bd.Cliente
+                            on c.RutCliente equals cl.RutCliente
                         where c.Numero == numero
 
                         select new Contrato()
