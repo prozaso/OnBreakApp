@@ -146,7 +146,25 @@
                                 <ColumnDefinition Width="0*"/>
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="dgClientes" Height="auto" Width="auto" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#FF8F8F8F" Grid.Row="5" Grid.ColumnSpan="8" Grid.RowSpan="2"/>
+                            <DataGrid x:Name="dgClientes" Height="auto" Width="auto" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#FF8F8F8F" Grid.Row="5" Grid.ColumnSpan="8" Grid.RowSpan="2" SelectionChanged="DgClientes_SelectionChanged" IsReadOnly="True" AutoGenerateColumns="False" >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding RutCliente}" ClipboardContentBinding="{x:Null}" Header="Rut"/>
+                                    <DataGridTextColumn Binding="{Binding RazonSocial}" ClipboardContentBinding="{x:Null}" Header="Razon Social"/>
+                                    <DataGridTextColumn Binding="{Binding NombreContacto}" ClipboardContentBinding="{x:Null}" Header="Contacto"/>
+                                    <DataGridTextColumn Binding="{Binding MailContacto}" ClipboardContentBinding="{x:Null}" Header="Mail"/>
+                                    <DataGridTextColumn Binding="{Binding Direccion}" ClipboardContentBinding="{x:Null}" Header="Direccion"/>
+                                    <DataGridTextColumn Binding="{Binding Telefono}" ClipboardContentBinding="{x:Null}" Header="Fono"/>
+                                    <DataGridTextColumn Binding="{Binding IdActividadEmpresa}" ClipboardContentBinding="{x:Null}" Header="Actividad Empresa"/>
+                                    <DataGridTextColumn Binding="{Binding IdTipoEmpresa}" ClipboardContentBinding="{x:Null}" Header="Tipo Empresa"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+
+
+
+
+
+
                             <Image Source="img/white_logo_transparent_background.png" Grid.ColumnSpan="2" Grid.RowSpan="5" Margin="0,0,0,10"/>
                             <TextBox x:Name="txtBuscarRutCliente" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Ej: 12.345.678-9" HorizontalContentAlignment="Left" Padding="0"/>
                             <ComboBox x:Name="cboFiltrarTipoCliente" Grid.Column="7" Grid.Row="3" materialDesign:HintAssist.Hint="Seleccionar" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Center" DisplayMemberPath="Descripcion" SelectedValuePath="IdTipoEmpresa" HorizontalContentAlignment="Left" Padding="0" Height="30" Margin="1,2,0,0" />
@@ -322,7 +340,28 @@
                                 <ColumnDefinition Width="0*"/>
                             </Grid.ColumnDefinitions>
 
-                            <DataGrid x:Name="dgListaContratos" Height="auto" Width="auto" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#FF8F8F8F" Grid.RowSpan="2" Grid.Row="5" Grid.ColumnSpan="8"/>
+                            <DataGrid x:Name="dgListaContratos" Height="auto" Width="auto" Grid.Column="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Background="#FF8F8F8F" Grid.RowSpan="2" Grid.Row="5" Grid.ColumnSpan="8" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="DgListaContratos_SelectionChanged" >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Numero}" ClipboardContentBinding="{x:Null}" Header="Numero Contrato"/>
+                                <DataGridTextColumn Binding="{Binding Creacion}" ClipboardContentBinding="{x:Null}" Header="Fecha Creacion"/>
+                                <DataGridTextColumn Binding="{Binding Termino}" ClipboardContentBinding="{x:Null}" Header="Fecha Termino"/>
+                                <DataGridTextColumn Binding="{Binding RutCliente}" ClipboardContentBinding="{x:Null}" Header="Rut Cliente"/>
+                                <DataGridTextColumn Binding="{Binding IdModalidad}" ClipboardContentBinding="{x:Null}" Header="Modalidad"/>
+                                <DataGridTextColumn Binding="{Binding IdTipoEvento}" ClipboardContentBinding="{x:Null}" Header="Evento"/>
+                                <DataGridTextColumn Binding="{Binding FechaHoraInicio}" ClipboardContentBinding="{x:Null}" Header="Fecha Hora Inicio"/>
+                                <DataGridTextColumn Binding="{Binding FechaHoraTermino}" ClipboardContentBinding="{x:Null}" Header="Fecha Hora Termino"/>
+                                <DataGridTextColumn Binding="{Binding Asistentes}" ClipboardContentBinding="{x:Null}" Header="Asistentes"/>
+                                <DataGridTextColumn Binding="{Binding PersonalAdicional}" ClipboardContentBinding="{x:Null}" Header="Personal Adicional"/>
+                                <DataGridTextColumn Binding="{Binding Realizado}" ClipboardContentBinding="{x:Null}" Header="Realizado"/>
+                                <DataGridTextColumn Binding="{Binding ValorTotalContrato}" ClipboardContentBinding="{x:Null}" Header="Valor total"/>
+                                <DataGridTextColumn Binding="{Binding Observaciones}" ClipboardContentBinding="{x:Null}" Header="Observaciones"/>
+
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+
+
+
                             <Image Grid.Column="1" Source="img/white_logo_transparent_background.png" Grid.RowSpan="5" Margin="0,0,0,10"/>
                             <Button x:Name="btnFiltrarNumeroContrato" Content="Buscar por Nº de Contrato" Grid.Column="3" Grid.RowSpan="2" Height="Auto" Padding="0,4" Click="BtnFiltrarNumero_Click"/>
                             <Button x:Name="btnFiltrarRutContrato" Content="Buscar por RUT" Grid.Column="5" Grid.RowSpan="2" Margin="1,0,0,0" Height="Auto" Click="BtnFiltrarRutContrato_Click" />

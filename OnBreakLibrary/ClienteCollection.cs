@@ -13,27 +13,27 @@ namespace OnBreakLibrary
         OnBreakEntities bd = new OnBreakEntities();
 
         //Listar todo
-        public IEnumerable<Object> ReadAll()
+        public List<Cliente> ReadAll()
         {
             return (from c in this.bd.Cliente
                     join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
                     join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
-                    let RUT = c.RutCliente
-                    let Contacto = c.NombreContacto
-                    let Mail = c.MailContacto
-                    let Actividad = a.Descripcion
-                    let TipoEmpresa = t.Descripcion
+                    //let RUT = c.RutCliente
+                    //let Contacto = c.NombreContacto
+                    //let Mail = c.MailContacto
+                    //let Actividad = a.Descripcion
+                    //let TipoEmpresa = t.Descripcion
 
-                    select new
+                    select new Cliente()
                     {
-                        RUT,
-                        c.RazonSocial,
-                        Contacto,
-                        Mail,
-                        c.Direccion,
-                        c.Telefono,
-                        Actividad,
-                        TipoEmpresa
+                        RutCliente = c.RutCliente,
+                        RazonSocial = c.RazonSocial,
+                        NombreContacto = c.NombreContacto,
+                        MailContacto = c.MailContacto,
+                        Direccion = c.Direccion,
+                        Telefono = c.Telefono,
+                        IdActividadEmpresa = c.IdActividadEmpresa,
+                        IdTipoEmpresa = c.IdTipoEmpresa
 
                     }).ToList();
         }
@@ -193,30 +193,30 @@ namespace OnBreakLibrary
         }
 
         //Filtros
-        public IEnumerable<Object> ClienteFiltrarPorRut(string rut)
+        public List<Cliente> ClienteFiltrarPorRut(string rut)
         {
             try
             {
                 return (from c in this.bd.Cliente
                         join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
                         join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
-                        let RUT = c.RutCliente
-                        let Contacto = c.NombreContacto
-                        let Mail = c.MailContacto
-                        let Actividad = a.Descripcion
-                        let TipoEmpresa = t.Descripcion
-                            where c.RutCliente == rut
+                        //let RUT = c.RutCliente
+                        //let Contacto = c.NombreContacto
+                        //let Mail = c.MailContacto
+                        //let Actividad = a.Descripcion
+                        //let TipoEmpresa = t.Descripcion
+                        where c.RutCliente == rut
 
-                        select new
+                        select new Cliente()
                         {
-                            RUT,
-                            c.RazonSocial,
-                            Contacto,
-                            Mail,
-                            c.Direccion,
-                            c.Telefono,
-                            Actividad,
-                            TipoEmpresa
+                            RutCliente = c.RutCliente,
+                            RazonSocial = c.RazonSocial,
+                            NombreContacto = c.NombreContacto,
+                            MailContacto = c.MailContacto,
+                            Direccion = c.Direccion,
+                            Telefono = c.Telefono,
+                            IdActividadEmpresa = c.IdActividadEmpresa,
+                            IdTipoEmpresa = c.IdTipoEmpresa
 
                         }).ToList();
             }
@@ -227,30 +227,30 @@ namespace OnBreakLibrary
             }
         }
 
-        public IEnumerable<Object> ClienteFiltrarPorTipo(int tipoEmpresa)
+        public List<Cliente> ClienteFiltrarPorTipo(int tipoEmpresa)
         {
             try
             {
                 return (from c in this.bd.Cliente
                         join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
                         join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
-                        let RUT = c.RutCliente
-                        let Contacto = c.NombreContacto
-                        let Mail = c.MailContacto
-                        let Actividad = a.Descripcion
-                        let TipoEmpresa = t.Descripcion
-                            where c.IdTipoEmpresa == tipoEmpresa
+                        //let RUT = c.RutCliente
+                        //let Contacto = c.NombreContacto
+                        //let Mail = c.MailContacto
+                        //let Actividad = a.Descripcion
+                        //let TipoEmpresa = t.Descripcion
+                        where c.IdTipoEmpresa == tipoEmpresa
 
-                        select new
+                        select new Cliente()
                         {
-                            RUT,
-                            c.RazonSocial,
-                            Contacto,
-                            Mail,
-                            c.Direccion,
-                            c.Telefono,
-                            Actividad,
-                            TipoEmpresa
+                            RutCliente = c.RutCliente,
+                            RazonSocial = c.RazonSocial,
+                            NombreContacto = c.NombreContacto,
+                            MailContacto = c.MailContacto,
+                            Direccion = c.Direccion,
+                            Telefono = c.Telefono,
+                            IdActividadEmpresa = c.IdActividadEmpresa,
+                            IdTipoEmpresa = c.IdTipoEmpresa
 
                         }).ToList();
             }
@@ -261,30 +261,30 @@ namespace OnBreakLibrary
             }
         }
 
-        public IEnumerable<Object> ClienteFiltrarPorActividad(int actividad)
+        public List<Cliente> ClienteFiltrarPorActividad(int actividad)
         {
             try
             {
                 return (from c in this.bd.Cliente
                         join a in this.bd.ActividadEmpresa on c.IdActividadEmpresa equals a.IdActividadEmpresa
                         join t in this.bd.TipoEmpresa on c.IdTipoEmpresa equals t.IdTipoEmpresa
-                        let RUT = c.RutCliente
-                        let Contacto = c.NombreContacto
-                        let Mail = c.MailContacto
-                        let Actividad = a.Descripcion
-                        let TipoEmpresa = t.Descripcion
+                        //let RUT = c.RutCliente
+                        //let Contacto = c.NombreContacto
+                        //let Mail = c.MailContacto
+                        //let Actividad = a.Descripcion
+                        //let TipoEmpresa = t.Descripcion
                         where c.IdActividadEmpresa == actividad
 
-                        select new
+                        select new Cliente()
                         {
-                            RUT,
-                            c.RazonSocial,
-                            Contacto,
-                            Mail,
-                            c.Direccion,
-                            c.Telefono,
-                            Actividad,
-                            TipoEmpresa
+                            RutCliente = c.RutCliente,
+                            RazonSocial = c.RazonSocial,
+                            NombreContacto = c.NombreContacto,
+                            MailContacto = c.MailContacto,
+                            Direccion = c.Direccion,
+                            Telefono = c.Telefono,
+                            IdActividadEmpresa = c.IdActividadEmpresa,
+                            IdTipoEmpresa = c.IdTipoEmpresa
 
                         }).ToList();
             }

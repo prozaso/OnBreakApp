@@ -517,6 +517,21 @@ namespace OnBreakApp
             }
         }
 
+        private void DgClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            Cliente cliente = (Cliente)dgClientes.SelectedItem;
+
+            txtRut.Text = cliente.RutCliente;
+            txtRazon.Text = cliente.RazonSocial;
+            txtNombre.Text = cliente.NombreContacto;
+            txtMail.Text = cliente.MailContacto;
+            txtDireccion.Text = cliente.Direccion;
+            txtTelefono.Text = cliente.Telefono;
+            cboActividad.SelectedValue = cliente.IdActividadEmpresa;
+            cboTipo.SelectedValue = cliente.IdTipoEmpresa;
+        }
+
 
         //Gestion Contratos
         private void BtnListaContratos_Click(object sender, RoutedEventArgs e)
@@ -1015,5 +1030,10 @@ namespace OnBreakApp
             }
         }
 
+        private void DgListaContratos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Contrato contrato = (Contrato)dgListaContratos.SelectedItem;
+            CargarDatosVentanaContrato(contrato);
+        }
     }
 }

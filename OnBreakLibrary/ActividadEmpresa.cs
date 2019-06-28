@@ -12,16 +12,20 @@ namespace OnBreakLibrary
         private string _descripcion;
 
 
+
         public ActividadEmpresa()
         {
 
         }
 
-        public ActividadEmpresa(int _idActividadEmpresa, string _descripcion)
+        public ActividadEmpresa(int idActividadEmpresa, string descripcion)
         {
-            IdActividadEmpresa = _idActividadEmpresa;
-            Descripcion = _descripcion;
+            _idActividadEmpresa = idActividadEmpresa;
+            _descripcion = descripcion;
+
         }
+
+
 
         public int IdActividadEmpresa
         {

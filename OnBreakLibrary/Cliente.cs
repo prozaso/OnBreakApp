@@ -18,6 +18,7 @@ namespace OnBreakLibrary
         private int _idActividadEmpresa;
         private int _idTipoEmpresa;
 
+
         public Cliente(string _rutCliente, string razonSocial, string _nombreContacto, string _mailContacto, string direccion, string telefono, int idActividadEmpresa, int idTipoEmpresa)
         {
             RutCliente = _rutCliente;
@@ -28,12 +29,14 @@ namespace OnBreakLibrary
             Telefono = telefono;
             IdActividadEmpresa = idActividadEmpresa;
             IdTipoEmpresa = idTipoEmpresa;
+
         }
 
         public Cliente()
         {
 
         }
+
 
         public string RutCliente
         {
